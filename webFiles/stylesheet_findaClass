@@ -1,0 +1,182 @@
+header{
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.header img {
+  position: relative;
+  top: -202px;
+  width: 140px;
+  height: 140px;
+  background: white;
+}
+
+.header h1 {
+  position: relative;
+  padding-left: 155px;
+  font-size: 80px;
+  background-color: #0b5091;
+  font-family: verdana;
+  color: white;
+  height: 135px;
+  top: -10px;
+}
+
+
+/* Add style to top navigation */
+.topnav{
+  
+  background-color: #0b5091;
+  height: 60px;
+  border: black;
+}
+
+/* Style the search box inside the navigation bar */
+.topnav input[type=text] {
+  position: relative;
+  float: left;
+  padding: 10px;
+  border: black;
+  margin-top: 8px;
+  margin-left: 10px;
+  font-size: 17px;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #0b5091;
+  color: white;
+  padding: 16px;
+  font-size: 17px;
+  border: black;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f5c13f;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #0b5091;}
+/* STYLE FOR BREADCRUMBS */
+
+ul.breadcrumb{
+  padding: 10px 16px;
+  list-style: none;
+  background-color: #eee;
+
+}
+
+/* Shows breadcrumb side by side */
+ul.breadcrumb li{
+  display: inline;
+  font-size: 18px;
+}
+
+ul.breadcrumb li+li:before{
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}
+
+/*  */
+ul.breadcrumb li a {
+  color: #0275d8;
+  text-decoration: none;
+}
+
+/*  */
+ul.breadcrumb li a:hover {
+  color: #01447e;
+  text-decoration: underline;
+}
+
+.course{
+  background-color: white;
+}
+.title{
+  background-color: #0b5091;
+  margin-top: 10px;
+  font-size: 30px; 
+
+}
+
+h3.title {
+   color: white;
+
+}
+
+p.description{
+  font-size: 100;
+}
+
+.information{ 
+  overflow: hidden;
+}
+
+
+.prerequisites{
+  text-align: left;
+  float: left;
+  padding: 15px;
+
+}
+.requirements{ 
+  text-align: left;
+  float: left;
+  padding: 15px;
+}
+.terms{
+  text-align: left;
+  float: left;
+  padding: 15px;
+}
+.professors{
+  text-align: left;
+  float: left;
+  padding: 15px;
+
+}
+.credits{
+  text-align: left;
+  float: left;
+  padding: 15px;
+
+}
+
+
+
+
+
+
+
+
+
