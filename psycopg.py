@@ -80,7 +80,7 @@ class courseQuery:
 		'''
 		try:
 			cursor = connection.cursor()
-			query = "SELECT	* FROM classes WHERE depttag LIKE '%" + self.courseDeptTag + "%'' ORDER BY coursename DESC"
+			query = "SELECT	* FROM classes WHERE depttag LIKE '%" + self.courseDeptTag + "%' ORDER BY coursename DESC"
 			cursor.execute(query)
 			return cursor.fetchall()
 
@@ -193,9 +193,9 @@ def main():
 	 
 	# Connect to the database
 	connection = connect(user, password)
-	# Query object and test queries
+
+	# Initialize query object and test queries
 	query = courseQuery("ENGL", 251, "Data Structures", "Winter 2020", None, None)
-	#connection = query.connect()
 
 	results = query.getCourseName(connection)
 	#results = query.getCourseDeptTag(connection)
