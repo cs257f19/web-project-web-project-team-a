@@ -11,6 +11,40 @@ Adapted from code originally written by Jeff Ondich
 
 import psycopg2
 import getpass
+  
+class courseQuery:
+'''
+	object that when created will contain all criteria from a single user quiery
+'''
+  def __init__(self, dept, number, name, term, credits, requirements, period):
+		self.term = term
+		self.number = number
+		self.name = name
+		self.dept = dept
+		self.requirements = requirements
+		self.credits = credits
+		self.period = period
+
+def getCourseNumber(connection, courseNumber):
+	'''
+	Returns a list of all coursees with the specified course number.
+
+	PARAMETERS:
+		courseNumber - the course number in which a course has
+
+	RETURN:
+		a list of all coursees withthe specified course number.
+
+	'''
+	try:
+		cursor = connection.cursor()
+		query = "SELECT	* FROM classes WHERE coursenum = " + str(self.courseNumber) + " ORDER BY coursename DESC"
+		cursor.execute(query)
+		return cursor.fetchall()
+
+	except Exception as e:
+		print ("Something went wrong when executing the query: ", e)
+		return None
 
 
 def connect(user, password):
@@ -29,6 +63,69 @@ def connect(user, password):
 		print("Connection error: ", e)
 		exit()
 	return connection
+
+def getCourseDeptTag(connection, courseDeptTag):
+	'''
+	Returns a list of all of the coursees within the specified subject.
+
+	PARAMETERS:
+		subject - the department the user wants to find a course in
+
+	RETURN:
+		a list of all coursees within the department
+
+	'''
+	try:
+		cursor = connection.cursor()
+		query = "SELECT	* FROM classes WHERE depttag LIKE '%" + courseDeptTag + "%'' ORDER BY coursename DESC"
+		cursor.execute(query)
+		return cursor.fetchall()
+
+	except Exception as e:
+		print ("Something went wrong when executing the query: ", e)
+		return None
+
+def getCourseName(connection, courseName):
+	'''
+		Returns a list of all of the coursees the contain the course name from user input.
+
+		PARAMETERS:
+			name - course name that user inputed
+
+		RETURN:
+			a list of all coursees that contain that string
+
+		'''
+	try:
+		cursor = connection.cursor()
+		query = "SELECT	* FROM classes WHERE coursename LIKE '%" + courseName + "%' ORDER BY coursename DESC"
+		cursor.execute(query)
+		return cursor.fetchall()
+
+	except Exception as e:
+		print ("Something went wrong when executing the query: ", e)
+		return None
+
+def getCourseNumber(connection, courseNumber):
+	'''
+	Returns a list of all coursees with the specified course number.
+
+	PARAMETERS:
+		courseNumber - the course number in which a course has
+
+	RETURN:
+		a list of all coursees withthe specified course number.
+
+	'''
+	try:
+		cursor = connection.cursor()
+		query = "SELECT	* FROM classes WHERE coursenum = " + str(courseNumber) + " ORDER BY coursename DESC"
+		cursor.execute(query)
+		return cursor.fetchall()
+
+	except Exception as e:
+		print ("Something went wrong when executing the query: ", e)
+		return None
 
 def getCoursePeriod(connection, coursePeriod):
 	'''
@@ -67,72 +164,7 @@ def getCourseTerm(connection, courseTerm):
 	'''
 	try:
 		cursor = connection.cursor()
-		query = "SELECT	* FROM courses WHERE termsoffered LIKE '%" + courseTerm + "%' ORDER BY coursename DESC"
-		cursor.execute(query)
-		return cursor.fetchall()
-
-	except Exception as e:
-		print ("Something went wrong when executing the query: ", e)
-		return None
-
-def getCourseName(connection, courseName):
-	'''
-		Returns a list of all of the coursees the contain the course name from user input.
-
-		PARAMETERS:
-			name - course name that user inputed
-
-		RETURN:
-			a list of all coursees that contain that string
-
-		'''
-	try:
-		cursor = connection.cursor()
-		query = "SELECT	* FROM courses WHERE coursename LIKE '%" + courseName + "%' ORDER BY coursename DESC"
-		cursor.execute(query)
-		return cursor.fetchall()
-
-	except Exception as e:
-		print ("Something went wrong when executing the query: ", e)
-		return None
-
-
-def getCourseDeptTag(connection, courseDeptTag):
-	'''
-	Returns a list of all of the coursees within the specified subject.
-
-	PARAMETERS:
-		subject - the department the user wants to find a course in
-
-	RETURN:
-		a list of all coursees within the department
-
-	'''
-	try:
-		cursor = connection.cursor()
-		query = "SELECT	* FROM classes WHERE depttag LIKE '%" + courseDeptTag + "%'' ORDER BY coursename DESC"
-		cursor.execute(query)
-		return cursor.fetchall()
-
-	except Exception as e:
-		print ("Something went wrong when executing the query: ", e)
-		return None
-
-
-def getCourseNumber(connection, courseNumber):
-	'''
-	Returns a list of all coursees with the specified course number.
-
-	PARAMETERS:
-		courseNumber - the course number in which a course has
-
-	RETURN:
-		a list of all coursees withthe specified course number.
-
-	'''
-	try:
-		cursor = connection.cursor()
-		query = "SELECT	* FROM classes WHERE coursenum = " + str(courseNumber) + " ORDER BY coursename DESC"
+		query = "SELECT	* FROM classes WHERE termsoffered LIKE '%" + courseTerm + "%' ORDER BY coursename DESC"
 		cursor.execute(query)
 		return cursor.fetchall()
 
@@ -144,18 +176,20 @@ def getCourseNumber(connection, courseNumber):
 def main():
 	user = 'ngot'
 	password = getpass.getpass()
-
+	 def __init__(self, dept, name, term, credits, requirements, period):
 	# Connect to the database
 	connection = connect(user, password)
 
 	# Execute a simple query: What coursees are during the 2a block?
-	
+	query1 = courseQuery(None, None, "cs", None, None, None, None)
 	#test queries 
 	#results = getCourseNumber(connection, 250)
 	#results = getCourseNumber(connection, 250)
 	#results = getCourseDeptTag(connection, "ENGL")
 	#results = getCourseTerm(connection, "Winter 2020")
-	results = getCourseName(connection, "Data Structures")
+	#results = getCourseName(connection, "Data Structures")
+
+	results = query1.getCourseName(connection)
 	if results is not None:
 		print("Query results: ")
 		for item in results:
