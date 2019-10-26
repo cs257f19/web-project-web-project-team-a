@@ -17,14 +17,13 @@ class courseQuery:
 		object that when created will contain all criteria from a single user quiery
 	'''
 
-	def __init__(self, dept, number, name, term, credits, requirements, period):
-		self.term = term
-		self.number = number
-		self.name = name
-		self.dept = dept
-		self.requirements = requirements
-		self.credits = credits
-		self.period = period
+	def __init__(self, dept, number, name, term, requirements, period):
+		self.courseTerm = term
+		self.CourseNumber = number
+		self.courseName = name
+		self.courseDeptTag = dept
+		self.courseRequirements = requirements
+		self.coursePeriod = period
 
 	def getCourseNumber(self, connection):
 		'''
@@ -177,11 +176,11 @@ def getCourseTerm(connection, courseTerm):
 def main():
 	user = 'ngot'
 	password = getpass.getpass()
-	 def __init__(self, dept, name, term, credits, requirements, period):
+	 
 	# Connect to the database
 	connection = connect(user, password)
 
-	query1 = courseQuery(None, None, "cs", None, None, None, None)
+	query1 = courseQuery(None, None, "cs", None, None, None)
 
 	#test queries 
 	#results = getCourseNumber(connection, 250)
