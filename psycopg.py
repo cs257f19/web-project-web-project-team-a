@@ -30,32 +30,107 @@ def connect(user, password):
 		exit()
 	return connection
 
-def getClassPeriod(connection, classPeriod):
+def getCoursePeriod(connection, coursePeriod):
 	'''
-	Returns a list of all of the classes during the specified class period.
+	Returns a list of all of the coursees during the specified course period.
 
 	PARAMETERS:
-		period - the time period the user wants to find a class during
+		period - the time period the user wants to find a course during
 
 	RETURN:
-		a list of all classes during the period
+		a list of all coursees during the period
 
 	'''
 
-def getClassTerm(connection, classTerm):
+def getCourseRequirements(connection, courseRequirements):
 	'''
-	Returns a list of all classes within the specified term.
+		Returns a list of all of the coursees during the specified course period.
+
+		PARAMETERS:
+			requirements - the requirement(s) the user wants the course to fulfill
+
+		RETURN:
+			a list of all coursees that fulfill the requirements
+
+		'''
+
+def getCourseTerm(connection, courseTerm):
+	'''
+	Returns a list of all coursees within the specified term.
 
 	PARAMETERS:
-		term - the term which the class is available
+		term - the term which the course is available
 
 	RETURN:
-		a list of all classes within the specified term.
+		a list of all coursees within the specified term.
 
 	'''
 	try:
 		cursor = connection.cursor()
-		query = "SELECT	* FROM classes WHERE term LIKE " + %classTerm% + " ORDER BY name DESC"
+		query = "SELECT	* FROM coursees WHERE term LIKE " + %courseTerm% + " ORDER BY name DESC"
+		cursor.execute(query)
+		return cursor.fetchall()
+
+	except Exception as e:
+		print ("Something went wrong when executing the query: ", e)
+		return None
+
+def getCourseTerm(connection, courseTerm):
+	'''
+	Returns a list of all coursees within the specified term.
+
+	PARAMETERS:
+		term - the term which the course is available
+
+	RETURN:
+		a list of all coursees within the specified term.
+
+	'''
+	try:
+		cursor = connection.cursor()
+		query = "SELECT	* FROM coursees WHERE term LIKE " + %courseTerm% + " ORDER BY name DESC"
+		cursor.execute(query)
+		return cursor.fetchall()
+
+	except Exception as e:
+		print ("Something went wrong when executing the query: ", e)
+		return None
+
+def getCourseTerm(connection, courseNumber):
+	'''
+	Returns a list of all coursees with the specified course number.
+
+	PARAMETERS:
+		courseNumber - the course number in which a course has
+
+	RETURN:
+		a list of all coursees withthe specified course number.
+
+	'''
+	try:
+		cursor = connection.cursor()
+		query = "SELECT	* FROM coursees WHERE term LIKE " + %courseTerm% + " ORDER BY name DESC"
+		cursor.execute(query)
+		return cursor.fetchall()
+
+	except Exception as e:
+		print ("Something went wrong when executing the query: ", e)
+		return None
+
+def getCourseSubject(connection, courseSubject):
+	'''
+	Returns a list of all of the coursees within the specified subject.
+
+	PARAMETERS:
+		subject - the department the user wants to find a course in
+
+	RETURN:
+		a list of all coursees within the department
+
+	'''
+	try:
+		cursor = connection.cursor()
+		query = "SELECT	* FROM coursees WHERE subject = " + courseSubject + " ORDER BY name DESC"
 		cursor.execute(query)
 		return cursor.fetchall()
 
@@ -64,55 +139,22 @@ def getClassTerm(connection, classTerm):
 		return None
 
 
-def getClassSubject(connection, classSubject):
+
+
+def getCourseName(connection, courseName):
 	'''
-	Returns a list of all of the classes within the specified subject.
-
-	PARAMETERS:
-		subject - the department the user wants to find a class in
-
-	RETURN:
-		a list of all classes within the department
-
-	'''
-	try:
-		cursor = connection.cursor()
-		query = "SELECT	* FROM classes WHERE subject = " + classSubject + " ORDER BY name DESC"
-		cursor.execute(query)
-		return cursor.fetchall()
-
-	except Exception as e:
-		print ("Something went wrong when executing the query: ", e)
-		return None
-
-
-
-def getClassRequirements(connection, classRequirements):
-	'''
-		Returns a list of all of the classes during the specified class period.
+		Returns a list of all of the coursees the contain the course name from user input.
 
 		PARAMETERS:
-			requirements - the requirement(s) the user wants the class to fulfill
+			name - course name that user inputed
 
 		RETURN:
-			a list of all classes that fulfill the requirements
-
-		'''
-
-def getClassName(connection, className):
-	'''
-		Returns a list of all of the classes the contain the class name from user input.
-
-		PARAMETERS:
-			name - class name that user inputed
-
-		RETURN:
-			a list of all classes that contain that string
+			a list of all coursees that contain that string
 
 		'''
 	try:
 		cursor = connection.cursor()
-		query = "SELECT	* FROM classes WHERE name = " + className + " ORDER BY name DESC"
+		query = "SELECT	* FROM coursees WHERE name = " + courseName + " ORDER BY name DESC"
 		cursor.execute(query)
 		return cursor.fetchall()
 
@@ -128,9 +170,9 @@ def main():
 	# Connect to the database
 	connection = connect(user, password)
 
-	# Execute a simple query: What classes are during the 2a block?
-	#results = getClassPeriod(connection, 2)
-	results = getClassTerm(connection, "Winter 2020")
+	# Execute a simple query: What coursees are during the 2a block?
+	#results = getcoursePeriod(connection, 2)
+	results = getCourseNumber(connection, "Winter 2020")
 	if results is not None:
 		print("Query results: ")
 		for item in results:
