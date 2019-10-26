@@ -42,10 +42,9 @@ class courseQuery:
 		self.courseDeptTag = dept
 		self.courseRequirements = requirements
 		self.coursePeriod = period
-		self.connect
 
 
-	def getCourseNumber(self):
+	def getCourseNumber(self, connection):
 		'''
 		Returns a list of all coursees with the specified course number.
 
@@ -68,7 +67,7 @@ class courseQuery:
 
 	
 
-	def getCourseDeptTag(self):
+	def getCourseDeptTag(self, connection):
 		'''
 		Returns a list of all of the coursees within the specified subject.
 
@@ -89,7 +88,7 @@ class courseQuery:
 			print ("Something went wrong when executing the query: ", e)
 			return None
 
-	def getCourseName(self):
+	def getCourseName(self, connection):
 		'''
 			Returns a list of all of the coursees the contain the course name from user input.
 
@@ -110,7 +109,7 @@ class courseQuery:
 			print ("Something went wrong when executing the query: ", e)
 			return None
 
-	def getCourseNumber(self):
+	def getCourseNumber(self, connection):
 		'''
 		Returns a list of all coursees with the specified course number.
 
@@ -131,7 +130,7 @@ class courseQuery:
 			print ("Something went wrong when executing the query: ", e)
 			return None
 
-	def getCoursePeriod(self):
+	def getCoursePeriod(self, connection):
 		'''
 		Returns a list of all of the coursees during the specified course period.
 
@@ -143,7 +142,7 @@ class courseQuery:
 
 		'''
 
-	def getCourseRequirements(self):
+	def getCourseRequirements(self, connection):
 		'''
 			Returns a list of all of the coursees during the specified course period.
 
@@ -155,7 +154,7 @@ class courseQuery:
 
 			'''
 
-	def getCourseTerm(self):
+	def getCourseTerm(self, connection):
 		'''
 		Returns a list of all coursees within the specified term.
 
@@ -177,17 +176,14 @@ class courseQuery:
 			return None
 
 
-
-
-
 def main():
-	#user = 'ngot'
-	#password = getpass.getpass()
+	user = 'ngot'
+	password = getpass.getpass()
 	 
 	# Connect to the database
 	connection = connect(user, password)
 	# Query object and test queries
-	query = courseQuery(ENGL, 251, "Data Structures", "Winter 2020", None, None)
+	query = courseQuery("ENGL", 251, "Data Structures", "Winter 2020", None, None)
 	#connection = query.connect()
 
 	results = query.getCourseName()
@@ -201,6 +197,6 @@ def main():
 			print(item)
 
 	# Disconnect from database
-	connetion.close()
+	connection.close()
 
 main()
