@@ -16,7 +16,7 @@ class courseQuery:
 '''
 	object that when created will contain all criteria from a single user quiery
 '''
-  def __init__(self, dept, number, name, term, credits, requirements, period):
+	def __init__(self, dept, number, name, term, credits, requirements, period):
 		self.term = term
 		self.number = number
 		self.name = name
@@ -25,26 +25,26 @@ class courseQuery:
 		self.credits = credits
 		self.period = period
 
-def getCourseNumber(connection, courseNumber):
-	'''
-	Returns a list of all coursees with the specified course number.
+	def getCourseNumber(connection, courseNumber):
+		'''
+		Returns a list of all coursees with the specified course number.
 
-	PARAMETERS:
-		courseNumber - the course number in which a course has
+		PARAMETERS:
+			courseNumber - the course number in which a course has
 
-	RETURN:
-		a list of all coursees withthe specified course number.
+		RETURN:
+			a list of all coursees withthe specified course number.
 
-	'''
-	try:
-		cursor = connection.cursor()
-		query = "SELECT	* FROM classes WHERE coursenum = " + str(self.courseNumber) + " ORDER BY coursename DESC"
-		cursor.execute(query)
-		return cursor.fetchall()
+		'''
+		try:
+			cursor = connection.cursor()
+			query = "SELECT	* FROM classes WHERE coursenum = " + str(self.courseNumber) + " ORDER BY coursename DESC"
+			cursor.execute(query)
+			return cursor.fetchall()
 
-	except Exception as e:
-		print ("Something went wrong when executing the query: ", e)
-		return None
+		except Exception as e:
+			print ("Something went wrong when executing the query: ", e)
+			return None
 
 
 def connect(user, password):
