@@ -75,28 +75,8 @@ def getCourseTerm(connection, courseTerm):
 		print ("Something went wrong when executing the query: ", e)
 		return None
 
-def getCourseTerm(connection, courseTerm):
-	'''
-	Returns a list of all coursees within the specified term.
 
-	PARAMETERS:
-		term - the term which the course is available
-
-	RETURN:
-		a list of all coursees within the specified term.
-
-	'''
-	try:
-		cursor = connection.cursor()
-		query = "SELECT	* FROM coursees WHERE term LIKE " + %courseTerm% + " ORDER BY name DESC"
-		cursor.execute(query)
-		return cursor.fetchall()
-
-	except Exception as e:
-		print ("Something went wrong when executing the query: ", e)
-		return None
-
-def getCourseTerm(connection, courseNumber):
+def getCourseNumber(connection, courseNumber):
 	'''
 	Returns a list of all coursees with the specified course number.
 
@@ -172,7 +152,7 @@ def main():
 
 	# Execute a simple query: What coursees are during the 2a block?
 	#results = getcoursePeriod(connection, 2)
-	results = getCourseNumber(connection, "Winter 2020")
+	results = getCourseNumber(connection, 250)
 	if results is not None:
 		print("Query results: ")
 		for item in results:
