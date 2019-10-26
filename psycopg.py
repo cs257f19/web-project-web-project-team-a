@@ -55,7 +55,7 @@ def getClassTerm(connection, classTerm):
 	'''
 	try:
 		cursor = connection.cursor()
-		query = "SELECT	* FROM classes WHERE term > " + classTerm + " ORDER BY name DESC"
+		query = "SELECT	* FROM classes WHERE term LIKE " + %classTerm% + " ORDER BY name DESC"
 		cursor.execute(query)
 		return cursor.fetchall()
 
