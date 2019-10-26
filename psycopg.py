@@ -67,7 +67,7 @@ def getCourseTerm(connection, courseTerm):
 	'''
 	try:
 		cursor = connection.cursor()
-		query = "SELECT	* FROM coursees WHERE term LIKE %" + courseTerm + "% ORDER BY name DESC"
+		query = "SELECT	* FROM coursees WHERE term LIKE '%" + courseTerm + "%' ORDER BY name DESC"
 		cursor.execute(query)
 		return cursor.fetchall()
 
@@ -88,7 +88,7 @@ def getCourseName(connection, courseName):
 		'''
 	try:
 		cursor = connection.cursor()
-		query = "SELECT	* FROM coursees WHERE name = " + courseName + " ORDER BY name DESC"
+		query = "SELECT	* FROM coursees WHERE name LIKE '%" + courseName + "%' ORDER BY name DESC"
 		cursor.execute(query)
 		return cursor.fetchall()
 
@@ -110,7 +110,7 @@ def getCourseSubject(connection, courseSubject):
 	'''
 	try:
 		cursor = connection.cursor()
-		query = "SELECT	* FROM coursees WHERE subject = " + courseSubject + " ORDER BY name DESC"
+		query = "SELECT	* FROM courses WHERE subject LIKE %" + courseSubject + "% ORDER BY name DESC"
 		cursor.execute(query)
 		return cursor.fetchall()
 
@@ -132,7 +132,7 @@ def getCourseNumber(connection, courseNumber):
 	'''
 	try:
 		cursor = connection.cursor()
-		query = "SELECT	* FROM coursees WHERE term LIKE " + courseTerm + " ORDER BY name DESC"
+		query = "SELECT	* FROM courses WHERE term = " + str(courseTerm) + " ORDER BY name DESC"
 		cursor.execute(query)
 		return cursor.fetchall()
 
