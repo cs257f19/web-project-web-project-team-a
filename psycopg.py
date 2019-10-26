@@ -13,9 +13,9 @@ import psycopg2
 import getpass
   
 class courseQuery:
-'''
-	object that when created will contain all criteria from a single user quiery
-'''
+	'''
+		object that when created will contain all criteria from a single user quiery
+	'''
 	def __init__(self, dept, number, name, term, credits, requirements, period):
 		self.term = term
 		self.number = number
