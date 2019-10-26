@@ -97,7 +97,7 @@ def getCourseName(connection, courseName):
 		return None
 
 
-def getCourseSubject(connection, courseSubject):
+def getCourseDeptTag(connection, courseDeptTag):
 	'''
 	Returns a list of all of the coursees within the specified subject.
 
@@ -110,7 +110,7 @@ def getCourseSubject(connection, courseSubject):
 	'''
 	try:
 		cursor = connection.cursor()
-		query = "SELECT	* FROM courses WHERE subject LIKE %" + courseSubject + "% ORDER BY name DESC"
+		query = "SELECT	* FROM classes WHERE depttag LIKE %" + courseDeptTag + "% ORDER BY coursename DESC"
 		cursor.execute(query)
 		return cursor.fetchall()
 
@@ -132,7 +132,7 @@ def getCourseNumber(connection, courseNumber):
 	'''
 	try:
 		cursor = connection.cursor()
-		query = "SELECT	* FROM courses WHERE term = " + str(courseTerm) + " ORDER BY name DESC"
+		query = "SELECT	* FROM classes WHERE coursenum = " + str(courseNumber) + " ORDER BY coursename DESC"
 		cursor.execute(query)
 		return cursor.fetchall()
 
@@ -149,8 +149,10 @@ def main():
 	connection = connect(user, password)
 
 	# Execute a simple query: What coursees are during the 2a block?
-	#results = getcoursePeriod(connection, 2)
-	results = getCourseNumber(connection, 250)
+	
+	#results = getCourseNumber(connection, 250)
+	#results = Course(connection, 250)
+	results = getCourseDeptTag(connection, "ENGL")
 	if results is not None:
 		print("Query results: ")
 		for item in results:
