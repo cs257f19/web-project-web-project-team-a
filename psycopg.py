@@ -67,7 +67,7 @@ def getCourseTerm(connection, courseTerm):
 	'''
 	try:
 		cursor = connection.cursor()
-		query = "SELECT	* FROM coursees WHERE term LIKE '%" + courseTerm + "%' ORDER BY name DESC"
+		query = "SELECT	* FROM courses WHERE termsoffered LIKE '%" + courseTerm + "%' ORDER BY coursename DESC"
 		cursor.execute(query)
 		return cursor.fetchall()
 
@@ -88,7 +88,7 @@ def getCourseName(connection, courseName):
 		'''
 	try:
 		cursor = connection.cursor()
-		query = "SELECT	* FROM coursees WHERE name LIKE '%" + courseName + "%' ORDER BY name DESC"
+		query = "SELECT	* FROM courses WHERE coursename LIKE '%" + courseName + "%' ORDER BY coursename DESC"
 		cursor.execute(query)
 		return cursor.fetchall()
 
@@ -110,7 +110,7 @@ def getCourseDeptTag(connection, courseDeptTag):
 	'''
 	try:
 		cursor = connection.cursor()
-		query = "SELECT	* FROM classes WHERE depttag LIKE %" + courseDeptTag + "% ORDER BY coursename DESC"
+		query = "SELECT	* FROM classes WHERE depttag LIKE '%" + courseDeptTag + "%'' ORDER BY coursename DESC"
 		cursor.execute(query)
 		return cursor.fetchall()
 
@@ -150,9 +150,12 @@ def main():
 
 	# Execute a simple query: What coursees are during the 2a block?
 	
+	#test queries 
 	#results = getCourseNumber(connection, 250)
-	#results = Course(connection, 250)
-	results = getCourseDeptTag(connection, "ENGL")
+	#results = getCourseNumber(connection, 250)
+	#results = getCourseDeptTag(connection, "ENGL")
+	#results = getCourseTerm(connection, "Winter 2020")
+	results = getCourseName(connection, "Data Structures")
 	if results is not None:
 		print("Query results: ")
 		for item in results:
