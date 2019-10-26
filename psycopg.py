@@ -16,6 +16,7 @@ class courseQuery:
 	'''
 		object that when created will contain all criteria from a single user quiery
 	'''
+
 	def __init__(self, dept, number, name, term, credits, requirements, period):
 		self.term = term
 		self.number = number
@@ -25,7 +26,7 @@ class courseQuery:
 		self.credits = credits
 		self.period = period
 
-	def getCourseNumber(connection, courseNumber):
+	def getCourseNumber(self, connection):
 		'''
 		Returns a list of all coursees with the specified course number.
 
@@ -180,8 +181,8 @@ def main():
 	# Connect to the database
 	connection = connect(user, password)
 
-	# Execute a simple query: What coursees are during the 2a block?
 	query1 = courseQuery(None, None, "cs", None, None, None, None)
+
 	#test queries 
 	#results = getCourseNumber(connection, 250)
 	#results = getCourseNumber(connection, 250)
