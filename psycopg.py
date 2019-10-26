@@ -44,24 +44,6 @@ class courseQuery:
 		self.coursePeriod = period
 		self.connect
 
-	def connect(self):
-		'''
-		Establishes a connection to the database with the following credentials:
-			user - username, which is also the name of the database
-			password - the password for this database on perlman
-
-		Returns: a database connection.
-
-		Note: exits if a connection cannot be established.
-		'''
-		user = 'ngot'
-		password = getpass.getpass()
-		try:
-			connection = psycopg2.connect(database=user, user=user, password=password)
-		except Exception as e:
-			print("Connection error: ", e)
-			exit()
-		self.connect = connection
 
 	def getCourseNumber(self):
 		'''
@@ -206,9 +188,9 @@ def main():
 	connection = connect(user, password)
 	# Query object and test queries
 	query = courseQuery(ENGL, 251, "Data Structures", "Winter 2020", None, None)
-	query.connect()
+	#connection = query.connect()
 
-	#results = query.getCourseName()
+	results = query.getCourseName()
 	#results = query.getCourseDeptTag()
 	#results = query.getCourseTerm()
 	#results = query.getCourseNumber()
@@ -219,6 +201,6 @@ def main():
 			print(item)
 
 	# Disconnect from database
-	connection.close()
+	connetion.close()
 
 main()
