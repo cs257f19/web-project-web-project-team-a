@@ -67,7 +67,7 @@ def getCourseTerm(connection, courseTerm):
 	'''
 	try:
 		cursor = connection.cursor()
-		query = "SELECT	* FROM coursees WHERE term LIKE " + %courseTerm% + " ORDER BY name DESC"
+		query = "SELECT	* FROM coursees WHERE term LIKE %" + courseTerm + "% ORDER BY name DESC"
 		cursor.execute(query)
 		return cursor.fetchall()
 
@@ -75,27 +75,27 @@ def getCourseTerm(connection, courseTerm):
 		print ("Something went wrong when executing the query: ", e)
 		return None
 
-
-def getCourseNumber(connection, courseNumber):
+def getCourseName(connection, courseName):
 	'''
-	Returns a list of all coursees with the specified course number.
+		Returns a list of all of the coursees the contain the course name from user input.
 
-	PARAMETERS:
-		courseNumber - the course number in which a course has
+		PARAMETERS:
+			name - course name that user inputed
 
-	RETURN:
-		a list of all coursees withthe specified course number.
+		RETURN:
+			a list of all coursees that contain that string
 
-	'''
+		'''
 	try:
 		cursor = connection.cursor()
-		query = "SELECT	* FROM coursees WHERE term LIKE " + %courseTerm% + " ORDER BY name DESC"
+		query = "SELECT	* FROM coursees WHERE name = " + courseName + " ORDER BY name DESC"
 		cursor.execute(query)
 		return cursor.fetchall()
 
 	except Exception as e:
 		print ("Something went wrong when executing the query: ", e)
 		return None
+
 
 def getCourseSubject(connection, courseSubject):
 	'''
@@ -119,22 +119,20 @@ def getCourseSubject(connection, courseSubject):
 		return None
 
 
-
-
-def getCourseName(connection, courseName):
+def getCourseNumber(connection, courseNumber):
 	'''
-		Returns a list of all of the coursees the contain the course name from user input.
+	Returns a list of all coursees with the specified course number.
 
-		PARAMETERS:
-			name - course name that user inputed
+	PARAMETERS:
+		courseNumber - the course number in which a course has
 
-		RETURN:
-			a list of all coursees that contain that string
+	RETURN:
+		a list of all coursees withthe specified course number.
 
-		'''
+	'''
 	try:
 		cursor = connection.cursor()
-		query = "SELECT	* FROM coursees WHERE name = " + courseName + " ORDER BY name DESC"
+		query = "SELECT	* FROM coursees WHERE term LIKE " + courseTerm + " ORDER BY name DESC"
 		cursor.execute(query)
 		return cursor.fetchall()
 
