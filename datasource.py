@@ -1,8 +1,7 @@
 '''
-psycopg2-test.py
+datasource.py
 
-Sample code demonstrating how to use the psycopg2 Python library to connect
-to a database and execute a query.
+Code containing query object as well as methods that allow for queries
 
 author: Tony Ngo, Ben Preiss, Cam Brown
 date: 22 October 2019
@@ -185,7 +184,6 @@ class courseQuery:
 			a list of all course which satifies all criteria
 
 		'''
-
 
 def main():
 	user = 'ngot'
