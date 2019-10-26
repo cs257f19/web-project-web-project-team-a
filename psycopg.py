@@ -49,10 +49,10 @@ class courseQuery:
 		Returns a list of all coursees with the specified course number.
 
 		PARAMETERS:
-			courseNumber - the course number in which a course has
+			connection - connection to database
 
 		RETURN:
-			a list of all coursees withthe specified course number.
+			a list of all courses withthe specified course number.
 
 		'''
 		try:
@@ -72,10 +72,10 @@ class courseQuery:
 		Returns a list of all of the coursees within the specified subject.
 
 		PARAMETERS:
-			subject - the department the user wants to find a course in
+			connection - connection to database
 
 		RETURN:
-			a list of all coursees within the department
+			a list of all courses within the department
 
 		'''
 		try:
@@ -93,10 +93,10 @@ class courseQuery:
 			Returns a list of all of the coursees the contain the course name from user input.
 
 			PARAMETERS:
-				name - course name that user inputed
+				connection - connection to database
 
 			RETURN:
-				a list of all coursees that contain that string
+				a list of all courses that contain that string
 
 			'''
 		try:
@@ -113,11 +113,11 @@ class courseQuery:
 		'''
 		Returns a list of all coursees with the specified course number.
 
-		PARAMETERS:
-			courseNumber - the course number in which a course has
+		PPARAMETERS:
+			connection - connection to database
 
 		RETURN:
-			a list of all coursees withthe specified course number.
+			a list of all courses withthe specified course number.
 
 		'''
 		try:
@@ -135,10 +135,10 @@ class courseQuery:
 		Returns a list of all of the coursees during the specified course period.
 
 		PARAMETERS:
-			period - the time period the user wants to find a course during
+			connection - connection to database
 
 		RETURN:
-			a list of all coursees during the period
+			a list of all courses during the period
 
 		'''
 
@@ -147,10 +147,10 @@ class courseQuery:
 			Returns a list of all of the coursees during the specified course period.
 
 			PARAMETERS:
-				requirements - the requirement(s) the user wants the course to fulfill
+				connection - connection to database
 
 			RETURN:
-				a list of all coursees that fulfill the requirements
+				a list of all courses that fulfill the requirements
 
 			'''
 
@@ -159,10 +159,10 @@ class courseQuery:
 		Returns a list of all coursees within the specified term.
 
 		PARAMETERS:
-			term - the term which the course is available
+			connection - connection to database
 
 		RETURN:
-			a list of all coursees within the specified term.
+			a list of all courses within the specified term.
 
 		'''
 		try:
@@ -174,6 +174,17 @@ class courseQuery:
 		except Exception as e:
 			print ("Something went wrong when executing the query: ", e)
 			return None
+	def masterQuery(self,connection):
+		'''
+		Takes checks all query parameters and creates a query compiled of the intersects of all th queries
+
+		PARAMETERS:
+			connection - connection to database
+
+		RETURN:
+			a list of all course which satifies all criteria
+
+		'''
 
 
 def main():
@@ -186,10 +197,10 @@ def main():
 	query = courseQuery("ENGL", 251, "Data Structures", "Winter 2020", None, None)
 	#connection = query.connect()
 
-	results = query.getCourseName()
-	#results = query.getCourseDeptTag()
-	#results = query.getCourseTerm()
-	#results = query.getCourseNumber()
+	results = query.getCourseName(connection)
+	#results = query.getCourseDeptTag(connection)
+	#results = query.getCourseTerm(connection)
+	#results = query.getCourseNumber(connection)
 
 	if results is not None:
 		print("Query results: ")
