@@ -29,7 +29,7 @@ class courseQuery:
 
 		self.connection = connect()
 		
-	def connect(user, password):
+	def connect(self):
 		user = 'ngot'
 		password = getpass.getpass()
 		'''
@@ -48,7 +48,7 @@ class courseQuery:
 			exit()
 		return connection
 
-	def getCourseNumber(self, connection):
+	def getCourseNumber(self):
 		'''
 		Returns a list of all coursees with the specified course number.
 
@@ -60,7 +60,7 @@ class courseQuery:
 
 		'''
 		try:
-			cursor = connection.cursor()
+			cursor = self.connection.cursor()
 			query = "SELECT	* FROM classes WHERE coursenum = " + str(self.courseNumber) + " ORDER BY coursename DESC"
 			cursor.execute(query)
 			return cursor.fetchall()
@@ -71,7 +71,7 @@ class courseQuery:
 
 	
 
-	def getCourseDeptTag(self, connection):
+	def getCourseDeptTag(self):
 		'''
 		Returns a list of all of the coursees within the specified subject.
 
@@ -83,7 +83,7 @@ class courseQuery:
 
 		'''
 		try:
-			cursor = connection.cursor()
+			cursor = self.connection.cursor()
 			query = "SELECT	* FROM classes WHERE depttag LIKE '%" + self.courseDeptTag + "%' ORDER BY coursename DESC"
 			cursor.execute(query)
 			return cursor.fetchall()
@@ -92,7 +92,7 @@ class courseQuery:
 			print ("Something went wrong when executing the query: ", e)
 			return None
 
-	def getCourseName(self, connection):
+	def getCourseName(self):
 		'''
 			Returns a list of all of the coursees the contain the course name from user input.
 
@@ -104,7 +104,7 @@ class courseQuery:
 
 			'''
 		try:
-			cursor = connection.cursor()
+			cursor = self.connection.cursor()
 			query = "SELECT	* FROM classes WHERE coursename LIKE '%" + self.courseName + "%' ORDER BY coursename DESC"
 			cursor.execute(query)
 			return cursor.fetchall()
@@ -113,7 +113,7 @@ class courseQuery:
 			print ("Something went wrong when executing the query: ", e)
 			return None
 
-	def getCourseNumber(self, connection):
+	def getCourseNumber(self):
 		'''
 		Returns a list of all coursees with the specified course number.
 
@@ -125,7 +125,7 @@ class courseQuery:
 
 		'''
 		try:
-			cursor = connection.cursor()
+			cursor = self.connection.cursor()
 			query = "SELECT	* FROM classes WHERE coursenum = " + str(self.courseNumber) + " ORDER BY coursename DESC"
 			cursor.execute(query)
 			return cursor.fetchall()
@@ -134,7 +134,7 @@ class courseQuery:
 			print ("Something went wrong when executing the query: ", e)
 			return None
 
-	def getCoursePeriod(self, connection):
+	def getCoursePeriod(self):
 		'''
 		Returns a list of all of the coursees during the specified course period.
 
@@ -146,7 +146,7 @@ class courseQuery:
 
 		'''
 
-	def getCourseRequirements(self, connection):
+	def getCourseRequirements(self):
 		'''
 			Returns a list of all of the coursees during the specified course period.
 
@@ -158,7 +158,7 @@ class courseQuery:
 
 		'''
 		try:
-			cursor = connection.cursor()
+			cursor = self.connection.cursor()
 			query = "SELECT	* FROM classes WHERE reqsFilled LIKE '%" + self.courseRequirements + "%' ORDER BY coursename DESC"
 			cursor.execute(query)
 			return cursor.fetchall()
@@ -167,7 +167,7 @@ class courseQuery:
 			print("Something went wrong when executing the query: ", e)
 			return None
 
-	def getCourseTerm(self, connection):
+	def getCourseTerm(self):
 		'''
 		Returns a list of all coursees within the specified term.
 
@@ -179,7 +179,7 @@ class courseQuery:
 
 		'''
 		try:
-			cursor = connection.cursor()
+			cursor = self.connection.cursor()
 			query = "SELECT	* FROM classes WHERE termsoffered LIKE '%" + self.courseTerm + "%' ORDER BY coursename DESC"
 			cursor.execute(query)
 			return cursor.fetchall()
@@ -216,6 +216,6 @@ def main():
 			print(item)
 
 	# Disconnect from database
-	connection.close()
+	courseQuery.connection.close()
 
 main()
