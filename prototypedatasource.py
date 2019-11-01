@@ -1,5 +1,5 @@
 '''
-datasource.py
+prototypedatasrouce.py
 
 Code containing query object as well as methods that allow for queries
 
@@ -10,7 +10,7 @@ Adapted from code originally written by Jeff Ondich
 
 import psycopg2
 import getpass
-
+from course import*
 
 
 
@@ -50,6 +50,14 @@ class courseQuery:
 			exit()
 		return connection
 
+	def createCourse(self, courses):
+
+		courseResults =[]
+		for courses in course.fetchall():
+			course = courseObj(courses)
+			courseResults.append(course)
+		return courseResults
+
 	def getCourseNumber(self):
 		'''
 		Returns a list of all coursees with the specified course number.
@@ -65,7 +73,8 @@ class courseQuery:
 			cursor = self.connection.cursor()
 			query = "SELECT	* FROM classes WHERE coursenum = " + str(self.courseNumber) + " ORDER BY coursename DESC"
 			cursor.execute(query)
-			return cursor.fetchall()
+			createCourse(course.fetchall())
+			return courseResults
 
 		except Exception as e:
 			print ("Something went wrong when executing the query: ", e)
@@ -88,7 +97,8 @@ class courseQuery:
 			cursor = self.connection.cursor()
 			query = "SELECT	* FROM classes WHERE depttag LIKE '%" + self.courseDeptTag + "%' ORDER BY coursename DESC"
 			cursor.execute(query)
-			return cursor.fetchall()
+			createCourse(course.fetchall())
+			return courseResults
 
 		except Exception as e:
 			print ("Something went wrong when executing the query: ", e)
@@ -109,7 +119,9 @@ class courseQuery:
 			cursor = self.connection.cursor()
 			query = "SELECT	* FROM classes WHERE coursename LIKE '%" + self.courseName + "%' ORDER BY coursename DESC"
 			cursor.execute(query)
-			return cursor.fetchall()
+			createCourse(course.fetchall())
+			return courseResults
+
 
 		except Exception as e:
 			print ("Something went wrong when executing the query: ", e)
@@ -163,7 +175,8 @@ class courseQuery:
 			cursor = self.connection.cursor()
 			query = "SELECT	* FROM classes WHERE reqsFilled LIKE '%" + self.courseRequirements + "%' ORDER BY coursename DESC"
 			cursor.execute(query)
-			return cursor.fetchall()
+			createCourse(course.fetchall())
+			return courseResults
 
 		except Exception as e:
 			print("Something went wrong when executing the query: ", e)
@@ -184,7 +197,8 @@ class courseQuery:
 			cursor = self.connection.cursor()
 			query = "SELECT	* FROM classes WHERE termsoffered LIKE '%" + self.courseTerm + "%' ORDER BY coursename DESC"
 			cursor.execute(query)
-			return cursor.fetchall()
+			createCourse(course.fetchall())
+			return courseResults
 
 		except Exception as e:
 			print("Something went wrong when executing the query: ", e)
