@@ -27,7 +27,7 @@ class courseQuery:
 		self.courseRequirements = requirements
 		self.coursePeriod = period
 
-		self.connection = connect()
+		self.connection = self.connect()
 		
 	def connect(self):
 		user = 'ngot'
@@ -187,7 +187,7 @@ class courseQuery:
 		except Exception as e:
 			print("Something went wrong when executing the query: ", e)
 			return None
-	def masterQuery(self,connection):
+	def masterQuery(self):
 		'''
 		Takes checks all query parameters and creates a query compiled of the intersects of all th queries
 
