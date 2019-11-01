@@ -19,6 +19,10 @@ class DataSourceTest(unittest.TestCase):
         req_str = 'HUM'
         self.assertTrue(req_str in self.cq.courseRequirements)
 
+    def test_if_input_is_str(self):
+        req_type = str
+        self.assertTrue(req_type == type(self.cq.courseRequirements))
+
 
 if __name__ == '__main__':
     unittest.main()
