@@ -221,8 +221,6 @@ def crawl_subject(dept_iter):
 def main():
     for i in range(0, len(subjects)):
         crawl_subject(i)
-    for item in master_list:
-        print(str(item.dept) + " " + str(item.num))
     create_csv(master_list)
 
 
