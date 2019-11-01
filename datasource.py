@@ -26,10 +26,11 @@ class courseQuery:
 		self.courseDeptTag = dept
 		self.courseRequirements = requirements
 		self.coursePeriod = period
-
-		self.connection = self.connect()
-		self.user = 'ngot'
+		self.user = "ngot"
 		self.password = getpass.getpass()
+		self.connection = self.connect()
+		
+		
 	def connect(self):
 		
 		'''
@@ -41,8 +42,7 @@ class courseQuery:
 
 		Note: exits if a connection cannot be established.
 		'''
-		user = self.user
-		password = self.password
+
 		try:
 			connection = psycopg2.connect(database= self.user, user=self.user, password=self.password)
 		except Exception as e:
