@@ -11,7 +11,7 @@ Adapted from code originally written by Jeff Ondich
 
 import psycopg2
 import getpass
-from course.py
+import course
 
 
 
@@ -52,8 +52,7 @@ class CourseQuery:
 		return connection
 
 	def createCourse(self, courses):
-		courseResults
-
+		courseResults =[]
 		for courses in course.fetchall():
 			course = courseObj(courses)
 			courseResults.append(course)
@@ -169,7 +168,7 @@ class CourseQuery:
 			RETURN:
 				a list of all courses that fulfill the requirements
 
-			'''f
+			'''
 		try:
 			cursor = connection.cursor()
 			query = "SELECT	* FROM classes WHERE reqsFilled LIKE '%" + self.courseRequirements + "%' ORDER BY coursename DESC"
