@@ -29,6 +29,9 @@ class Course:
     def set_num(self, num):
         self.num = num
 
+    def set_name(self, name):
+        self.name = name
+
     def set_term(self, term):
         self.term = term
 
@@ -83,7 +86,8 @@ def collect_nums(tree, i):
 
 
 def collect_name(tree, i):
-    None
+    string = str(tree.xpath('//*[@id="enrollModule"]/div/div[' + str(i) + ']/h3/text()')[0])
+    return string[1:-1]
 
 
 def collect_terms(term_iter):
@@ -165,9 +169,12 @@ def get_number_offered_for_term(tree):
     string = str(tree.xpath('//*[@id="enrollModule"]/p[3]/text()'))
     if 'found' in string:
         index = string.index('found') + 6
-    else:
+    elif 'found' not in string:
         string = str(tree.xpath('//*[@id="enrollModule"]/p[2]/text()'))
-        index = string.index('found') + 6
+        if 'found' in string:
+            index = string.index('found') + 6
+        else:
+            return 0
 
     number_offered = int(''.join(filter(lambda x: x.isdigit(), string[index:index + 2])))
     return number_offered
@@ -179,7 +186,8 @@ def create_csv(course_list):
         filewriter.writerow(['DeptTag', 'CourseNum', 'CourseName', 'Term', 'reqsFilled', 'period'])
         for item in course_list:
             filewriter.writerow(
-                [item.dept, item.num, 'course name', item.term, item.reqs, item.periods])
+                [item.dept, item.num, item.name, item.term, item.reqs, item.periods])
+
 
 def test():
     page = requests.get('https://apps.carleton.edu/campus/registrar/schedule/enroll/?term=19FA&subject=BIOL')
@@ -196,7 +204,7 @@ def crawl_page(page, dept_iter, term_iter):
 
     # iterates through a subject during a specific term
     for i in range(1, num_courses + 1):
-        course = Course(collect_dept(dept_iter), collect_nums(tree, i), collect_terms(term_iter), collect_reqs(tree, i),
+        course = Course(collect_dept(dept_iter), collect_nums(tree, i), collect_name(tree, i), collect_terms(term_iter), collect_reqs(tree, i),
                         collect_period(tree, i))
         master_list.append(course)
 
@@ -211,7 +219,7 @@ def crawl_subject(dept_iter):
 
 
 def main():
-    for i in range(0, 3):
+    for i in range(0, len(subjects)):
         crawl_subject(i)
     for item in master_list:
         print(str(item.dept) + " " + str(item.num))
