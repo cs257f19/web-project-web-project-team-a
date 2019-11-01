@@ -28,10 +28,10 @@ class courseQuery:
 		self.coursePeriod = period
 
 		self.connection = self.connect()
-		
+		self.user = 'ngot'
+		self.password = getpass.getpass()
 	def connect(self):
-		user = 'ngot'
-		password = getpass.getpass()
+		
 		'''
 		Establishes a connection to the database with the following credentials:
 			user - username, which is also the name of the database
@@ -42,7 +42,7 @@ class courseQuery:
 		Note: exits if a connection cannot be established.
 		'''
 		try:
-			connection = psycopg2.connect(database=user, user=user, password=password)
+			connection = psycopg2.connect(database=self.user, user=self.user, password=self.password)
 		except Exception as e:
 			print("Connection error: ", e)
 			exit()
@@ -205,7 +205,7 @@ def main():
 	# Initialize query object and test queries
 	query = courseQuery("ENGL", 251, "Data Structures", "Winter 2020", None, None)
 
-	results = query.getCourseName(connection)
+	results = query.getCourseName()
 	#results = query.getCourseDeptTag(connection)
 	#results = query.getCourseTerm(connection)
 	#results = query.getCourseNumber(connection)
@@ -216,6 +216,6 @@ def main():
 			print(item)
 
 	# Disconnect from database
-	courseQuery.connection.close()
+	query.connection.close()
 
 main()
