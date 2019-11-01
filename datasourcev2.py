@@ -13,7 +13,7 @@ import psycopg2
 import getpass
 from course.py
 
-courseResults[]
+
 
 
 class CourseQuery:
@@ -52,6 +52,8 @@ class CourseQuery:
 		return connection
 
 	def createCourse(self, courses):
+		courseResults
+
 		for courses in course.fetchall():
 			course = courseObj(courses)
 			courseResults.append(course)
