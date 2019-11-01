@@ -11,16 +11,19 @@ Adapted from code originally written by Jeff Ondich
 
 import psycopg2
 import getpass
+from course.py
+
+courseResults[]
 
 
-
-
-class courseQuery:
+class CourseQuery:
 	'''
 		object that when created will contain all criteria from a single user quiery
 	'''
 
 	def __init__(self, dept, number, name, term, requirements, period):
+		self.connection = connect()
+
 		self.courseTerm = term
 		self.courseNumber = number
 		self.courseName = name
@@ -28,9 +31,8 @@ class courseQuery:
 		self.courseRequirements = requirements
 		self.coursePeriod = period
 
-		self.connection = connect()
 		
-	def connect(user, password):
+	def connect(self):
 		user = 'ngot'
 		password = getpass.getpass()
 		'''
@@ -48,6 +50,13 @@ class courseQuery:
 			print("Connection error: ", e)
 			exit()
 		return connection
+
+	def createCourse(self, courses):
+		for courses in course.fetchall():
+			course = courseObj(courses)
+			courseResults.append(course)
+		return courseResults
+
 
 	def getCourseNumber(self, connection):
 		'''
@@ -108,7 +117,8 @@ class courseQuery:
 			cursor = connection.cursor()
 			query = "SELECT	* FROM classes WHERE coursename LIKE '%" + self.courseName + "%' ORDER BY coursename DESC"
 			cursor.execute(query)
-			return cursor.fetchall()
+			createCourse(course.fetchall())
+			return courseResults
 
 		except Exception as e:
 			print ("Something went wrong when executing the query: ", e)
@@ -157,7 +167,18 @@ class courseQuery:
 			RETURN:
 				a list of all courses that fulfill the requirements
 
-			'''
+			'''f
+		try:
+			cursor = connection.cursor()
+			query = "SELECT	* FROM classes WHERE reqsFilled LIKE '%" + self.courseRequirements + "%' ORDER BY coursename DESC"
+			cursor.execute(query)
+			return cursor.fetchall()
+
+		except Exception as e:
+			print("Something went wrong when executing the query: ", e)
+			return None
+
+
 
 	def getCourseTerm(self, connection):
 		'''
