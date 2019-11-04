@@ -16,7 +16,7 @@ app = flask.Flask(__name__)
 
 @app.route('/')
 def hello():
-    return 'Hello, Citizen of CS257.'
+    return 'Hello, Person of CS257.'
 
 @app.route('/fancier/')
 def itDoesHTML():
