@@ -222,8 +222,10 @@ def main():
 	print("hit2")
 	if results is not None:
 		print("Query results: ")
-		for item in results:
-			print(item)
+		for item in range(0, len(self.results)):
+			print(self.results[item])
+		#for item in results:
+		#	print(item)
 
 	# Disconnect from database
 	query.connection.close()
