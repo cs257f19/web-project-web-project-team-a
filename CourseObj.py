@@ -50,7 +50,8 @@ class CourseObj:
 
 	def printInfo(self):
 		for i in range(0, 5):
-				print(self.course[i], end = '')
+				print(self.course[i], end = ' ')
+		print()
 				
 
 
