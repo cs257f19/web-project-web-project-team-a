@@ -73,6 +73,7 @@ class courseQuery:
 		'''
 		try:
 			cursor = self.connection.cursor()
+			print("hit6")
 			query = "SELECT	* FROM classes WHERE coursenum = " + str(self.courseNumber) + " ORDER BY coursename DESC"
 			cursor.execute(query)
 			print("hit4")
