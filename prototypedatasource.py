@@ -224,10 +224,10 @@ def main():
 	# Initialize query object and test queries
 	query = courseQuery("ENGL", 251, "Data Structures", "Winter 2020", None, None)
 
-	results = query.getCourseName()
+	3results = query.getCourseName()
 	#results = query.getCourseDeptTag(connection)
 	#results = query.getCourseTerm(connection)
-	#results = query.getCourseNumber(connection)
+	results = query.getCourseNumber()
 
 	if results is not None:
 		print("Query results: ")
