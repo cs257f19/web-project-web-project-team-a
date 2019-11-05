@@ -11,6 +11,7 @@ class CourseObj:
 		self.coursePrerequisites = course[3]
 		self.courseRequirements = course[4]
 		self.courseTerm = course[5]
+
 		#once period is implemented into database
 		#self.coursePeriod = course[6] 
 
@@ -43,12 +44,18 @@ class CourseObj:
 		returns course requirements
 		'''
 		return self.courseRequirements
+
 	'''
+	Method will be implemented once database has course period
+
 	def getCoursePeriod(self):
 		return self.coursePeriod
 	'''
 
-	def printInfo(self):
+	def printCourseInfo(self):
+		'''
+		prints out the contents of the course object 
+		'''
 		for i in range(0, 5):
 			if(i !=4 ):
 				print(self.course[i], end = ', ')

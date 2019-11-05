@@ -15,7 +15,7 @@ from CourseObj import*
 
 
 
-class courseQuery:
+class CourseQuery:
 	'''
 		object that when created will contain all criteria from a single user query
 	'''
@@ -31,28 +31,32 @@ class courseQuery:
 		self.password = "lamp792corn"
 		self.connection = self.connect()
 		
-	def create(self, courses):
-		print("hit3")
+	def createCourse(self, courses):
+		'''
+		Helper method that takes in a list of courses in the form of tuples
+		and creates a CourseObj for each course in the list
+
+		PARAMETERS:
+			courses - lists of tuples for courses
+
+		Returns: 
+			a new list of CourseObj objects
+		'''
 		courseResults =[]
 		print(courses)
 		for course in courses:
-			print("hit8")
-			
-			
 			courseObj = CourseObj(course)
-			print("hit9")
 			courseResults.append(courseObj)
-			print("hit10")
 		return courseResults
 	
-	def connect(self):
-		
+	def connect(self):	
 		'''
 		Establishes a connection to the database with the following credentials:
 			user - username, which is also the name of the database
 			password - the password for this database on perlman
 
-		Returns: a database connection.
+		Returns: 
+			a database connection.
 
 		Note: exits if a connection cannot be established.
 		'''
@@ -76,16 +80,12 @@ class courseQuery:
 			a list of all courses withthe specified course number.
 
 		'''
-		print("hit7")
 		try:
 			cursor = self.connection.cursor()
-			print("hit6")
 			query = "SELECT	* FROM classes WHERE coursenum = " + str(self.courseNumber) + " ORDER BY coursename DESC"
 			cursor.execute(query)
-			print("hit4")
 			courses = cursor.fetchall()
 			courseResults = self.create(courses)
-			print("hit5")
 			return courseResults
 
 		except Exception as e:
@@ -109,7 +109,8 @@ class courseQuery:
 			cursor = self.connection.cursor()
 			query = "SELECT	* FROM classes WHERE depttag LIKE '%" + self.courseDeptTag + "%' ORDER BY coursename DESC"
 			cursor.execute(query)
-			create(cursor.fetchall())
+			courses = cursor.fetchall()
+			courseResults = self.create(courses)
 			return courseResults
 
 		except Exception as e:
@@ -131,7 +132,8 @@ class courseQuery:
 			cursor = self.connection.cursor()
 			query = "SELECT	* FROM classes WHERE coursename LIKE '%" + self.courseName + "%' ORDER BY coursename DESC"
 			cursor.execute(query)
-			create(cursor.fetchall())
+			courses = cursor.fetchall()
+			courseResults = self.create(courses)
 			return courseResults
 
 
@@ -166,7 +168,8 @@ class courseQuery:
 			cursor = self.connection.cursor()
 			query = "SELECT	* FROM classes WHERE reqsFilled LIKE '%" + self.courseRequirements + "%' ORDER BY coursename DESC"
 			cursor.execute(query)
-			create(cursor.fetchall())
+			courses = cursor.fetchall()
+			courseResults = self.create(courses)
 			return courseResults
 
 		except Exception as e:
@@ -188,12 +191,14 @@ class courseQuery:
 			cursor = self.connection.cursor()
 			query = "SELECT	* FROM classes WHERE termsoffered LIKE '%" + self.courseTerm + "%' ORDER BY coursename DESC"
 			cursor.execute(query)
-			create(cursor.fetchall())
+			courses = cursor.fetchall()
+			courseResults = self.create(courses)
 			return courseResults
 
 		except Exception as e:
 			print("Something went wrong when executing the query: ", e)
 			return None
+
 	def masterQuery(self):
 		'''
 		Takes checks all query parameters and creates a query compiled of the intersects of all th queries
@@ -210,20 +215,18 @@ def main():
 	
 
 	# Initialize query object and test queries
-	query = courseQuery("ENGL", 251, "Data Structures", "Winter 2020", None, None)
+	query = CourseQuery("ENGL", 251, "Data Structures", "Winter 2020", None, None)
 
+	#test queries
 	#results = query.getCourseName()
 	#results = query.getCourseDeptTag(connection)
 	#results = query.getCourseTerm(connection)
-	print("hit1")
 	results = query.getCourseNumber()
-	print("hit2")
+
 	if results is not None:
 		print("Query results: ")
 		for item in results:
-			item.printInfo()
-		#for item in results:
-		#	print(item)
+			item.printCourseInfo()
 
 	# Disconnect from database
 	query.connection.close()
