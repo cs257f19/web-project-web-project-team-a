@@ -44,6 +44,7 @@ class courseQuery:
 			courseObj = CourseObj(course)
 			print("hit9")
 			courseResults.append(courseObj)
+			print("hit10")
 		return courseResults
 	
 	def connect(self):
