@@ -38,6 +38,7 @@ class courseQuery:
 		for course in courses:
 			print("hit8")
 			courseObj = CourseObj(course)
+			print("hit9")
 			courseResults.append(courseObj)
 		return courseResults
 	
