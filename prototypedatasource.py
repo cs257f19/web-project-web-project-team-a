@@ -71,6 +71,7 @@ class courseQuery:
 			a list of all courses withthe specified course number.
 
 		'''
+		print("hit7")
 		try:
 			cursor = self.connection.cursor()
 			print("hit6")
