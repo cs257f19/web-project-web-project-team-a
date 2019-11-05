@@ -30,7 +30,15 @@ class courseQuery:
 		self.password = "lamp792corn"
 		self.connection = self.connect()
 		
-		
+	def createCourse(self, courses):
+
+		courseResults =[]
+
+		for course in courses:
+			courseObj = CourseObj(course)
+			courseResults.append(courseObj)
+		return courseResults
+	
 	def connect(self):
 		
 		'''
@@ -50,15 +58,7 @@ class courseQuery:
 			exit()
 		return connection
 
-	def createCourse(self, courses):
-
-		courseResults =[]
-
-		for course in courses:
-			courseObj = CourseObj(course)
-			courseResults.append(courseObj)
-		return courseResults
-
+	
 	def getCourseNumber(self):
 		'''
 		Returns a list of all coursees with the specified course number.
