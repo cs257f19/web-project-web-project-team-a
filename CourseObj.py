@@ -4,7 +4,7 @@ class CourseObj:
 		object that contains all info of a single course
 	'''
 	def __init__(self,course):
-		
+		self.course = course;
 		self.courseDeptTag = course[0]
 		self.courseNumber = course[1]
 		self.courseName = course[2]
@@ -50,7 +50,7 @@ class CourseObj:
 
 	def printInfo(self):
 		for i in range(0, 5):
-				print(self[i], end = '')
+				print(self.course[i], end = '')
 				
 
 
