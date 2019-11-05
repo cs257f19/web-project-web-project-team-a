@@ -1,4 +1,3 @@
-from lxml import html
 import requests
 from lxml.html import fromstring
 import csv
@@ -7,8 +6,19 @@ master_list = []
 
 
 class Course:
-
+    """
+    Course subclass with instance variables for metadata of the course
+    """
     def __init__(self, dept, num, name, term, reqs, periods):
+        """
+        Course object constructor
+        :param dept: department code
+        :param num: course number
+        :param name: course name
+        :param term: term offered
+        :param reqs: liberal arts requirements fulfilled by course
+        :param periods: class period(s) offered
+        """
         self.dept = dept
         self.num = num
         self.name = name
@@ -16,45 +26,8 @@ class Course:
         self.reqs = reqs
         self.periods = periods
 
-    # def __init__(self):
-    #     self.dept = 'DEPT'
-    #     self.num = 0.0
-    #     self.terms = 'TERMS'
-    #     self.reqs = 'REQS'
-    #     self.periods = 'PERIODS'
 
-    def set_dept(self, dept):
-        self.dept = dept
-
-    def set_num(self, num):
-        self.num = num
-
-    def set_name(self, name):
-        self.name = name
-
-    def set_term(self, term):
-        self.term = term
-
-    def add_term(self, term):
-        self.term = self.term + ', ' + term
-
-    def set_reqs(self, req):
-        self.reqs = req
-
-    def add_req(self, req):
-        self.reqs = self.reqs + ', ' + req
-
-    def set_period(self, period):
-        self.periods = period
-
-    def add_period(self, period):
-        self.periods = self.periods + ', ' + period
-
-    def to_string(self):
-        return 'Dept: ' + self.dept + ', Number: ' + self.num
-
-
-subjects = ['AFST', 'AMMU', 'AMST', 'ARBC', 'ARCN', 'ARTH', 'ASLN', 'ASST', 'ASTR', 'BIOL', 'CHEM', 'CHIN', 'CAMS',
+departments = ['AFST', 'AMMU', 'AMST', 'ARBC', 'ARCN', 'ARTH', 'ASLN', 'ASST', 'ASTR', 'BIOL', 'CHEM', 'CHIN', 'CAMS',
             'CLAS', 'CGSC', 'CS', 'CCST', 'DANC', 'DGAH', 'ECON', 'EDUC', 'ENGL', 'ENTS', 'EUST', 'FREN', 'GEOL',
             'GERM', 'GRK', 'HEBR', 'HIST', 'IDSC', 'JAPN', 'LATN', 'LTAM', 'LING', 'LCST', 'MATH', 'MARS', 'MEST',
             'MELA', 'MUSC', 'NEUR', 'PHIL', 'PE', 'PHYS', 'POSC', 'PSYC', 'RELG', 'RUSS', 'SOAN', 'SPAN', 'ANCE',
@@ -64,33 +37,43 @@ terms = ['19FA', '20WI', '20SP']
 
 
 def collect_dept(dept_iter):
-    return subjects[dept_iter]
+    """
+    returns the department code for a given department iteration
+    :param dept_iter: location within departments list as it's being iterated through
+    :return: department code
+    """
+    return departments[dept_iter]
 
 
 def collect_nums(tree, i):
+    """
+    returns the course number contained within the XPath
+    :param tree: tree containing all HTML elements of the current page
+    :param i: iterator variable for current course being inspected
+    :return: course number associated with course at position i in the list of courses w/in the tree
+    """
     string = str(tree.xpath('//*[@id="enrollModule"]/div[1]/div[' + str(i) + ']/h3/span[1]/text()'))
     number = float(''.join(filter(lambda x: x.isdigit() or x == '.', string)))
     return number
 
 
-# def collect_num_suffix(tree):
-#     nums_list = []
-#
-#     # iterate through the page collecting the course numbers
-#     for i in range(1, get_number_offered_for_term(tree) + 1):
-#         string = str(tree.xpath('//*[@id="enrollModule"]/div[1]/div[' + str(i) + ']/h3/span[1]/text()'))
-#         number = float(''.join(filter(lambda x: x.isdigit() or x == '.', string))[3::])
-#         nums_list.append(number)
-#
-#     return nums_list
-
-
 def collect_name(tree, i):
+    """
+    returns the course name contained within the XPath
+    :param tree: tree containing all HTML elements of the current page
+    :param i: iterator variable for current course being inspected
+    :return: course name associated with course at position i in the list of courses w/in the tree
+    """
     string = str(tree.xpath('//*[@id="enrollModule"]/div/div[' + str(i) + ']/h3/text()')[0])
     return string[1:-1]
 
 
 def collect_terms(term_iter):
+    """
+    retrieves the term based on the iteration of the for-loop running in crawl_department
+    :param term_iter: iterative variable associated with Fall, Winter or Spring
+    :return: the term the course is offered in
+    """
     if term_iter == 0:
         return 'Fall 2019'
     elif term_iter == 1:
@@ -101,6 +84,12 @@ def collect_terms(term_iter):
 
 
 def collect_reqs(tree, course_iter):
+    """
+    returns the liberal arts requirements contained within the XPath, associated with the course at course_iter
+    :param tree: the tree containing all HTML elements of the page currently being crawled
+    :param course_iter: iterative variable to point at the element within the XPath for the current course
+    :return: liberal arts requirements fulfilled by the course
+    """
     reqs = []
     for i in range(1, 4):
         string = str(tree.xpath('//*[@id="enrollModule"]/div/div[' + str(course_iter) + ']/div[1]/div[2]/ul/li[' + str(i) + ']/a/text()'))
@@ -133,7 +122,16 @@ def collect_reqs(tree, course_iter):
 
 
 def collect_period(tree, course_iter):
-    start_time = str(tree.xpath('//*[@id="enrollModule"]/div/div[' + str(course_iter) + ']/div[1]/div[1]/table/tbody/tr/td[1]/span[1]/text()'))
+    """
+    returns the class periods for which the course is offered contained within the XPath, associated with the course at
+    course_iter
+    :param tree: the tree containing all HTML elements of the page currently being crawled
+    :param course_iter: iterative variable to point at the element within the XPath for the current course
+    :return: class period for which the course is offered
+    """
+    start_time = str(tree.xpath('//*[@id="enrollModule"]/div/div[' + str(course_iter) + ']/div[1]/div['
+                                                                                        '1]/table/tbody/tr/td['
+                                                                                        '1]/span[1]/text()'))
 
     # the class is MWF
     if start_time != '[]':
@@ -152,7 +150,8 @@ def collect_period(tree, course_iter):
 
     # the class is T/Th
     else:
-        start_time = str(tree.xpath('//*[@id="enrollModule"]/div/div[1]/div[1]/div[1]/table/tbody/tr/td[2]/span[1]/text()'))
+        start_time = str(tree.xpath('//*[@id="enrollModule"]/div/div[1]/div[1]/div[1]/table/tbody/tr/td[2]/span['
+                                    '1]/text()'))
         if '8:15' in start_time:
             return '1/2c'
         elif '10:10' in start_time:
@@ -166,6 +165,11 @@ def collect_period(tree, course_iter):
 
 
 def get_number_offered_for_term(tree):
+    """
+    returns how many courses are offered for a certain department within a specific term
+    :param tree: the tree containing all HTML elements of the page currently being crawled
+    :return: the number of courses offered by a specific department for a specific term
+    """
     string = str(tree.xpath('//*[@id="enrollModule"]/p[3]/text()'))
     if 'found' in string:
         index = string.index('found') + 6
@@ -181,7 +185,12 @@ def get_number_offered_for_term(tree):
 
 
 def create_csv(course_list):
-    with open('newClasses.csv', 'w') as csvfile:
+    """
+    Creates the CSV file containing all courses offered at Carleton for the 2019-2020 school year
+    :param course_list: list of all courses offered at Carleton, containing Course objects
+    :return: None, but writes a CSV file
+    """
+    with open('courses.csv', 'w') as csvfile:
         filewriter = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
         filewriter.writerow(['DeptTag', 'CourseNum', 'CourseName', 'Term', 'reqsFilled', 'period'])
         for item in course_list:
@@ -189,38 +198,46 @@ def create_csv(course_list):
                 [item.dept, item.num, item.name, item.term, item.reqs, item.periods])
 
 
-def test():
-    page = requests.get('https://apps.carleton.edu/campus/registrar/schedule/enroll/?term=19FA&subject=BIOL')
-    tree = fromstring(page.content)
-    print(get_number_offered_for_term(tree))
-    print(collect_nums(tree, 1))
-    print(collect_reqs(tree, 1))
-    print(collect_period(tree, 2))
-
-
 def crawl_page(page, dept_iter, term_iter):
+    """
+    Crawls a specific page on Carleton's ENROLL tool
+    :param page: the current page from Carleton ENROLL
+    :param dept_iter: iterative variable representing which department is currently being crawled
+    :param term_iter: iterative variable representing which term is currently being crawled
+    :return: None
+    """
     tree = fromstring(page.content)
     num_courses = get_number_offered_for_term(tree)
 
-    # iterates through a subject during a specific term
+    # iterates through a department during a specific term
     for i in range(1, num_courses + 1):
         course = Course(collect_dept(dept_iter), collect_nums(tree, i), collect_name(tree, i), collect_terms(term_iter), collect_reqs(tree, i),
                         collect_period(tree, i))
         master_list.append(course)
 
 
-def crawl_subject(dept_iter):
+def crawl_department(dept_iter):
+    """
+    Crawls a specific department's offerings for the year at Carleton
+    :param dept_iter: iterative variable representing the location within list:departments to retrieve the current dept
+    :return: None
+    """
     # iterates over all three terms
     for j in range(0, 3):
         term = terms[j]
-        url = 'https://apps.carleton.edu/campus/registrar/schedule/enroll/?term=' + term + '&subject=' + subjects[dept_iter]
+        url = 'https://apps.carleton.edu/campus/registrar/schedule/enroll/?term=' + term + '&subject=' + departments[dept_iter]
         page = requests.get(url)
         crawl_page(page, dept_iter, j)
 
 
 def main():
-    for i in range(0, len(subjects)):
-        crawl_subject(i)
+    """
+    Main method for WebCrawler2.py
+    Executes a web crawl over all departments for all three terms during the 2019-2020 school year
+    :return: none
+    """
+    for i in range(0, len(departments)):
+        crawl_department(i)
     create_csv(master_list)
 
 
