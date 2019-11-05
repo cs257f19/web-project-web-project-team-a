@@ -3,7 +3,7 @@ class CourseObj:
 	'''
 		object that contains all info of a single course
 	'''
-	def init(self,course):
+	def __init__(self,course):
 		
 		self.courseDeptTag = course[0]
 		self.courseNumber = course[1]
