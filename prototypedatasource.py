@@ -78,7 +78,8 @@ class courseQuery:
 			query = "SELECT	* FROM classes WHERE coursenum = " + str(self.courseNumber) + " ORDER BY coursename DESC"
 			cursor.execute(query)
 			print("hit4")
-			create(cursor.fetchall())
+			courses = cursor.fetchall()
+			create(courses)
 			print("hit5")
 			return courseResults
 
