@@ -38,7 +38,7 @@ class courseQuery:
 		for course in courses:
 			print("hit8")
 			
-			for i in len(course):
+			for i in range(0, len(course)):
 				print(course[i])
 				
 			courseObj = CourseObj(course)
