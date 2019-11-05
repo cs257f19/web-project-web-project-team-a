@@ -133,28 +133,6 @@ class courseQuery:
 			print ("Something went wrong when executing the query: ", e)
 			return None
 
-	def getCourseNumber(self):
-		'''
-		Returns a list of all coursees with the specified course number.
-
-		PPARAMETERS:
-			connection - connection to database
-
-		RETURN:
-			a list of all courses withthe specified course number.
-
-		'''
-		try:
-			cursor = self.connection.cursor()
-			query = "SELECT	* FROM classes WHERE coursenum = " + str(self.courseNumber) + " ORDER BY coursename DESC"
-			cursor.execute(query)
-			create(cursor.fetchall())
-			return courseResults
-
-		except Exception as e:
-			print ("Something went wrong when executing the query: ", e)
-			return None
-
 	def getCoursePeriod(self):
 		'''
 		Returns a list of all of the coursees during the specified course period.
