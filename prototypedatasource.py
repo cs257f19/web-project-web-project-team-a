@@ -85,7 +85,7 @@ class CourseQuery:
 			query = "SELECT	* FROM classes WHERE coursenum = " + str(self.courseNumber) + " ORDER BY coursename DESC"
 			cursor.execute(query)
 			courses = cursor.fetchall()
-			courseResults = self.create(courses)
+			courseResults = self.createCourse(courses)
 			return courseResults
 
 		except Exception as e:
@@ -110,7 +110,7 @@ class CourseQuery:
 			query = "SELECT	* FROM classes WHERE depttag LIKE '%" + self.courseDeptTag + "%' ORDER BY coursename DESC"
 			cursor.execute(query)
 			courses = cursor.fetchall()
-			courseResults = self.create(courses)
+			courseResults = self.createCourse(courses)
 			return courseResults
 
 		except Exception as e:
@@ -133,7 +133,7 @@ class CourseQuery:
 			query = "SELECT	* FROM classes WHERE coursename LIKE '%" + self.courseName + "%' ORDER BY coursename DESC"
 			cursor.execute(query)
 			courses = cursor.fetchall()
-			courseResults = self.create(courses)
+			courseResults = self.createCourse(courses)
 			return courseResults
 
 
@@ -169,7 +169,7 @@ class CourseQuery:
 			query = "SELECT	* FROM classes WHERE reqsFilled LIKE '%" + self.courseRequirements + "%' ORDER BY coursename DESC"
 			cursor.execute(query)
 			courses = cursor.fetchall()
-			courseResults = self.create(courses)
+			courseResults = self.createCourse(courses)
 			return courseResults
 
 		except Exception as e:
@@ -192,7 +192,7 @@ class CourseQuery:
 			query = "SELECT	* FROM classes WHERE termsoffered LIKE '%" + self.courseTerm + "%' ORDER BY coursename DESC"
 			cursor.execute(query)
 			courses = cursor.fetchall()
-			courseResults = self.create(courses)
+			courseResults = self.createCourse(courses)
 			return courseResults
 
 		except Exception as e:
