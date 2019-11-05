@@ -7,7 +7,7 @@ class CourseObj:
 		
 		self.courseDeptTag = course[0]
 		self.courseNumber = course[1]
-		self.courseName = name course[2]
+		self.courseName = course[2]
 		self.coursePrerequisites = course[3]
 		self.courseRequirements = course[4]
 		self.courseTerm = course[5]
