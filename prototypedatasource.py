@@ -34,7 +34,7 @@ class courseQuery:
 	def create(self, courses):
 		print("hit3")
 		courseResults =[]
-
+		print courses
 		for course in courses:
 			courseObj = CourseObj(course)
 			courseResults.append(courseObj)
