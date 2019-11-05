@@ -43,7 +43,6 @@ class CourseQuery:
 			a new list of CourseObj objects
 		'''
 		courseResults =[]
-		print(courses)
 		for course in courses:
 			courseObj = CourseObj(course)
 			courseResults.append(courseObj)
@@ -219,8 +218,8 @@ def main():
 
 	#test queries
 	#results = query.getCourseName()
-	#results = query.getCourseDeptTag(connection)
-	#results = query.getCourseTerm(connection)
+	#results = query.getCourseDeptTag()
+	#results = query.getCourseTerm()
 	results = query.getCourseNumber()
 
 	if results is not None:
