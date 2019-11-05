@@ -32,7 +32,7 @@ class courseQuery:
 		self.connection = self.connect()
 		
 	def create(self, courses):
-
+		print("hit3")
 		courseResults =[]
 
 		for course in courses:
@@ -75,7 +75,9 @@ class courseQuery:
 			cursor = self.connection.cursor()
 			query = "SELECT	* FROM classes WHERE coursenum = " + str(self.courseNumber) + " ORDER BY coursename DESC"
 			cursor.execute(query)
+			print("hit4")
 			create(cursor.fetchall())
+			print("hit5")
 			return courseResults
 
 		except Exception as e:
@@ -227,8 +229,9 @@ def main():
 	#results = query.getCourseName()
 	#results = query.getCourseDeptTag(connection)
 	#results = query.getCourseTerm(connection)
+	print("hit1")
 	results = query.getCourseNumber()
-
+	print("hit2")
 	if results is not None:
 		print("Query results: ")
 		for item in results:
