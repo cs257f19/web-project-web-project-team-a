@@ -11,7 +11,8 @@ class CourseObj:
 		self.coursePrerequisites = course[3]
 		self.courseRequirements = course[4]
 		self.courseTerm = course[5]
-		self.coursePeriod = course[6] 
+		#once period is implemented into database
+		#self.coursePeriod = course[6] 
 
 	def getCourseTerm(self):
 		'''
@@ -42,7 +43,7 @@ class CourseObj:
 		returns course requirements
 		'''
 		return self.courseRequirements
-
+	'''
 	def getCoursePeriod(self):
 		return self.coursePeriod
-
+	'''
