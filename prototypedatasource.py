@@ -10,7 +10,8 @@ Adapted from code originally written by Jeff Ondich
 
 import psycopg2
 import getpass
-from CourseObj import*
+from course import*
+
 
 
 
@@ -143,7 +144,8 @@ class courseQuery:
 			cursor = self.connection.cursor()
 			query = "SELECT	* FROM classes WHERE coursenum = " + str(self.courseNumber) + " ORDER BY coursename DESC"
 			cursor.execute(query)
-			return cursor.fetchall()
+			createCourse(course.fetchall())
+			return courseResults
 
 		except Exception as e:
 			print ("Something went wrong when executing the query: ", e)
