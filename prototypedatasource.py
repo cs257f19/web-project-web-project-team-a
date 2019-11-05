@@ -17,7 +17,7 @@ from CourseObj import*
 
 class courseQuery:
 	'''
-		object that when created will contain all criteria from a single user quiery
+		object that when created will contain all criteria from a single user query
 	'''
 
 	def __init__(self, dept, number, name, term, requirements, period):
@@ -36,6 +36,7 @@ class courseQuery:
 		courseResults =[]
 		print(courses)
 		for course in courses:
+			print("hit8")
 			courseObj = CourseObj(course)
 			courseResults.append(courseObj)
 		return courseResults
