@@ -37,10 +37,10 @@ class courseQuery:
 		print(courses)
 		for course in courses:
 			print("hit8")
-			i=0
-			for len(course) in course:
+			
+			for i in len(course):
 				print(course[i])
-				i++
+				
 			courseObj = CourseObj(course)
 			print("hit9")
 			courseResults.append(courseObj)
