@@ -27,7 +27,7 @@ class courseQuery:
 		self.courseRequirements = requirements
 		self.coursePeriod = period
 		self.user = "ngot"
-		self.password = getpass.getpass()
+		self.password = "lamp792corn"
 		self.connection = self.connect()
 		
 		
@@ -53,9 +53,10 @@ class courseQuery:
 	def createCourse(self, courses):
 
 		courseResults =[]
-		for courses in course.fetchall():
-			course = courseObj(courses)
-			courseResults.append(course)
+
+		for course in courses:
+			courseObj = CourseObj(course)
+			courseResults.append(courseObj)
 		return courseResults
 
 	def getCourseNumber(self):
