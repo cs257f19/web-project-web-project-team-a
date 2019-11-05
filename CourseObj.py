@@ -47,3 +47,16 @@ class CourseObj:
 	def getCoursePeriod(self):
 		return self.coursePeriod
 	'''
+
+	def printInfo(self):
+		for i in range(0, 5):
+				print(course[i], end = '')
+				
+
+
+
+
+
+
+
+

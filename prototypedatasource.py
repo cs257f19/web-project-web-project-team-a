@@ -38,9 +38,7 @@ class courseQuery:
 		for course in courses:
 			print("hit8")
 			
-			for i in range(0, len(course)):
-				print(course[i])
-				
+			
 			courseObj = CourseObj(course)
 			print("hit9")
 			courseResults.append(courseObj)
@@ -222,8 +220,8 @@ def main():
 	print("hit2")
 	if results is not None:
 		print("Query results: ")
-		for item in range(0, len(self.results)):
-			print(self.results[item])
+		for item in results:
+			item.printInfo()
 		#for item in results:
 		#	print(item)
 
