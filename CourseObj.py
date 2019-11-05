@@ -60,7 +60,7 @@ class CourseObj:
 			if(i !=4 ):
 				print(self.course[i], end = ', ')
 			else:
-				print(self.course[i])
+				print(self.course[i], end ='')
 		print()
 				
 
