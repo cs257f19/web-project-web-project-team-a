@@ -86,7 +86,7 @@ class courseQuery:
 			cursor.execute(query)
 			print("hit4")
 			courses = cursor.fetchall()
-			self.create(courses)
+			courseResults = self.create(courses)
 			print("hit5")
 			return courseResults
 
