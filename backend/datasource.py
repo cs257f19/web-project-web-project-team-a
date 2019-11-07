@@ -10,7 +10,7 @@ Adapted from code originally written by Jeff Ondich
 
 import psycopg2
 import getpass
-from CourseObj import*
+from courseobj import*
 
 
 
