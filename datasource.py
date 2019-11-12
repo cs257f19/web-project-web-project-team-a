@@ -214,12 +214,13 @@ def main():
 	
 
 	# Initialize query object and test queries
-	query = CourseQuery("ENGL", 251, "Data Structures", "Winter 2020", None, None)
+	#query = CourseQuery("ENGL", 251, "Data Structures", "Winter 2020", None, None)
 
 	#test queries
 	#results = query.getCourseByName()
 	#results = query.getCourseByDeptTag()
 	#results = query.getCourseByTerm()
+	'''
 	results = query.getCourseByNumber()
 
 	if results is not None:
@@ -229,5 +230,5 @@ def main():
 
 	# Disconnect from database
 	query.connection.close()
-
+	'''
 main()

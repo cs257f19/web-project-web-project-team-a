@@ -19,6 +19,7 @@ def searchResult():
 	if request.method == 'POST':
 		result = request.form
 		ds = courseQuery.datasource(None, None, result.get("search"), None, None, None)
+		#ds.close()
 		description = "Showing all classes that have  " + result.get("search") + " sorted alphabetically"
 		result = ds.getCourseName()
 		return render_template('result.html', result = result, description = description)
