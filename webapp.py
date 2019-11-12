@@ -14,14 +14,18 @@ app = flask.Flask(__name__)
 def hello():
     return render_template('homepage.html')
 
-@app.route('/result', methods=['POST', 'GET'])
-def result():
+@app.route('/search-result', methods=['POST', 'GET'])
+def searchResult():
 	if request.method == 'POST':
 		result = request.form
 		ds = datasource.DataSource()
-		description = "Showing all names beginning with " + " sorted alphabetically"
-		result = "hello"
+		description = "Showing all names beginning with " + result.get("search") + " sorted alphabetically"
+		result = ds.getCourseName(result.get("Letter"))
 		return render_template('result.html', result = result, description = description)
+
+@app.route('/result')
+def hello():
+    return render_template('result.html')
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:
