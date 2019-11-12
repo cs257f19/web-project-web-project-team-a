@@ -18,10 +18,10 @@ def hello():
 def result():
 	if request.method == 'POST':
 		result = request.form
-        ds = datasource.DataSource()
-        description = "Showing all names beginning with " + result.get("Letter") + " sorted alphabetically"
-        result = ds.getCourseName(result.get("Letter"))
-        return render_template('result.html', result = result, description = description)
+		ds = datasource.DataSource()
+		description = "Showing all names beginning with " + result.get("Letter") + " sorted alphabetically"
+		result = ds.getCourseName(result.get("Letter"))
+		return render_template('result.html', result = result, description = description)
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:
