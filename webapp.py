@@ -24,7 +24,7 @@ def searchResult():
 		return render_template('result.html', result = result, description = description)
 
 @app.route('/result')
-def hello():
+def result():
     return render_template('result.html')
 
 if __name__ == '__main__':
