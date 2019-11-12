@@ -18,9 +18,9 @@ def hello():
 def searchResult():
 	if request.method == 'POST':
 		result = request.form
-		ds = datasource.DataSource()
-		description = "Showing all names beginning with " + result.get("search") + " sorted alphabetically"
-		result = ds.getCourseName(result.get("Letter"))
+		ds = courseQuery.DataSource(None, None, result.get("search"), None, None, None)
+		description = "Showing all classes that have  " + result.get("search") + " sorted alphabetically"
+		result = ds.getCourseName()
 		return render_template('result.html', result = result, description = description)
 
 @app.route('/result')
