@@ -3,7 +3,7 @@ from flask import render_template, request
 # from flask_sqlalchemy import SQLAlchemy
 import json
 import sys
-
+import datasource
 app = flask.Flask(__name__)
 
 
@@ -18,7 +18,7 @@ def hello():
 def searchResult():
 	if request.method == 'POST':
 		result = request.form
-		ds = courseQuery.DataSource(None, None, result.get("search"), None, None, None)
+		ds = courseQuery.datasource(None, None, result.get("search"), None, None, None)
 		description = "Showing all classes that have  " + result.get("search") + " sorted alphabetically"
 		result = ds.getCourseName()
 		return render_template('result.html', result = result, description = description)
