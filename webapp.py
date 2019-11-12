@@ -19,8 +19,8 @@ def result():
 	if request.method == 'POST':
 		result = request.form
 		ds = datasource.DataSource()
-		description = "Showing all names beginning with " + result.get("Letter") + " sorted alphabetically"
-		result = ds.getCourseName(result.get("Letter"))
+		description = "Showing all names beginning with " + " sorted alphabetically"
+		result = "hello"
 		return render_template('result.html', result = result, description = description)
 
 if __name__ == '__main__':
