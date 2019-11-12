@@ -40,17 +40,6 @@ h2{
   font-size: 17px;
 }
 
-.sections{
-  position: relative;
-  top: -240px;
-  font-size: 35px;
-  font-family: verdana;
-  font-weight: bold;
-  color: #0b5091;
-  -webkit-text-stroke-width: 1.5px;
-  -webkit-text-stroke-color: black;
-}
-
 button{
   display: inline-block;
   text-align: center;
@@ -59,7 +48,7 @@ button{
   background: #f5c13f;
   color : #0b5091;
   font-family: verdana;
-  font-size: 20px;
+  font-size: 22px;
   border: 2px solid #0b5091;
   height: 175px;
   width: 32%;
@@ -108,6 +97,6 @@ form.searchTool::after {
 
 .searchTool{
   position: relative;
-  top: -410px;
+  top: -330px;
   margin-left: 2px;
 }
