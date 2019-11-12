@@ -17,7 +17,7 @@ def hello():
 @app.route('/result', methods=['POST', 'GET'])
 def result():
 	if request.method == 'POST':
-        result = request.form
+		result = request.form
         ds = datasource.DataSource()
         description = "Showing all names beginning with " + result.get("Letter") + " sorted alphabetically"
         result = ds.getCourseName(result.get("Letter"))
