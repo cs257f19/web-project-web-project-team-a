@@ -1,10 +1,11 @@
 import flask
-from flask import render_template
+from flask import render_template, request
 # from flask_sqlalchemy import SQLAlchemy
 import json
 import sys
 
 app = flask.Flask(__name__)
+
 
 # db = SQLAlchemy()
 
@@ -13,9 +14,12 @@ app = flask.Flask(__name__)
 def hello():
     return render_template('homepage.html')
 
-@app.route('/find-a-class/')
-def find_class():
-    return render_template('result.html')
+
+@app.route('/result', methods=['POST', 'GET'])
+def result():
+    if request.method == 'POST':
+        result = request.form
+        return render_template("result.html", result=result)
 
 
 if __name__ == '__main__':
