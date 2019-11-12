@@ -1,9 +1,13 @@
 import flask
 from flask import render_template
+from flask_sqlalchemy import SQLAlchemy
 import json
 import sys
 
 app = flask.Flask(__name__)
+
+db = SQLAlchemy()
+
 
 @app.route('/')
 def hello():
