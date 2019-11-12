@@ -22,12 +22,6 @@ def result():
         description = "Showing all names beginning with " + result.get("Letter") + " sorted alphabetically"
         result = ds.getCourseName(result.get("Letter"))
         return render_template('result.html', result = result, description = description)
-        
-
-    if request.method == 'POST':
-        result = request.form
-        return render_template("result.html", result=result)
-
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:
