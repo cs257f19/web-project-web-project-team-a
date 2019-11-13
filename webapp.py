@@ -20,7 +20,7 @@ def searchResult():
 		result = request.form
 		ds = datasource.CourseQuery(None, None, result.get("search"), None, None, None)
 		#description = "Showing all classes that have  " + result.get("search") + " sorted alphabetically"
-		result = ds.getCourseName()
+		result = ds.getCourseByName()
 		return render_template('result.html', result = result)
 
 @app.route('/result')
