@@ -9,6 +9,7 @@ class Course:
     """
     Course subclass with instance variables for metadata of the course
     """
+
     def __init__(self, dept, num, name, term, reqs, periods):
         """
         Course object constructor
@@ -28,10 +29,10 @@ class Course:
 
 
 departments = ['AFST', 'AMMU', 'AMST', 'ARBC', 'ARCN', 'ARTH', 'ASLN', 'ASST', 'ASTR', 'BIOL', 'CHEM', 'CHIN', 'CAMS',
-            'CLAS', 'CGSC', 'CS', 'CCST', 'DANC', 'DGAH', 'ECON', 'EDUC', 'ENGL', 'ENTS', 'EUST', 'FREN', 'GEOL',
-            'GERM', 'GRK', 'HEBR', 'HIST', 'IDSC', 'JAPN', 'LATN', 'LTAM', 'LING', 'LCST', 'MATH', 'MARS', 'MEST',
-            'MELA', 'MUSC', 'NEUR', 'PHIL', 'PE', 'PHYS', 'POSC', 'PSYC', 'RELG', 'RUSS', 'SOAN', 'SPAN', 'ANCE',
-            'ARTS', 'THEA', 'WGST']
+               'CLAS', 'CGSC', 'CS', 'CCST', 'DANC', 'DGAH', 'ECON', 'EDUC', 'ENGL', 'ENTS', 'EUST', 'FREN', 'GEOL',
+               'GERM', 'GRK', 'HEBR', 'HIST', 'IDSC', 'JAPN', 'LATN', 'LTAM', 'LING', 'LCST', 'MATH', 'MARS', 'MEST',
+               'MELA', 'MUSC', 'NEUR', 'PHIL', 'PE', 'PHYS', 'POSC', 'PSYC', 'RELG', 'RUSS', 'SOAN', 'SPAN', 'ANCE',
+               'ARTS', 'THEA', 'WGST']
 
 terms = ['19FA', '20WI', '20SP']
 
@@ -92,7 +93,9 @@ def collect_reqs(tree, course_iter):
     """
     reqs = []
     for i in range(1, 4):
-        string = str(tree.xpath('//*[@id="enrollModule"]/div[1]/div[' + str(course_iter) + ']/div[1]/div[2]/ul/li[' + str(i) + ']/a/text()'))
+        string = str(tree.xpath(
+            '//*[@id="enrollModule"]/div[1]/div[' + str(course_iter) + ']/div[1]/div[2]/ul/li[' + str(
+                i) + ']/a/text()'))
         if "Formal" in string:
             reqs.append("FSR")
         if "Quantitative" in string:
@@ -150,8 +153,9 @@ def collect_period(tree, course_iter):
 
     # the class is T/Th
     else:
-        start_time = str(tree.xpath('//*[@id="enrollModule"]/div/div[1]/div[1]/div[1]/table/tbody/tr/td[2]/span['
-                                    '1]/text()'))
+        start_time = str(tree.xpath('//*[@id="enrollModule"]/div/div[' + str(course_iter) + ']/div[1]/div['
+                                                                                            '1]/table/tbody/tr/td['
+                                                                                            '2]/span[1]/text()'))
         if '8:15' in start_time:
             return '1/2c'
         elif '10:10' in start_time:
@@ -211,7 +215,8 @@ def crawl_page(page, dept_iter, term_iter):
 
     # iterates through a department during a specific term
     for i in range(1, num_courses + 1):
-        course = Course(collect_dept(dept_iter), collect_nums(tree, i), collect_name(tree, i), collect_terms(term_iter), collect_reqs(tree, i),
+        course = Course(collect_dept(dept_iter), collect_nums(tree, i), collect_name(tree, i), collect_terms(term_iter),
+                        collect_reqs(tree, i),
                         collect_period(tree, i))
         master_list.append(course)
 
@@ -225,7 +230,8 @@ def crawl_department(dept_iter):
     # iterates over all three terms
     for j in range(0, 3):
         term = terms[j]
-        url = 'https://apps.carleton.edu/campus/registrar/schedule/enroll/?term=' + term + '&subject=' + departments[dept_iter]
+        url = 'https://apps.carleton.edu/campus/registrar/schedule/enroll/?term=' + term + '&subject=' + departments[
+            dept_iter]
         page = requests.get(url)
         crawl_page(page, dept_iter, j)
 
