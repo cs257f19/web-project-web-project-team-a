@@ -92,7 +92,7 @@ def collect_reqs(tree, course_iter):
     """
     reqs = []
     for i in range(1, 4):
-        string = str(tree.xpath('//*[@id="enrollModule"]/div/div[' + str(course_iter) + ']/div[1]/div[2]/ul/li[' + str(i) + ']/a/text()'))
+        string = str(tree.xpath('//*[@id="enrollModule"]/div[1]/div[' + str(course_iter) + ']/div[1]/div[2]/ul/li[' + str(i) + ']/a/text()'))
         if "Formal" in string:
             reqs.append("FSR")
         if "Quantitative" in string:
