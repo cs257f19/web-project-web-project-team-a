@@ -1,3 +1,10 @@
+@charset "UTF-8";
+
+* {
+   margin: 0px;
+   padding: 0px;
+}
+
 header{
   position: absolute;
   top: 0;
@@ -8,7 +15,7 @@ header{
 
 .header img {
   position: relative;
-  top: -202px;
+  top: -145px;
   width: 140px;
   height: 140px;
   background: white;
@@ -25,10 +32,39 @@ header{
   top: -10px;
 }
 
+.header h2 {
+  position: relative;
+  top: -190px;
+  left: 160px;
+  color: #f5c13f;
+  font-family: verdana;
+  font-size: 15px;
+}
+
+.header button{
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  top: -285px;
+  left: 750px;
+  background: #f5c13f;
+  color : #0b5091;
+  font-family: verdana;
+  font-size: 22px;
+  border: 2px solid #0b5091;
+  height: 60px;
+  width: 20%;
+  border-style: outset;
+  border-width: 5px;
+  float: left;
+  padding: 10px 20px;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  margin-left: 14px;
+}
 
 /* Add style to top navigation */
 .topnav{
-  
+
   background-color: #0b5091;
   height: 60px;
   border: black;
@@ -38,9 +74,12 @@ header{
 .topnav input[type=text] {
   position: relative;
   float: left;
+  top: -145px;
+  left: -605px;
   padding: 10px;
   border: black;
   margin-top: 8px;
+  width: 11%;
   margin-left: 10px;
   font-size: 17px;
 }
@@ -125,7 +164,7 @@ ul.breadcrumb li a:hover {
 .title{
   background-color: #0b5091;
   margin-top: 10px;
-  font-size: 30px; 
+  font-size: 30px;
 
 }
 
@@ -138,7 +177,7 @@ p.description{
   font-size: 100;
 }
 
-.information{ 
+.information{
   overflow: hidden;
 }
 
@@ -149,7 +188,7 @@ p.description{
   padding: 15px;
 
 }
-.requirements{ 
+.requirements{
   text-align: left;
   float: left;
   padding: 15px;
@@ -171,12 +210,3 @@ p.description{
   padding: 15px;
 
 }
-
-
-
-
-
-
-
-
-
