@@ -11,7 +11,7 @@ class CourseObj:
 	def __init__(self,course):
 		self.course = course;
 		self.courseDeptTag = course[0]
-		self.courseNumber = course[1]
+		self.courseNumber = str(course[1])
 		self.courseName = course[2]
 		self.coursePrerequisites = course[3]
 		self.courseRequirements = course[4]
