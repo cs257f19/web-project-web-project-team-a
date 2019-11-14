@@ -23,6 +23,7 @@ def searchResult():
 		#description = "Showing all classes that have  " + result.get("search") + " sorted alphabetically"
 		result = ds.getCourseByName()
 		resultListString = []
+		print(len(result))
 		for item in result:
 			tempList = [item.getCourseTerm(), item.getCourseNumber(), item.getCourseName(), item.getCourseDeptTag(), getCourseRequirements()]
 			resultListString.append(tempList)
