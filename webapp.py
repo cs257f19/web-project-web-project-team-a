@@ -21,7 +21,12 @@ def searchResult():
 		result = request.form
 		
 		ds = datasource.CourseQuery(None, None, result.get("search"), None, None, None)
-		result = ds.courseName
+		result = ds.getCourseByName()
+		result = result[0].getCourseName()
+		
+
+
+
 		'''
 		#description = "Showing all classes that have  " + result.get("search") + " sorted alphabetically"
 		result = ds.getCourseByName()
