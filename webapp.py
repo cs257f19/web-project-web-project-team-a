@@ -19,16 +19,17 @@ def hello():
 def searchResult():
 	if request.method == 'POST':
 		result = request.form
+		'''
 		ds = datasource.CourseQuery(None, None, result.get("search"), None, None, None)
 		#description = "Showing all classes that have  " + result.get("search") + " sorted alphabetically"
 		result = ds.getCourseByName()
 		resultListString = []
-		for item in result.items():
+		for item in result:
 			tempList = [item.getCourseTerm(), item.getCourseNumber(), item.getCourseName(), item.getCourseDeptTag(), getCourseRequirements()]
 			resultListString.append(tempList)
-
+		'''
 		
-		return render_template('result.html', result = resultListString)
+		return render_template('result.html', result = result.get("search"))
 
 @app.route('/result')
 def result():
