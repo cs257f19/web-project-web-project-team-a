@@ -64,7 +64,7 @@ class CourseQuery:
 			connection = psycopg2.connect(database= self.user, user=self.user, password=self.password)
 		except Exception as e:
 			print("Connection error: ", e)
-			exit()
+			exit()result = ds[0]
 		return connection
 
 	
