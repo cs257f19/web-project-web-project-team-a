@@ -19,8 +19,10 @@ def hello():
 def searchResult():
 	if request.method == 'POST':
 		result = request.form
-		'''
+		
 		ds = datasource.CourseQuery(None, None, result.get("search"), None, None, None)
+		result = ds.courseName
+		'''
 		#description = "Showing all classes that have  " + result.get("search") + " sorted alphabetically"
 		result = ds.getCourseByName()
 		resultListString = []
@@ -29,7 +31,7 @@ def searchResult():
 			resultListString.append(tempList)
 		'''
 		
-		return render_template('result.html', result = result.get("search"))
+		return render_template('result.html', result = result)
 
 @app.route('/result')
 def result():
