@@ -48,7 +48,7 @@ class CourseQuery:
 			courseObj = CourseObj(course)
 			courseResults.append(courseObj)
 			count = count + 1
-		return count
+		return courseResults
 	
 	def connect(self):	
 		'''
