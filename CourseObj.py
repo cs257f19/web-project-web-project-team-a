@@ -52,7 +52,7 @@ class CourseObj:
 
 	def getCoursePrerequisites(self):
 		'''
-		returns course requirements
+		returns course Prerequisites
 		'''
 		return self.coursePrerequisites
 	'''
