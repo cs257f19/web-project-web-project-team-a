@@ -22,8 +22,8 @@ def searchResult():
 		
 		ds = datasource.CourseQuery(None, None, result.get("search"), None, None, None)
 		result = ds.getCourseByName()
-		result = result[0].getCourseName()
-		
+		result = result.getCourseName()
+
 
 
 
