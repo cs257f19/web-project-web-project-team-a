@@ -42,12 +42,12 @@ class CourseQuery:
 			a new list of CourseObj objects
 		'''
 
-		count = 0
+		
 		courseResults =[]
 		for course in courses:
 			courseObj = CourseObj(course)
 			courseResults.append(courseObj)
-			count = count + 1
+			
 		return courseResults
 	
 	def connect(self):	
