@@ -224,7 +224,7 @@ def main():
 	#results = query.getCourseByDeptTag()
 	#results = query.getCourseByTerm()
 	#results = query.getCourseByNumber()
-'''
+	'''
 	if results is not None:
 		print("Query results: ")
 		for item in results:
