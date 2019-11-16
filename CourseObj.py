@@ -50,6 +50,11 @@ class CourseObj:
 		'''
 		return self.courseRequirements
 
+	def getCoursePrerequisites(self):
+		'''
+		returns course requirements
+		'''
+		return self.coursePrerequisites
 	'''
 	Method will be implemented once database has course period
 
