@@ -45,7 +45,7 @@
                <td>courseTerm</td>
             </tr>
             {% for course in result%}
-			{% for courseDeptTag, courseNumber, courseName, coursePrerequisites, coureRequirements, courseTerm in result.items() %}
+			{% for courseDeptTag, courseNumber, courseName, coursePrerequisites, coureRequirements, courseTerm in course %}
 			<tr>
                <th> {{ courseDeptTag }} </th>
                <th> {{ courseNumber }} </th>
