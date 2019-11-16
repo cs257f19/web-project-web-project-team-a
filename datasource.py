@@ -217,14 +217,14 @@ def main():
 	
 
 	# Initialize query object and test queries
-	query = CourseQuery("engl", 251, "Data", "Winter 2020", None, None)
+	#query = CourseQuery("engl", 251, "Data", "Winter 2020", None, None)
 
 	#test queries
 	#results = query.getCourseByName()
-	results = query.getCourseByDeptTag()
+	#results = query.getCourseByDeptTag()
 	#results = query.getCourseByTerm()
 	#results = query.getCourseByNumber()
-
+'''
 	if results is not None:
 		print("Query results: ")
 		for item in results:
@@ -235,4 +235,4 @@ def main():
 
 	
 main()
-
+'''

@@ -21,9 +21,9 @@ def searchResult():
 		result = request.form
 		
 		ds = datasource.CourseQuery(None, None, result.get("search"), None, None, None)
-		result = ds.getCourseByName()
+		result = ds.getCourseByTag()
 		
-		#result = result.getCourseName()
+		result = result[0].getCourseName()
 
 
 
