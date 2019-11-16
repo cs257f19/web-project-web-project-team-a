@@ -23,21 +23,17 @@ def searchResult():
 		ds = datasource.CourseQuery(result.get("search"), None, None, None, None, None)
 		result = ds.getCourseByDeptTag()
 		
-		result = result[0].getCourseDeptTag()
-
-
-
-
-		'''
+		#result = result.getCourseDeptTag()
+		
 		#description = "Showing all classes that have  " + result.get("search") + " sorted alphabetically"
 		result = ds.getCourseByName()
-		resultListString = []
+		resultList= []
 		for item in result:
-			tempList = [item.getCourseTerm(), item.getCourseNumber(), item.getCourseName(), item.getCourseDeptTag(), getCourseRequirements()]
-			resultListString.append(tempList)
-		'''
+			tempList = [item.getCourseDeptTag(), item.getCourseNumber(), item.getCourseName(), item.getCoursePrerequisites(), itemgetCourseRequirements() item.getCourseTerm()]
+			resultList.append(tempList)
 		
-		return render_template('result.html', result = result)
+		
+		return render_template('result.html', result = resultList)
 
 @app.route('/result')
 def result():

@@ -34,7 +34,29 @@
 	</div> <br>
 
 	<table border = 1>
-         <h1>{{result}} </h1>
+		
+            <tr>
+               <th>courseDeptTag</th>
+               <th>courseNumber</th>
+               <th>courseName</th>
+               <th>coursePrerequisites</th>
+               <th>coureRequirements</th>
+               <th>courseDeptTag</th>
+               <td>courseTerm</td>
+            </tr>
+            {% for course in result%}
+			{% for courseDeptTag, courseNumber, courseName, coursePrerequisites, coureRequirements, courseTerm in result.items() %}
+			<tr>
+               <th> {{ courseDeptTag }} </th>
+               <th> {{ courseNumber }} </th>
+               <th> {{ courseName }} </th>
+               <th> {{ coursePrerequisites }} </th>
+               <th> {{ coureRequirements }} </th>
+               <th> {{ courseDeptTag }} </th>
+               <td> {{ courseTerm }} </td>
+            </tr>
+        	{% endfor %}
+         {% endfor %}
       </table>
 	</div>
 </body>
