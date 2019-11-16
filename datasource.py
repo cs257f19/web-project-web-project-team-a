@@ -13,7 +13,6 @@ import getpass
 from CourseObj import*
 
 
-count = 0
 
 class CourseQuery:
 	'''
@@ -42,6 +41,8 @@ class CourseQuery:
 		Returns: 
 			a new list of CourseObj objects
 		'''
+
+		count = 0
 		courseResults =[]
 		for course in courses:
 			courseObj = CourseObj(course)
