@@ -20,9 +20,9 @@ def searchResult():
 	if request.method == 'POST':
 		result = request.form
 		
-		ds = datasource.CourseQuery(result.get("search"), None, None, None, None, None)
-		result = ds.getCourseByDeptTag()
-		
+		ds = datasource.CourseQuery(None, None, result.get("search"), None, None, None)
+		#result = ds.getCourseByDeptTag()
+		result = ds.getCourseByName()
 		#result = result.getCourseDeptTag()
 		
 		#description = "Showing all classes that have  " + result.get("search") + " sorted alphabetically"

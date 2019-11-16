@@ -132,7 +132,7 @@ class CourseQuery:
 			'''
 		try:
 			cursor = self.connection.cursor()
-			query = "SELECT	* FROM classes WHERE coursename LIKE UPPER('%" + self.courseName + "%') ORDER BY coursename DESC"
+			query = "SELECT	* FROM classes WHERE UPPER(coursename) LIKE UPPER('%" + self.courseName + "%') ORDER BY coursename DESC"
 			cursor.execute(query)
 			courses = cursor.fetchall()
 			courseResults = self.createCourse(courses)
