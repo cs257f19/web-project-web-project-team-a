@@ -13,7 +13,7 @@ import getpass
 from CourseObj import*
 
 
-
+count = 0
 
 class CourseQuery:
 	'''
@@ -46,7 +46,8 @@ class CourseQuery:
 		for course in courses:
 			courseObj = CourseObj(course)
 			courseResults.append(courseObj)
-		return courseResults
+			count++
+		return count
 	
 	def connect(self):	
 		'''
