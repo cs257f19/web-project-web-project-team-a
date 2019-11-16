@@ -109,7 +109,7 @@ class CourseQuery:
 		'''
 		try:
 			cursor = self.connection.cursor()
-			query = "SELECT	* FROM classes WHERE depttag LIKE '%" + self.courseDeptTag + "%' ORDER BY coursename DESC"
+			query = "SELECT	* FROM classes WHERE depttag LIKE UPPER('%" + self.courseDeptTag + "%') ORDER BY coursename DESC"
 			cursor.execute(query)
 			courses = cursor.fetchall()
 			courseResults = self.createCourse(courses)
@@ -220,8 +220,8 @@ def main():
 	query = CourseQuery("engl", 251, "Data", "Winter 2020", None, None)
 
 	#test queries
-	results = query.getCourseByName()
-	#results = query.getCourseByDeptTag()
+	#results = query.getCourseByName()
+	results = query.getCourseByDeptTag()
 	#results = query.getCourseByTerm()
 	#results = query.getCourseByNumber()
 
