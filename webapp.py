@@ -27,12 +27,12 @@ def searchResult():
 		
 		#description = "Showing all classes that have  " + result.get("search") + " sorted alphabetically"
 		#result = ds.getCourseByName()
-		'''
+		
 		resultList= []
 		for item in result:
 			tempList = [item.getCourseDeptTag(), item.getCourseNumber(), item.getCourseName(), item.getCoursePrerequisites(), itemgetCourseRequirements(), item.getCourseTerm()]
 			resultList.append(tempList)
-		'''
+		
 		
 		return render_template('result.html', result = resultList)
 
