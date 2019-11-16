@@ -43,6 +43,7 @@
                <th>coureRequirements</th>
                <th>courseTerm</th>
             </tr>
+            
             {% for course in result%}
 			{% for courseDeptTag, courseNumber, courseName, coursePrerequisites, coureRequirements, courseTerm  in course %}
 			<tr>
@@ -55,6 +56,7 @@
             </tr>
         	{% endfor %}
          {% endfor %}
+         
       </table>
 	</div>
 </body>
