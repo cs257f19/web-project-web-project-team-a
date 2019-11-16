@@ -20,7 +20,7 @@ def searchResult():
 	if request.method == 'POST':
 		result = request.form
 		
-		ds = datasource.CourseQuery(None, None, result.get("search"), None, None, None)
+		ds = datasource.CourseQuery(result.get("search"), None, None, None, None, None)
 		result = ds.getCourseByDeptTag()
 		
 		result = result[0].getCourseDeptTag()
