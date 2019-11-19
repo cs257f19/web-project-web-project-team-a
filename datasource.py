@@ -86,7 +86,7 @@ class CourseQuery:
 
 		'''
 		if self.courseDeptTag != None:
-			query = "SELECT	* FROM UPPER(classes) WHERE depttag LIKE UPPER('%" + self.courseDeptTag + "%') "
+			query = "SELECT	* FROM classes WHERE UPPER(depttag) LIKE UPPER('%" + self.courseDeptTag + "%') "
 			return query
 		else:
 			return None
@@ -216,7 +216,7 @@ class CourseQuery:
 
 		'''
 		if self.courseRequirements != None:
-			query = "SELECT	* FROM classes WHERE reqsFilled LIKE '%" + self.courseRequirements + "%' "
+			query = "SELECT	* FROM classes WHERE UPPER(reqsFilled) LIKE UPPER('%" + self.courseRequirements + "%') "
 			return query
 		else:
 			return None
