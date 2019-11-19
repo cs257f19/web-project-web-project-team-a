@@ -86,7 +86,7 @@ class CourseQuery:
 
 		'''
 		if self.courseDeptTag != None:
-			query = "SELECT	* FROM UPPER(classes) WHERE depttag LIKE UPPER('%" + self.courseDeptTag + "%') ORDER BY coursename DESC"
+			query = "SELECT	* FROM UPPER(classes) WHERE depttag LIKE UPPER('%" + self.courseDeptTag + "%') "
 			return query
 		else:
 			return None
@@ -118,9 +118,9 @@ class CourseQuery:
 		'''
 		if self.courseNumber != None:
 			if self.courseNumber < 300:
-				query = "SELECT	* FROM classes WHERE coursenum = " + str(self.courseNumber) +  " INTERSECT " +  "SELECT	* FROM classes WHERE coursenum > " + str((self.courseNumber + 99)) + " coursenum ORDER BY coursename DESC"
+				query = "SELECT	* FROM classes WHERE coursenum = " + str(self.courseNumber) +  " INTERSECT " +  "SELECT	* FROM classes WHERE coursenum > " + str((self.courseNumber + 99)) 
 			else:
-				query = "SELECT	* FROM classes WHERE coursenum >= " + str(self.courseNumber) + " coursenum ORDER BY coursename DESC"
+				query = "SELECT	* FROM classes WHERE coursenum >= " + str(self.courseNumber)
 			return query
 		else:
 			return None
@@ -152,7 +152,7 @@ class CourseQuery:
 			'''
 
 		if self.courseName != None:
-			query = "SELECT	* FROM classes WHERE UPPER(coursename) LIKE UPPER('%" + self.courseName + "%') ORDER BY coursename DESC"
+			query = "SELECT	* FROM classes WHERE UPPER(coursename) LIKE UPPER('%" + self.courseName + "%') "
 			return query
 		else:
 			return None
@@ -185,7 +185,7 @@ class CourseQuery:
 
 		'''
 		if self.courseTerm != None:
-			query = "SELECT	* FROM classes WHERE UPPER(termsoffered) LIKE UPPER('%" + self.courseTerm + "%') ORDER BY coursename DESC"
+			query = "SELECT	* FROM classes WHERE UPPER(termsoffered) LIKE UPPER('%" + self.courseTerm + "%') "
 			return query
 		else:
 			return None
@@ -216,7 +216,7 @@ class CourseQuery:
 
 		'''
 		if self.courseRequirements != None:
-			query = "SELECT	* FROM classes WHERE reqsFilled LIKE '%" + self.courseRequirements + "%' ORDER BY coursename DESC"
+			query = "SELECT	* FROM classes WHERE reqsFilled LIKE '%" + self.courseRequirements + "%' "
 			return query
 		else:
 			return None
@@ -247,11 +247,10 @@ class CourseQuery:
 
 		'''
 		if self.coursePeriod != None:
-			query = "SELECT	* FROM classes WHERE classperiod LIKE '%" + self.coursePeriod + "%' ORDER BY coursename DESC"
+			query = "SELECT	* FROM classes WHERE classperiod LIKE '%" + self.coursePeriod + "%' "
 			return query
 		else:
 			return None
-
 
 	def getCourseByProfessor(self):
 		'''
@@ -265,7 +264,7 @@ class CourseQuery:
 
 			'''
 		if self.courseProfessor != None:
-			query = "SELECT	* FROM classes WHERE UPPER(professor) LIKE UPPER('%" + self.courseProfessor + "%') ORDER BY coursename DESC"
+			query = "SELECT	* FROM classes WHERE UPPER(professor) LIKE UPPER('%" + self.courseProfessor + "%') "
 			return query
 		else:
 			return None
