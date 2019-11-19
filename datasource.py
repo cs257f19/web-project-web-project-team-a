@@ -286,7 +286,7 @@ class CourseQuery:
 		'''
 
 	def masterQuery(self):
-		print("hit")
+		
 		'''
 		Takes checks all query parameters and creates a query compiled of the intersects of all th queries
 
@@ -302,10 +302,10 @@ class CourseQuery:
 		#for loop that create a master query string and call it
 
 		try:
-			cursor = self.connection.cursor()
 			masterQuery = "SELECT	* FROM classes ORDER BY DESC"
 
 			for i in range(len(self.QueryList)):
+				print("hit")
 				if i < len(self.QueryList-1):
 					if self.QueryList[i] != None:
 						masterQuery = masterQuery + "INTERSECT" + self.QueryList[i] + "INTERSECT"
@@ -315,10 +315,11 @@ class CourseQuery:
 					else:
 						masterQuery = masterQuery + "ORDER BY coursename DESC"
 
-
+			cursor = self.connection.cursor()
 			cursor.execute(masterQuery)
 			courses = cursor.fetchall()
 			courseResults = self.createCourse(courses)
+			print("hit2")
 			return courseResults
 
 
