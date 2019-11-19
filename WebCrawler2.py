@@ -125,7 +125,9 @@ def collect_reqs(tree, course_iter):
         if "PE" in string:
             reqs.append("PER")
 
-    return str(reqs).replace('\'', '').replace('[', '').replace(']', '')
+    if len(reqs) == 0:
+        return ''
+    return str(reqs).replace('\'', '').replace('[', '').replace(']', '').replace('\"', '')
 
 
 def collect_period(tree, course_iter):
@@ -179,9 +181,10 @@ def collect_professor(tree, course_iter):
 
 
 def collect_desc(tree, course_iter):
-    desc = str(tree.xpath('//*[@id="enrollModule"]/div[1]/div[' + str(course_iter) + ']/div[2]/p[2]/text()')).replace(
-        '[\'', '').replace('\']', '')
-    return desc
+    desc = str(tree.xpath('//*[@id="enrollModule"]/div[1]/div[' + str(course_iter) + ']/div[2]/p[2]/text()'))
+    if desc == '[]':
+        return ''
+    return desc[2:-2]
 
 
 def get_number_offered_for_term(tree):
