@@ -121,8 +121,7 @@ class CourseQuery:
 		'''
 		if self.courseNumber != None:
 			if self.courseNumber < 300:
-				query = "SELECT	* FROM classes WHERE coursenum = " + self.courseNumber +  " INTERSECT " + 
-				"SELECT	* FROM classes WHERE coursenum > " (self.courseNumber + 99) + " coursenum ORDER BY coursename DESC"
+				query = "SELECT	* FROM classes WHERE coursenum = " + self.courseNumber +  " INTERSECT " +  "SELECT	* FROM classes WHERE coursenum > " (self.courseNumber + 99) + " coursenum ORDER BY coursename DESC"
 			else:
 				query = "SELECT	* FROM classes WHERE coursenum >= " + self.courseNumber + " coursenum ORDER BY coursename DESC"
 			return query
