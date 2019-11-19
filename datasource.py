@@ -305,13 +305,13 @@ class CourseQuery:
 			cursor = self.connection.cursor()
 			masterQuery = "SELECT	* FROM classes ORDER BY DESC"
 
-			for i in range(len(QueryList)):
-				if i < len(QueryList-1):
-					if QueryList[i] != None:
-						masterQuery = masterQuery + "INTERSECT" + QueryList[i] + "INTERSECT"
+			for i in range(len(self.QueryList)):
+				if i < len(self.QueryList-1):
+					if self.QueryList[i] != None:
+						masterQuery = masterQuery + "INTERSECT" + self.QueryList[i] + "INTERSECT"
 				else:
-					if QueryList[i] != None:
-						masterQuery = masterQuery + "INTERSECT" + QueryList[i] + "ORDER BY coursename DESC"
+					if self.QueryList[i] != None:
+						masterQuery = masterQuery + "INTERSECT" + self.QueryList[i] + "ORDER BY coursename DESC"
 					else:
 						masterQuery = masterQuery + "ORDER BY coursename DESC"
 
