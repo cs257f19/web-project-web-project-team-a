@@ -313,8 +313,8 @@ class CourseQuery:
 					if QueryList[i] != None:
 						masterQuery = masterQuery + "INTERSECT" + QueryList[i] + "INTERSECT"
 				else:
-					if QueryList[i] != None
-						masterQuery = masterQuery + "INTERSECT" QueryList[i] + "ORDER BY coursename DESC"
+					if QueryList[i] != None:
+						masterQuery = masterQuery + "INTERSECT" + QueryList[i] + "ORDER BY coursename DESC"
 					else:
 						masterQuery = masterQuery + "ORDER BY coursename DESC"
 
@@ -353,4 +353,3 @@ def main():
 
 	
 main()
-'''
