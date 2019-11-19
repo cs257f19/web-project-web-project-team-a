@@ -42,10 +42,10 @@ class CourseObj:
 		return self.courseName
 
 	def getCourseTerm(self):
-	'''
-	returns term(s) course is available
-	'''
-	return self.courseTerm
+		'''
+		returns term(s) course is available
+		'''
+		return self.courseTerm
 
 	def getCourseRequirements(self):
 		'''
@@ -73,15 +73,15 @@ class CourseObj:
 
 	def getCoursePrerequisites(self):
 		'''
-		returns course Prerequisites
+		returns course prerequisites
 		'''
 		return self.coursePrerequisites
-	'''
-	Method will be implemented once database has course period
 
 	def getCoursePeriod(self):
+		'''
+		returns course period
+		'''
 		return self.coursePeriod
-	'''
 
 	def printCourseInfo(self):
 		'''
