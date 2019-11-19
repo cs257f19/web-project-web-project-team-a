@@ -4,6 +4,7 @@ from flask import render_template, request
 import json
 import sys
 import datasource
+
 app = flask.Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
@@ -15,31 +16,34 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 def hello():
     return render_template('homepage.html')
 
+
 @app.route('/search-result', methods=['POST', 'GET'])
 def searchResult():
-	if request.method == 'POST':
-		result = request.form
-		
-		ds = datasource.CourseQuery(None, None, result.get("search"), None, None, None)
-		#result = ds.getCourseByDeptTag()
-		result = ds.getCourseByName()
-		#result = result.getCourseDeptTag()
-		
-		#description = "Showing all classes that have  " + result.get("search") + " sorted alphabetically"
-		#result = ds.getCourseByName()
-		
-		resultList= []
-		for item in result:
-			tempList = [item.getCourseDeptTag(), item.getCourseNumber(), item.getCourseName(), item.getCoursePrerequisites(), item.getCourseRequirements(), item.getCourseTerm()]
-			#tempList = [1, 2, 3, 4, 5, 6]
-			resultList.append(tempList)
-		
-		
-		return render_template('result.html', result = resultList)
+    if request.method == 'POST':
+        result = request.form
+
+        ds = datasource.CourseQuery(None, None, result.get("search"), None, None, None)
+        # result = ds.getCourseByDeptTag()
+        result = ds.getCourseByName()
+        # result = result.getCourseDeptTag()
+
+        # description = "Showing all classes that have  " + result.get("search") + " sorted alphabetically"
+        # result = ds.getCourseByName()
+
+        resultList = []
+        for item in result:
+            tempList = [item.getCourseDeptTag(), item.getCourseNumber(), item.getCourseName(),
+                        item.getCoursePrerequisites(), item.getCourseRequirements(), item.getCourseTerm()]
+            # tempList = [1, 2, 3, 4, 5, 6]
+            resultList.append(tempList)
+
+        return render_template('result.html', result=resultList)
+
 
 @app.route('/result')
 def result():
     return render_template('result.html')
+
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:
