@@ -34,8 +34,7 @@ class CourseQuery:
 		self.password = "lamp792corn"
 		self.connection = self.connect()
 
-		QueryList =[self.getCourseByDeptTag(), self.getCourseByNumber(), self.getCourseByName(), self.getCourseByTerm(), 
-		self.getCourseByRequirements(), self.getCourseByPeriod(), self.getCourseByProfessor()]
+		QueryList =[self.getCourseByDeptTag(), self.getCourseByNumber(), self.getCourseByName(), self.getCourseByTerm(), self.getCourseByRequirements(), self.getCourseByPeriod(), self.getCourseByProfessor()]
 		
 	def createCourse(self, courses):
 		'''
