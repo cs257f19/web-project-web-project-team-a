@@ -19,16 +19,23 @@ class CourseQuery:
 		object that when created will contain all criteria from a single user query
 	'''
 
-	def __init__(self, dept, number, name, term, requirements, period):
-		self.courseTerm = term
+	def __init__(self, dept=None, number=None, name=None, term=None, requirements=None, period=None, professor=None, description=None):
+		
+		self.courseDeptTag = dept
 		self.courseNumber = number
 		self.courseName = name
-		self.courseDeptTag = dept
+		self.courseTerm = term
 		self.courseRequirements = requirements
 		self.coursePeriod = period
+		self.courseProfessor = professor
+		self.courseDescription = description
+
 		self.user = "ngot"
 		self.password = "lamp792corn"
 		self.connection = self.connect()
+
+		QueryList =[self.getCourseByDeptTag(), self.getCourseByNumber(), self.getCourseByName(), self.getCourseByTerm(), 
+		self.getCourseByRequirements(), self.getCourseByPeriod(), self.getCourseByProfessor()]
 		
 	def createCourse(self, courses):
 		'''
@@ -70,7 +77,37 @@ class CourseQuery:
 			exit()
 		return connection
 
-	
+	def getCourseByDeptTag(self):
+		'''
+		Returns a list of all of the coursees within the specified subject.
+
+		PARAMETERS:
+			connection - connection to database
+
+		RETURN:
+			a list of course objects within the department
+
+		'''
+		if self.courseDeptTag != None:
+			query = "SELECT	* FROM UPPER(classes) WHERE depttag LIKE UPPER('%" + self.courseDeptTag + "%') ORDER BY coursename DESC"
+			return query
+		else:
+			return None
+
+		'''	
+		try:
+			cursor = self.connection.cursor()
+			
+			cursor.execute(query)
+			courses = cursor.fetchall()
+			courseResults = self.createCourse(courses)
+			return courseResults
+
+		except Exception as e:
+			print ("Something went wrong when executing the query: ", e)
+			return None
+		'''
+
 	def getCourseByNumber(self):
 		'''
 		Returns a list of all coursees with the specified course number.
@@ -80,6 +117,17 @@ class CourseQuery:
 
 		RETURN:
 			a list of course objects with the specified course number.
+
+		'''
+		if self.courseNumber != None:
+			if self.courseNumber < 300:
+				query = "SELECT	* FROM classes WHERE coursenum = " + self.courseNumber +  " INTERSECT " + 
+				"SELECT	* FROM classes WHERE coursenum > " (self.courseNumber + 99) + " coursenum ORDER BY coursename DESC"
+			else:
+				query = "SELECT	* FROM classes WHERE coursenum >= " + self.courseNumber + " coursenum ORDER BY coursename DESC"
+			return query
+		else:
+			return None
 
 		'''
 		try:
@@ -93,31 +141,7 @@ class CourseQuery:
 		except Exception as e:
 			print ("Something went wrong when executing the query: ", e)
 			return None
-
-	
-
-	def getCourseByDeptTag(self):
 		'''
-		Returns a list of all of the coursees within the specified subject.
-
-		PARAMETERS:
-			connection - connection to database
-
-		RETURN:
-			a list of course objects within the department
-
-		'''
-		try:
-			cursor = self.connection.cursor()
-			query = "SELECT	* FROM classes WHERE depttag LIKE UPPER('%" + self.courseDeptTag + "%') ORDER BY coursename DESC"
-			cursor.execute(query)
-			courses = cursor.fetchall()
-			courseResults = self.createCourse(courses)
-			return courseResults
-
-		except Exception as e:
-			print ("Something went wrong when executing the query: ", e)
-			return None
 
 	def getCourseByName(self):
 		'''
@@ -130,6 +154,14 @@ class CourseQuery:
 				a list of course objects that contain that string
 
 			'''
+
+		if self.courseName != None:
+			query = "SELECT	* FROM classes WHERE UPPER(coursename) LIKE UPPER('%" + self.courseName + "%') ORDER BY coursename DESC"
+			return query
+		else:
+			return None
+
+		'''
 		try:
 			cursor = self.connection.cursor()
 			query = "SELECT	* FROM classes WHERE UPPER(coursename) LIKE UPPER('%" + self.courseName + "%') ORDER BY coursename DESC"
@@ -142,18 +174,39 @@ class CourseQuery:
 		except Exception as e:
 			print ("Something went wrong when executing the query: ", e)
 			return None
-
-	def getCourseByPeriod(self):
+		
 		'''
-		Returns a list of all of the coursees during the specified course period.
+
+	def getCourseByTerm(self):
+		'''
+		Returns a list of all coursees within the specified term.
 
 		PARAMETERS:
 			connection - connection to database
 
 		RETURN:
-			a list of course objects during the period
+			a list of course objects within the specified term.
 
 		'''
+		if self.courseTerm != None:
+			query = "SELECT	* FROM classes WHERE UPPER(termsoffered) LIKE UPPER('%" + self.courseTerm + "%') ORDER BY coursename DESC"
+			return query
+		else:
+			return None
+
+		'''
+		try:
+			cursor = self.connection.cursor()
+			query = "SELECT	* FROM classes WHERE UPPER(termsoffered) LIKE UPPER('%" + self.courseTerm + "%') ORDER BY coursename DESC"
+			cursor.execute(query)
+			courses = cursor.fetchall()
+			courseResults = self.createCourse(courses)
+			return courseResults
+
+		except Exception as e:
+			print("Something went wrong when executing the query: ", e)
+			return None
+		''' 
 
 	def getCourseByRequirements(self):
 		'''
@@ -164,6 +217,13 @@ class CourseQuery:
 
 			RETURN:
 				a list of course objects that fulfill the requirements
+
+		'''
+		if self.courseRequirements != None:
+			query = "SELECT	* FROM classes WHERE reqsFilled LIKE '%" + self.courseRequirements + "%' ORDER BY coursename DESC"
+			return query
+		else:
+			return None
 
 		'''
 		try:
@@ -177,31 +237,60 @@ class CourseQuery:
 		except Exception as e:
 			print("Something went wrong when executing the query: ", e)
 			return None
-
-	def getCourseByTerm(self):
 		'''
-		Returns a list of all coursees within the specified term.
+
+	def getCourseByPeriod(self):
+		'''
+		Returns a list of all of the coursees during the specified course period.
 
 		PARAMETERS:
 			connection - connection to database
 
 		RETURN:
-			a list of course objects within the specified term.
+			a list of course objects during the period
+
+		'''
+		if self.coursePeriod != None:
+			query = "SELECT	* FROM classes WHERE classperiod LIKE '%" + self.coursePeriod + "%' ORDER BY coursename DESC"
+			return query
+		else:
+			return None
+
+
+	def getCourseByProfessor(self):
+		'''
+			Returns a list of all of the courses that is taught by a specific professor.
+
+			PARAMETERS:
+				connection - connection to database
+
+			RETURN:
+				a list of course objects that contain that specific professor
+
+			'''
+		if self.courseProfessor != None:
+			query = "SELECT	* FROM classes WHERE UPPER(professor) LIKE UPPER('%" + self.courseProfessor + "%') ORDER BY coursename DESC"
+			return query
+		else:
+			return None
 
 		'''
 		try:
 			cursor = self.connection.cursor()
-			query = "SELECT	* FROM classes WHERE termsoffered LIKE '%" + self.courseTerm + "%' ORDER BY coursename DESC"
+			query = "SELECT	* FROM classes WHERE UPPER(professor) LIKE UPPER('%" + self.courseProfessor + "%') ORDER BY coursename DESC"
 			cursor.execute(query)
 			courses = cursor.fetchall()
 			courseResults = self.createCourse(courses)
 			return courseResults
 
+
 		except Exception as e:
-			print("Something went wrong when executing the query: ", e)
+			print ("Something went wrong when executing the query: ", e)
 			return None
+		'''
 
 	def masterQuery(self):
+		print("hit")
 		'''
 		Takes checks all query parameters and creates a query compiled of the intersects of all th queries
 
@@ -212,19 +301,49 @@ class CourseQuery:
 			a list of course objects which satifies all criteria
 
 		'''
+		#check if null, if not call query
+
+		#for loop that create a master query string and call it
+
+		try:
+			cursor = self.connection.cursor()
+			masterQuery = "SELECT	* FROM classes ORDER BY DESC"
+
+			for i in range(len(QueryList)):
+				if i < len(QueryList-1):
+					if QueryList[i] != None:
+						masterQuery = masterQuery + "INTERSECT" QueryList[i] + "INTERSECT"
+				else:
+					if QueryList[i] != None
+						masterQuery = masterQuery + "INTERSECT" QueryList[i] + "ORDER BY coursename DESC"
+					else:
+						masterQuery = masterQuery + "ORDER BY coursename DESC"
+
+
+			cursor.execute(masterQuery)
+			courses = cursor.fetchall()
+			courseResults = self.createCourse(courses)
+			return courseResults
+
+
+		except Exception as e:
+			print ("Something went wrong when executing the query: ", e)
+			return None
+
 
 def main():
 	
-
+	# (dept, number, name, term, requirements, period, professor, description):
 	# Initialize query object and test queries
-	#query = CourseQuery("engl", 251, "Data", "Winter 2020", None, None)
+	query = CourseQuery("AFST", 100, None, "Winter 2020", None, None, None, None,)
 
 	#test queries
 	#results = query.getCourseByName()
 	#results = query.getCourseByDeptTag()
 	#results = query.getCourseByTerm()
 	#results = query.getCourseByNumber()
-	'''
+	results = query.masterQuery()
+
 	if results is not None:
 		print("Query results: ")
 		for item in results:
