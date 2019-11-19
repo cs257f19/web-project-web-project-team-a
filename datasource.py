@@ -120,9 +120,10 @@ class CourseQuery:
 			if self.courseNumber < 300:
 				print("num hit")
 				#query = "SELECT	* FROM classes WHERE coursenum = " + str(self.courseNumber) +  " INTERSECT " +  "SELECT	* FROM classes WHERE coursenum < " + str((self.courseNumber + 99)) 
-				query = "SELECT	* FROM classes WHERE coursenum = " + str(self.courseNumber) 
+				query = "SELECT	* FROM classes WHERE coursenum = " + str(self.courseNumber) +  " AND " +  " coursenum < " + str((self.courseNumber + 99)) 
 
 			else:
+				print("num hit2")
 				query = "SELECT	* FROM classes WHERE coursenum >= " + str(self.courseNumber)
 			return query
 		else:
