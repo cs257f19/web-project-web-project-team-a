@@ -299,10 +299,11 @@ class CourseQuery:
 
 		try:
 
-			masterQuery = "SELECT	* FROM classes "
+			masterQuery = ""
 
 			for i in range(len(self.QueryList)):
 				if i < (len(self.QueryList)-1):
+					print("hit")
 					if self.QueryList[i] != None:
 						masterQuery = masterQuery + " INTERSECT " + self.QueryList[i]
 				else:
