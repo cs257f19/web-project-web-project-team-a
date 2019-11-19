@@ -22,7 +22,8 @@ class CourseQuery:
 	def __init__(self, dept=None, number=None, name=None, term=None, requirements=None, period=None, professor=None, description=None):
 		
 		self.courseDeptTag = dept
-		self.courseNumber = str(number)
+		self.courseNumber = number
+		self.courseName = name
 		self.courseTerm = term
 		self.courseRequirements = requirements
 		self.coursePeriod = period
@@ -117,9 +118,9 @@ class CourseQuery:
 		'''
 		if self.courseNumber != None:
 			if self.courseNumber < 300:
-				query = "SELECT	* FROM classes WHERE coursenum = " + self.courseNumber +  " INTERSECT " +  "SELECT	* FROM classes WHERE coursenum > " (self.courseNumber + 99) + " coursenum ORDER BY coursename DESC"
+				query = "SELECT	* FROM classes WHERE coursenum = " + str(self.courseNumber) +  " INTERSECT " +  "SELECT	* FROM classes WHERE coursenum > " srt((self.courseNumber + 99)) + " coursenum ORDER BY coursename DESC"
 			else:
-				query = "SELECT	* FROM classes WHERE coursenum >= " + self.courseNumber + " coursenum ORDER BY coursename DESC"
+				query = "SELECT	* FROM classes WHERE coursenum >= " + str(self.courseNumber) + " coursenum ORDER BY coursename DESC"
 			return query
 		else:
 			return None
