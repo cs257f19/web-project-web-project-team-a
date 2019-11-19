@@ -119,7 +119,9 @@ class CourseQuery:
 		if self.courseNumber != None:
 			if self.courseNumber < 300:
 				print("num hit")
-				query = "SELECT	* FROM classes WHERE coursenum = " + str(self.courseNumber) +  " INTERSECT " +  "SELECT	* FROM classes WHERE coursenum < " + str((self.courseNumber + 99)) 
+				#query = "SELECT	* FROM classes WHERE coursenum = " + str(self.courseNumber) +  " INTERSECT " +  "SELECT	* FROM classes WHERE coursenum < " + str((self.courseNumber + 99)) 
+				query = "SELECT	* FROM classes WHERE coursenum = " + str(self.courseNumber) +  " AND " +  " coursenum < " + str((self.courseNumber + 99)) 
+
 			else:
 				query = "SELECT	* FROM classes WHERE coursenum >= " + str(self.courseNumber)
 			return query
@@ -311,7 +313,7 @@ class CourseQuery:
 					if self.QueryList[i] != None:
 						masterQuery = masterQuery + " INTERSECT " + self.QueryList[i]
 
-			masterQuery = masterQuery + " ORDER BY coursename ASC "
+			masterQuery = masterQuery + " ORDER BY coursenum ASC "
 
 			cursor = self.connection.cursor()
 			cursor.execute(masterQuery)
