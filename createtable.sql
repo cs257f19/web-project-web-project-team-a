@@ -1,9 +1,11 @@
 DROP TABLE IF EXISTS classes;
-CREATE TABLE classes (
+CREATE TABLE courses (
   depttag text,
   coursenum real,
   coursename test,
-  prereqs text,
-  reqfilled text,
   termsoffered text,
+  reqfilled text,
+  classperiod text,
+  professor text,
+  classdescription text
 );
