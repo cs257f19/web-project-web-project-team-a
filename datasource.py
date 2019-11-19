@@ -311,7 +311,7 @@ class CourseQuery:
 			for i in range(len(QueryList)):
 				if i < len(QueryList-1):
 					if QueryList[i] != None:
-						masterQuery = masterQuery + "INTERSECT" QueryList[i] + "INTERSECT"
+						masterQuery = masterQuery + "INTERSECT" + QueryList[i] + "INTERSECT"
 				else:
 					if QueryList[i] != None
 						masterQuery = masterQuery + "INTERSECT" QueryList[i] + "ORDER BY coursename DESC"
