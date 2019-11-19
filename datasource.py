@@ -48,8 +48,6 @@ class CourseQuery:
 		Returns: 
 			a new list of CourseObj objects
 		'''
-
-		
 		courseResults =[]
 		for course in courses:
 			courseObj = CourseObj(course)
