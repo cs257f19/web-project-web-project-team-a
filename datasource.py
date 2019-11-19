@@ -300,24 +300,22 @@ class CourseQuery:
 
 		try:
 
-			masterQuery = "SELECT	* FROM classes ORDER BY DESC"
+			masterQuery = "SELECT	* FROM classes "
 
 			for i in range(len(self.QueryList)):
-				print("hit")
 				if i < (len(self.QueryList)-1):
 					if self.QueryList[i] != None:
-						masterQuery = masterQuery + "INTERSECT" + self.QueryList[i] + "INTERSECT"
+						masterQuery = masterQuery + " INTERSECT " + self.QueryList[i]
 				else:
 					if self.QueryList[i] != None:
-						masterQuery = masterQuery + "INTERSECT" + self.QueryList[i] + "ORDER BY coursename DESC"
-					else:
-						masterQuery = masterQuery + "ORDER BY coursename DESC"
+						masterQuery = masterQuery + " INTERSECT " + self.QueryList[i]
+
+			masterQuery = masterQuery + " ORDER BY coursename DESC "
 
 			cursor = self.connection.cursor()
 			cursor.execute(masterQuery)
 			courses = cursor.fetchall()
 			courseResults = self.createCourse(courses)
-			print("hit2")
 			return courseResults
 
 
