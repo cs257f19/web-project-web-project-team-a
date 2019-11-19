@@ -299,7 +299,7 @@ class CourseQuery:
 
 		try:
 
-			masterQuery = ""
+			masterQuery = "SELECT	* FROM classes "
 
 			for i in range(len(self.QueryList)):
 				if i < (len(self.QueryList)-1):
