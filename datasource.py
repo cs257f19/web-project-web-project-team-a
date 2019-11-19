@@ -34,7 +34,7 @@ class CourseQuery:
 		self.password = "lamp792corn"
 		self.connection = self.connect()
 
-		QueryList =[self.getCourseByDeptTag(), self.getCourseByNumber(), self.getCourseByName(), self.getCourseByTerm(), self.getCourseByRequirements(), self.getCourseByPeriod(), self.getCourseByProfessor()]
+		self.QueryList =[self.getCourseByDeptTag(), self.getCourseByNumber(), self.getCourseByName(), self.getCourseByTerm(), self.getCourseByRequirements(), self.getCourseByPeriod(), self.getCourseByProfessor()]
 		
 	def createCourse(self, courses):
 		'''
@@ -297,9 +297,6 @@ class CourseQuery:
 			a list of course objects which satifies all criteria
 
 		'''
-		#check if null, if not call query
-
-		#for loop that create a master query string and call it
 
 		try:
 			masterQuery = "SELECT	* FROM classes ORDER BY DESC"
