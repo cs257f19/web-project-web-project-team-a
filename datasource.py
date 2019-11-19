@@ -43,10 +43,10 @@ class CourseQuery:
 		and creates a CourseObj for each course in the list
 
 		PARAMETERS:
-			courses - lists of tuples for courses
+		courses - lists of tuples for courses
 
 		Returns: 
-			a new list of CourseObj objects
+		a new list of CourseObj objects
 		'''
 		courseResults =[]
 		for course in courses:
