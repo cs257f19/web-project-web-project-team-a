@@ -19,7 +19,7 @@ class CourseQuery:
 		object that when created will contain all criteria from a single user query
 	'''
 
-	def __init__(self, dept=None, number=None, name=None, term=None, requirements=None, period=None, professor=None, description=None):
+	def __init__(self, dept, number, name, term, requirements, period, professor, description):
 		
 		self.courseDeptTag = dept
 		self.courseNumber = number
@@ -327,7 +327,10 @@ def main():
 	
 	# (dept, number, name, term, requirements, period, professor, description):
 	# Initialize query object and test queries
-	query = CourseQuery("AFST", 100, None, "Winter 2020", None, None, None, None,)
+	query = CourseQuery("AFST", None, None, None, None, None, None, None,)
+	#query = CourseQuery("AFST", 100, None, None, None, None, None, None,)
+	#query = CourseQuery("AFST", 100, None, "Winter 2020", None, None, None, None,)
+	#query = CourseQuery(None, None, None, None, "FSR", None, None, None,)
 
 	#test queries
 	#results = query.getCourseByName()
