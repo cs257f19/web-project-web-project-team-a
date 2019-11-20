@@ -174,16 +174,23 @@ header{
 }
 
 #classes {
+  font-family: verdana;
   float: left;
   margin-left: 10px;
-
-
+  border-collapse: collapse;
+  border-width: 3px;
+  border-color: #0b5091;
 }
 
 #classes th{
   text-align: left;
   padding: 10px;
+  background-color: #f5c13f;
 
+}
+
+#classes td{
+  padding: 7px;
 }
 
 #classes tr:nth-child(even){background-color: #f2f2f2;}
