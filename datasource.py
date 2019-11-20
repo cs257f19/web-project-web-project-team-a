@@ -184,7 +184,7 @@ class CourseQuery:
 
 			if len(self.courseTerm) > 1:
 				for termIndex in range(1, len(self.courseTerm)):
-					query = query + " UNION "+ self.getCourseByTermHelper(self.courseTerm[termIndex])
+					query = query + " OR "+ self.getCourseByTermHelper(self.courseTerm[termIndex])
 			return query
 		else:
 			return None
