@@ -176,14 +176,12 @@ class CourseQuery:
 		'''
 
 	def getCourseByTerm(self):
-		#if the length of list is longer than 1
-		#call helper that union category
+
 		if self.courseTerm != None:
 			self.courseTerm = self.courseTerm.split("&")
 			query = self.getCourseByTermHelper(self.courseTerm[0])
 
 			for termIndex in range(1, len(self.courseTerm)):
-				#query = query + " OR "+ self.getCourseByTermHelper(self.courseTerm[termIndex])
 				query = query + " OR UPPER(termsoffered) LIKE UPPER('%" + self.courseTerm[termIndex] + "%') "
 			return query
 		else:
@@ -225,9 +223,8 @@ class CourseQuery:
 			self.courseRequirements = self.courseRequirements.split("&")
 			query = self.getCourseByRequirementsHelper(self.courseRequirements[0])
 
-			if len(self.courseRequirements) > 1:
-				for reqIndex in range(1, len(self.courseRequirements)):
-					query = query + " UNION "+ self.getCourseByRequirementsHelper(self.courseRequirements[reqIndex])
+			for reqIndex in range(1, len(self.courseRequirements)):
+				query = query + " OR UPPER(reqsFilled) LIKE UPPER('%" + self.courseRequirements[reqIndex] + "%') "
 			return query
 		else:
 			return None
@@ -269,9 +266,8 @@ class CourseQuery:
 			self.coursePeriod = self.coursePeriod.split("&")
 			query = self.getCourseByPeriodHelper(self.coursePeriod[0])
 
-			if len(self.coursePeriod) > 1:
-				for periodIndex in range(1, len(self.coursePeriod)):
-					query = query + " UNION "+ self.getCourseByPeriodHelper(self.coursePeriod[periodIndex])
+			for periodIndex in range(1, len(self.coursePeriod)):
+				query = query + " UPPER(classperiod) LIKE UPPER('%" + str(period) + "%') "
 			return query
 		else:
 			return None
@@ -376,8 +372,8 @@ def main():
 	# (dept, number, name, term, requirements, period, professor, description):
 	# Initialize query object and test queries
 	#query = CourseQuery("AFST", None, None, None, None, None, None)
-	query = CourseQuery("AFST", 100, None, "Fall 2019&Winter 2020", None, None, None)
-	#query = CourseQuery("AFST", 100, None, "Winter 2020", None, None, None)
+	#query = CourseQuery("AFST", 100, None, "Fall 2019&Winter 2020", None, None, None)
+	query = CourseQuery("AFST", None, None, "Winter 2020", "5a&2a", None, None)
 	#query = CourseQuery(None, None, None, None, "FSR", None, None)
 
 	#test queries
