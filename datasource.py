@@ -119,7 +119,7 @@ class CourseQuery:
 		if self.courseNumber != None:
 			if self.courseNumber < 300:
 				#query = "SELECT	* FROM classes WHERE coursenum = " + str(self.courseNumber) +  " INTERSECT " +  "SELECT	* FROM classes WHERE coursenum < " + str((self.courseNumber + 99)) 
-				query = "SELECT	* FROM classes WHERE coursenum BETWEEN " + str(self.courseNumber) +  " AND " +  " coursenum < " + str((self.courseNumber + 99)) 
+				query = "SELECT	* FROM classes WHERE coursenum BETWEEN " + str(self.courseNumber) +  " AND " + str((self.courseNumber + 99)) 
 
 			else:
 				query = "SELECT	* FROM classes WHERE coursenum >= " + str(self.courseNumber)
