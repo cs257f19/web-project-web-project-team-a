@@ -241,7 +241,7 @@ class CourseQuery:
 
 		'''
 		#if self.courseRequirements != None:
-		query = "SELECT	* FROM classes WHERE UPPER(reqsFilled) LIKE UPPER('%" + requirements + "%') "
+		query = "SELECT	* FROM classes WHERE UPPER(reqFilled) LIKE UPPER('%" + requirements + "%') "
 		return query
 		#else:
 		#	return None
