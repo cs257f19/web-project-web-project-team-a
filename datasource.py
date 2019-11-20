@@ -180,7 +180,8 @@ class CourseQuery:
 		#call helper that union category
 		if self.courseTerm != None:
 			self.courseTerm = self.courseTerm.split("&")
-			query = self.courseTerm[0]
+			query = self.getCourseByTermHelper(self.courseTerm[0])
+
 			if len(self.courseTerm) > 1:
 				for termIndex in range(1, len(self.courseTerm)):
 					query = query + " UNION "+ self.getCourseByTermHelper(self.courseTerm[termIndex])
@@ -222,7 +223,8 @@ class CourseQuery:
 
 		if self.courseRequirements != None:
 			self.courseRequirements = self.courseRequirements.split("&")
-			query = self.courseRequirements[0]
+			query = self.getCourseByRequirementsHelper(self.courseRequirements[0])
+
 			if len(self.courseRequirements) > 1:
 				for reqIndex in range(1, len(self.courseRequirements)):
 					query = query + " UNION "+ self.getCourseByRequirementsHelper(self.courseRequirements[reqIndex])
@@ -264,7 +266,8 @@ class CourseQuery:
 
 		if self.coursePeriod != None:
 			self.coursePeriod = self.coursePeriod.split("&")
-			query = self.coursePeriod[0]
+			query = self.getCourseByPeriodHelper(self.coursePeriod[0])
+			
 			if len(self.coursePeriod) > 1:
 				for periodIndex in range(1, len(self.coursePeriod)):
 					query = query + " UNION "+ self.getCourseByPeriodHelper(self.coursePeriod[periodIndex])
