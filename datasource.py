@@ -373,14 +373,10 @@ def main():
 	# Initialize query object and test queries
 	#query = CourseQuery("AFST", None, None, None, None, None, None)
 	#query = CourseQuery("AFST", 100, None, "Fall 2019&Winter 2020", None, None, None)
-	query = CourseQuery("AFST", 100, None, "Fall 2019", None,"2a&5a", None)
+	#query = CourseQuery("AFST", 100, None, "Fall 2019", None,"2a&5a", None)
 	#query = CourseQuery(None, None, None, None, "FSR", None, None)
 
-	#test queries
-	#results = query.getCourseByName()
-	#results = query.getCourseByDeptTag()
-	#results = query.getCourseByTerm()
-	#results = query.getCourseByNumber()
+	'''
 	results = query.masterQuery()
 
 	if results is not None:
@@ -390,6 +386,6 @@ def main():
 
 	# Disconnect from database
 	query.connection.close()
-
+	'''
 	
 main()
