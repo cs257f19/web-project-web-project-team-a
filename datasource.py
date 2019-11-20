@@ -267,7 +267,7 @@ class CourseQuery:
 			query = self.getCourseByPeriodHelper(self.coursePeriod[0])
 
 			for periodIndex in range(1, len(self.coursePeriod)):
-				query = query + " OR UPPER(classperiod) LIKE UPPER('%" + str(self.coursePeriod[periodIndex]) + "%') "
+				query = query + " OR UPPER(classperiod) LIKE UPPER('%" + self.coursePeriod[periodIndex] + "%') "
 			return query
 		else:
 			return None
@@ -284,7 +284,7 @@ class CourseQuery:
 
 		'''
 		#if self.coursePeriod != None:
-		query = "SELECT	* FROM classes WHERE classperiod LIKE '%" + str(period) + "%' "
+		query = "SELECT	* FROM classes WHERE UPPER(classperiod) LIKE UPPER('%" + period + "%') "
 		return query
 		#else:
 		#	return None
@@ -369,11 +369,11 @@ class CourseQuery:
 
 def main():
 	
-	# (dept, number, name, term, requirements, period, professor, description):
+	# (dept, number, name, term, requirements, period, professor):
 	# Initialize query object and test queries
 	#query = CourseQuery("AFST", None, None, None, None, None, None)
 	#query = CourseQuery("AFST", 100, None, "Fall 2019&Winter 2020", None, None, None)
-	query = CourseQuery("AFST", None, None, None, "Winter 2020", "4a", None)
+	query = CourseQuery("AFST", None, None, None, None,"4a&2a", None)
 	#query = CourseQuery(None, None, None, None, "FSR", None, None)
 
 	#test queries
