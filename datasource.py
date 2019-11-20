@@ -116,15 +116,12 @@ class CourseQuery:
 			a list of course objects with the specified course number.
 
 		'''
-		print("num")
 		if self.courseNumber != None:
 			if self.courseNumber < 300:
-				print("num hit")
 				#query = "SELECT	* FROM classes WHERE coursenum = " + str(self.courseNumber) +  " INTERSECT " +  "SELECT	* FROM classes WHERE coursenum < " + str((self.courseNumber + 99)) 
-				query = "SELECT	* FROM classes WHERE coursenum = " + str(self.courseNumber) +  " AND " +  " coursenum < " + str((self.courseNumber + 99)) 
+				query = "SELECT	* FROM classes WHERE coursenum BETWEEN " + str(self.courseNumber) +  " AND " +  " coursenum < " + str((self.courseNumber + 99)) 
 
 			else:
-				print("num hit2")
 				query = "SELECT	* FROM classes WHERE coursenum >= " + str(self.courseNumber)
 			return query
 		else:
@@ -332,8 +329,8 @@ def main():
 	
 	# (dept, number, name, term, requirements, period, professor, description):
 	# Initialize query object and test queries
-	query = CourseQuery("AFST", None, None, None, None, None, None, None,)
-	#query = CourseQuery("AFST", 100, None, None, None, None, None, None,)
+	#query = CourseQuery("AFST", None, None, None, None, None, None, None,)
+	query = CourseQuery("AFST", 100, None, None, None, None, None, None,)
 	#query = CourseQuery("AFST", 100, None, "Winter 2020", None, None, None, None,)
 	#query = CourseQuery(None, None, None, None, "FSR", None, None, None,)
 
