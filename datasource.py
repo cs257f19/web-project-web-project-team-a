@@ -284,7 +284,7 @@ class CourseQuery:
 
 		'''
 		#if self.coursePeriod != None:
-		query = "SELECT	* FROM classes WHERE classperiod LIKE '%" + period + "%' "
+		query = "SELECT	* FROM classes WHERE classperiod LIKE '%" + str(period) + "%' "
 		return query
 		#else:
 		#	return None
