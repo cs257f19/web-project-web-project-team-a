@@ -302,6 +302,7 @@ class CourseQuery:
 			masterQuery = "SELECT	* FROM classes "
 
 			for i in range(len(self.QueryList)):
+
 				if i < (len(self.QueryList)-1):
 					if self.QueryList[i] != None:
 						masterQuery = masterQuery + " INTERSECT " + self.QueryList[i]
@@ -315,6 +316,7 @@ class CourseQuery:
 			cursor.execute(masterQuery)
 			courses = cursor.fetchall()
 			courseResults = self.createCourse(courses)
+			print((len(courseResults[0]) ))
 			return courseResults
 
 
