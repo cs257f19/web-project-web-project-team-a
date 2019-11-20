@@ -199,8 +199,8 @@ class CourseQuery:
 
 		'''
 
-			query = "SELECT	* FROM classes WHERE UPPER(termsoffered) LIKE UPPER('%" + term+ "%') "
-			return query
+		query = "SELECT	* FROM classes WHERE UPPER(termsoffered) LIKE UPPER('%" + term + "%') "
+		return query
 		
 
 		'''
@@ -239,11 +239,11 @@ class CourseQuery:
 				a list of course objects that fulfill the requirements
 
 		'''
-		if self.courseRequirements != None:
-			query = "SELECT	* FROM classes WHERE UPPER(reqsFilled) LIKE UPPER('%" + requirements + "%') "
-			return query
-		else:
-			return None
+		#if self.courseRequirements != None:
+		query = "SELECT	* FROM classes WHERE UPPER(reqsFilled) LIKE UPPER('%" + requirements + "%') "
+		return query
+		#else:
+		#	return None
 
 		'''
 		try:
@@ -280,11 +280,11 @@ class CourseQuery:
 			a list of course objects during the period
 
 		'''
-		if self.coursePeriod != None:
-			query = "SELECT	* FROM classes WHERE classperiod LIKE '%" + period + "%' "
-			return query
-		else:
-			return None
+		#if self.coursePeriod != None:
+		query = "SELECT	* FROM classes WHERE classperiod LIKE '%" + period + "%' "
+		return query
+		#else:
+		#	return None
 
 	def getCourseByProfessor(self):
 		'''
