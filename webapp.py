@@ -12,7 +12,7 @@ def homepage():
     return render_template('homepage.html')
 
 @app.route('/aboutthedata')
-def homepage():
+def aboutTheData():
     return render_template('AboutTheData.html')
 
 
