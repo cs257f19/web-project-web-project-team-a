@@ -37,28 +37,6 @@ def searchResult():
 
 		return render_template('result.html', result = resultList)
 
-@app.route('/query-result', methods=['POST', 'GET'])
-def queryResult():
-	if request.method == 'POST':
-		result = request.form
-		
-		ds = datasource.CourseQuery(None, None, result.get("search"), None, None, None)
-		#result = ds.getCourseByDeptTag()
-		result = ds.getCourseByName()
-		#result = result.getCourseDeptTag()
-
-		#description = "Showing all classes that have  " + result.get("search") + " sorted alphabetically"
-		#result = ds.getCourseByName()
-
-		resultList= []
-		for item in result:
-			tempList = [item.getCourseDeptTag(), item.getCourseNumber(), item.getCourseName(), item.getCoursePrerequisites(), item.getCourseRequirements(), item.getCourseTerm()]
-			#tempList = [1, 2, 3, 4, 5, 6]
-			resultList.append(tempList)
-
-
-		return render_template('result.html', result = resultList)
-
 @app.route('/result')
 def result():
     return render_template('result.html')

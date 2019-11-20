@@ -10,7 +10,7 @@ class Course:
     Course subclass with instance variables for metadata of the course
     """
 
-    def __init__(self, dept, num, name, term, reqs, periods):
+    def __init__(self, dept, num, name, term, reqs, periods, prof, desc):
         """
         Course object constructor
         :param dept: department code
@@ -19,6 +19,8 @@ class Course:
         :param term: term offered
         :param reqs: liberal arts requirements fulfilled by course
         :param periods: class period(s) offered
+        :param prof: professor who teaches the course
+        :param desc: the course description
         """
         self.dept = dept
         self.num = num
@@ -26,6 +28,8 @@ class Course:
         self.term = term
         self.reqs = reqs
         self.periods = periods
+        self.prof = prof
+        self.desc = desc
 
 
 departments = ['AFST', 'AMMU', 'AMST', 'ARBC', 'ARCN', 'ARTH', 'ASLN', 'ASST', 'ASTR', 'BIOL', 'CHEM', 'CHIN', 'CAMS',
@@ -121,7 +125,9 @@ def collect_reqs(tree, course_iter):
         if "PE" in string:
             reqs.append("PER")
 
-    return str(reqs).replace('\'', '').replace('[', '').replace(']', '')
+    if len(reqs) == 0:
+        return ''
+    return str(reqs).replace('\'', '').replace('[', '').replace(']', '').replace('\"', '')
 
 
 def collect_period(tree, course_iter):
@@ -168,6 +174,19 @@ def collect_period(tree, course_iter):
     return 'Unable to determine class period'
 
 
+def collect_professor(tree, course_iter):
+    prof = str(tree.xpath('//*[@id="enrollModule"]/div[1]/div[' + str(course_iter) + ']/div[2]/p[1]/a/text()')).replace(
+        '[\'', '').replace('\']', '')
+    return prof
+
+
+def collect_desc(tree, course_iter):
+    desc = str(tree.xpath('//*[@id="enrollModule"]/div[1]/div[' + str(course_iter) + ']/div[2]/p[2]/text()'))
+    if desc == '[]':
+        return ''
+    return desc[2:-2]
+
+
 def get_number_offered_for_term(tree):
     """
     returns how many courses are offered for a certain department within a specific term
@@ -196,10 +215,11 @@ def create_csv(course_list):
     """
     with open('courses.csv', 'w') as csvfile:
         filewriter = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
-        filewriter.writerow(['DeptTag', 'CourseNum', 'CourseName', 'Term', 'reqsFilled', 'period'])
+        filewriter.writerow(['Department', 'Course Number', 'Course Name', 'Term', 'Liberal Arts Requirements',
+                             'Class Period', 'Professor', 'Description'])
         for item in course_list:
             filewriter.writerow(
-                [item.dept, item.num, item.name, item.term, item.reqs, item.periods])
+                [item.dept, item.num, item.name, item.term, item.reqs, item.periods, item.prof, item.desc])
 
 
 def crawl_page(page, dept_iter, term_iter):
@@ -216,8 +236,7 @@ def crawl_page(page, dept_iter, term_iter):
     # iterates through a department during a specific term
     for i in range(1, num_courses + 1):
         course = Course(collect_dept(dept_iter), collect_nums(tree, i), collect_name(tree, i), collect_terms(term_iter),
-                        collect_reqs(tree, i),
-                        collect_period(tree, i))
+                        collect_reqs(tree, i), collect_period(tree, i), collect_professor(tree, i), collect_desc(tree, i))
         master_list.append(course)
 
 

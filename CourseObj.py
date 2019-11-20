@@ -13,18 +13,21 @@ class CourseObj:
 		self.courseDeptTag = course[0]
 		self.courseNumber = str(course[1])
 		self.courseName = course[2]
-		self.coursePrerequisites = course[3]
+		self.courseTerm = course[3]
 		self.courseRequirements = course[4]
-		self.courseTerm = course[5]
-
+		self.coursePeriod = course[5]
+		self.courseProfessor = course[6]
+		self.courseDescription = course[7]
+		#self.coursePrerequisites = course[3]
+		
+		
 		#once period is implemented into database
 		#self.coursePeriod = course[6] 
-
-	def getCourseTerm(self):
+	def getCourseDeptTag(self):
 		'''
-		returns term(s) course is available
+		returns course department tag
 		'''
-		return self.courseTerm
+		return self.courseDeptTag	
 
 	def getCourseNumber(self):
 		'''
@@ -38,11 +41,11 @@ class CourseObj:
 		'''
 		return self.courseName
 
-	def getCourseDeptTag(self):
+	def getCourseTerm(self):
 		'''
-		returns course department tag
+		returns term(s) course is available
 		'''
-		return self.courseDeptTag
+		return self.courseTerm
 
 	def getCourseRequirements(self):
 		'''
@@ -50,27 +53,47 @@ class CourseObj:
 		'''
 		return self.courseRequirements
 
+	def getCoursePeriod(self):
+		'''
+		returns course requirements
+		'''
+		return self.coursePeriod
+
+	def getCourseProfessor(self):
+		'''
+		returns course requirements
+		'''
+		return self.courseProfessor
+
+	def getCourseDescription(self):
+		'''
+		returns course requirements
+		'''
+		return self.courseDescription
+
 	def getCoursePrerequisites(self):
 		'''
-		returns course Prerequisites
+		returns course prerequisites
 		'''
 		return self.coursePrerequisites
-	'''
-	Method will be implemented once database has course period
 
 	def getCoursePeriod(self):
+		'''
+		returns course period
+		'''
 		return self.coursePeriod
-	'''
 
 	def printCourseInfo(self):
 		'''
 		prints out the contents of the course object 
 		'''
-		for i in range(0, 5):
-			if(i !=4 ):
+		for i in range(0, 8):
+			if(i != 7 ):
 				print(self.course[i], end = ', ')
 			else:
 				print(self.course[i], end ='')
+
+		print()
 		print()
 				
 
