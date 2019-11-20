@@ -30,7 +30,7 @@ def searchResult():
         for item in result:
             tempList = [item.getCourseDeptTag(), item.getCourseNumber(), item.getCourseName(), 
             			item.getCourseTerm(), item.getCourseRequirements(), item.getCoursePeriod(),
-            			item.getCourse]
+            			item.getCourse()]
             # tempList = [1, 2, 3, 4, 5, 6]
             resultList.append(tempList)
 
