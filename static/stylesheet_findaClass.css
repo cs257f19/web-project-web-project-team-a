@@ -148,8 +148,6 @@ header{
   background: #f1f1f1;
 }
 
-
-
 .submit button{
   positon: absolute;
   display: inline-block;
@@ -173,4 +171,19 @@ header{
   left: 10px;
   bottom: 10px;
   float: left;
+}
+
+#classes {
+  float: left;
+  margin-left: 10px;
+
+
+}
+
+#classes th{
+  text-align: left;
+  padding: 10px;
+
+
+
 }

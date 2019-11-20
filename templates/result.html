@@ -25,137 +25,167 @@
 	<div class = "dropdown">
 		<button class="dropbtn"> Select a Department</button>
 		<div class="dropdown-content">
-
-			<a href="#">Africana Studies (AFST)</a>
-			<a href="#">American Studies (AMST)</a>
-			<a href="#">Arabic (ARBC)</a>
-			<a href="#">Archaeology (ARCN)</a>
-			<a href="#">Art History (ARTH) </a>
-			<a href="#">Asian Studies (ASST) </a>
-			<a href="#">Astronomy (ASTR) </a>
-			<a href="#">Biology (BIO)</a>
-			<a href="#">Chemistry (CHEM) </a>
-			<a href="#">Chinese (CHIN) </a>
-			<a href="#">Cinema and Media Studies (CAMS) </a>
-			<a href="#">Classics (CLAS)</a>
-			<a href="#">Cognitive Science (CGSC) </a>
-			<a href="#">Computer Science (CS)</a>
-			<a href="#">Cross-Cultural Studies (CCST) </a>
-			<a href="#">Dance (DANC) </a>
-			<a href="#">Digital Arts and Humanities (DGAH) </a>
-			<a href="#">Economics (ECON) </a>
-			<a href="#">Educational Studies (EDUC) </a>
-			<a href="#">English (ENGL) </a>
-			<a href="#">Environmental Studies (ENTS) </a>
-			<a href="#">European Studies (EUST) </a>
-			<a href="#">French and Francophone Studies (FREN) </a>
-			<a href="#">Geology (GEOL) </a>
-			<a href="#">German (GERM)</a>
-			<a href="#">Greek (GRK) </a>
-			<a href="#">Hebrew (HEBR) </a>
-			<a href="#">History (HIST) </a>
-			<a href="#">Interdisciplinary (IDSC) </a>
-			<a href="#">Japanese (JAPN) </a>
-			<a href="#">Latin (LATN) </a>
-			<a href="#">Latin American Studies (LTAM) </a>
-			<a href="#">Linguistics (LING) </a>
-			<a href="#">Lit & Cultural Studies (LCST) </a>
-			<a href="#">Mathematics (MATH) </a>
-			<a href="#">Middle East Studies (MEST) </a>
-			<a href="#">Music (MUSC) </a>
-			<a href="#">Neuroscience (NEUR) </a>
-			<a href="#">Philosophy (PHIL) </a>
-			<a href="#">Phys-Ed (PE) </a>
-			<a href="#">Physics (PHYS) </a>
-			<a href="#">Political Science (POSC) </a>
-			<a href="#">Psychology (PSYC)</a>
-			<a href="#">Religion (RELG) </a>
-			<a href="#">Russian (RUSS) </a>
-			<a href="#">Sociology/Anthropology (SOAN) </a>
-			<a href="#">Spanish (SPAN) </a>
-			<a href="#">Studio Art (ARTS)</a>
-			<a href="#">Theater Arts (THEA) </a>
-			<a href="#">Women's and Gender Studies (WGST)</a>
-		</div>
+	</div>
 	</div>
 
 	<div class = "dropdown">
 		<button class="dropbtn"> Select Course Level</button>
 		<div class="dropdown-content">
-
-			<a href="#">100 </a>
-			<a href="#">200 </a>
-			<a href="#">300+ </a>
-
 		</div>
 	</div>
 
 	<div class = "dropdown">
 		<button class="dropbtn"> Select Term</button>
 		<div class="dropdown-content">
-
-			<a href="#">Fall 2019 </a>
-			<a href="#">Winter 2020 </a>
-			<a href="#">Spring 2020 </a>
-
 		</div>
 	</div>
 
 	<div class = "dropdown">
 		<button class="dropbtn"> Select Graduation Requirements</button>
 		<div class="dropdown-content">
-
-			<a href="#">Argument & Inquiry Seminar (A&I)</a>
-			<a href="#">Arts Practice (ARP) </a>
-			<a href="#">Formal or Statisical Reasoning (FSR) </a>
-			<a href="#">Science with Lab Component (LAB) </a>
-			<a href="#">Literary/Artistic Analysis (LAA) </a>
-			<a href="#">Humanistic Inquiry (HUM) </a>
-			<a href="#">Social Inquiry (SOC) </a>
-			<a href="#">Writing Rich (WRC) </a>
-			<a href="#">Quantitative Reasoning (QRE) </a>
-			<a href="#">Intercultural Domestic Studies (IDS) </a>
-			<a href="#">International Studies (INS) </a>
-
 		</div>
 	</div>
 
 	<div class = "dropdown">
 		<button class="dropbtn"> Select Course Period</button>
 		<div class="dropdown-content">
-
-			<a href="#">1A&nbsp&nbsp&nbsp(8:30 - 9:40) </a>
-			<a href="#">2A&nbsp&nbsp&nbsp(9:50 - 11:00)</a>
-			<a href="#">3A&nbsp&nbsp&nbsp(11:10 - 12:20) </a>
-			<a href="#">4A&nbsp&nbsp&nbsp(12:30 - 1:40) </a>
-			<a href="#">5A&nbsp&nbsp&nbsp(1:50 - 3:00) </a>
-			<a href="#">6A&nbsp&nbsp&nbsp(3:10 - 4:20) </a>
-			<a href="#">1/2C&nbsp&nbsp&nbsp(8:15 - 10:00) </a>
-			<a href="#">2/3C&nbsp&nbsp&nbsp(10:10 - 11:55) </a>
-			<a href="#">4/5C&nbsp&nbsp&nbsp(1:15 - 3:00) </a>
-			<a href="#">5/6C&nbsp&nbsp&nbsp(3:10 - 4:55) </a>
-
 		</div>
 	</div>
 
+<form action="http://perlman.mathcs.carleton.edu:5118/query-result" method="post">
 	<div class = "submit">
-		<button> Search for Courses </button>
+		<button type="submit" value="submit"> Search for Courses </button>
 	</div>
 
+	<div class="custom-select">
+		<select name="department" id="department">
+			<option selected disabled>  </option>
+			<option value="AFST">Africana Studies (AFST)</option>
+			<option value="AMST">American Studies (AMST)</option>
+			<option value="ARBC">Arabic (ARBC)</option>
+			<option value="ARCN">Archaeology (ARCN)</option>
+			<option value="ARTH">Art History (ARTH) </option>
+			<option value="ASST">Asian Studies (ASST) </option>
+			<option value="ASTR">Astronomy (ASTR) </option>
+			<option value="BIOL">Biology (BIOL)</option>
+			<option value="CHEM">Chemistry (CHEM) </option>
+			<option value="CHIN">Chinese (CHIN) </option>
+			<option value="CAMS">Cinema and Media Studies (CAMS) </option>
+			<option value="CLAS">Classics (CLAS)</option>
+			<option value="CGSC">Cognitive Science (CGSC) </option>
+			<option value="CS">Computer Science (CS)</option>
+			<option value="CCST">Cross-Cultural Studies (CCST) </option>
+			<option value="DANC">Dance (DANC) </option>
+			<option value="DGAH">Digital Arts and Humanities (DGAH) </option>
+			<option value="ECON">Economics (ECON) </option>
+			<option value="EDUC">Educational Studies (EDUC) </option>
+			<option value="ENGL">English (ENGL) </option>
+			<option value="ENTS">Environmental Studies (ENTS) </option>
+			<option value="EUTS">European Studies (EUST) </option>
+			<option value="FREN">French and Francophone Studies (FREN) </option>
+			<option value="GEOL">Geology (GEOL) </option>
+			<option value="GERM">German (GERM)</option>
+			<option value="GRK">Greek (GRK) </option>
+			<option value="HEBR">Hebrew (HEBR) </option>
+			<option value="HIST">History (HIST) </option>
+			<option value="IDSC">Interdisciplinary (IDSC) </option>
+			<option value="JAPN">Japanese (JAPN) </option>
+			<option value="LATN">Latin (LATN) </option>
+			<option value="LTAM">Latin American Studies (LTAM) </option>
+			<option value="LING">Linguistics (LING) </option>
+			<option value="LCST">Lit & Cultural Studies (LCST) </option>
+			<option value="MATH">Mathematics (MATH) </option>
+			<option value="MEST">Middle East Studies (MEST) </option>
+			<option value="MUSC">Music (MUSC) </option>
+			<option value="NEUR">Neuroscience (NEUR) </option>
+			<option value="PHIL">Philosophy (PHIL) </option>
+			<option value="PE">Phys-Ed (PE) </option>
+			<option value="PHYS">Physics (PHYS) </option>
+			<option value="POSC">Political Science (POSC) </option>
+			<option value="PSYC">Psychology (PSYC)</option>
+			<option value="RELG">Religion (RELG) </option>
+			<option value="RUSS">Russian (RUSS) </option>
+			<option value="SOAN">Sociology/Anthropology (SOAN) </option>
+			<option value="SPAN">Spanish (SPAN) </option>
+			<option value="ARTS">Studio Art (ARTS)</option>
+			<option value="THEA">Theater Arts (THEA) </option>
+			<option value="WGST">Women's and Gender Studies (WGST)</option>
+		</select>
+	</div>
+
+	<div class="custom-select">
+		<select name="courselevel" id="courselevel">
+				<option selected disabled> </option>
+				<option value="100">100 </option>
+				<option value="200">200 </option>
+				<option value="300">300+ </option>
+			</select>
+	</div>
+
+	<div class="custom-select">
+		<select name="term" multiple id="term">
+			<option value="Fall 2019">Fall 2019 </option>
+			<option value="Winter 2020">Winter 2020 </option>
+			<option value="Spring 2020">Spring 2020 </option>
+		</select>
+	</div>
+
+<div class="custom-select">
+	<select name="requirements" multiple id="requirements">
+		<option value="A&I">Argument & Inquiry Seminar (A&I)</option>
+		<option value="ARP">Arts Practice (ARP) </option>
+		<option value="FSR">Formal or Statisical Reasoning (FSR) </option>
+		<option value="LAB">Science with Lab Component (LAB) </option>
+		<option value="LAA">Literary/Artistic Analysis (LAA) </option>
+		<option value="HUM">Humanistic Inquiry (HUM) </option>
+		<option value="SOC">Social Inquiry (SOC) </option>
+		<option value="WRC">Writing Rich (WRC) </option>
+		<option value="QRE">Quantitative Reasoning (QRE) </option>
+		<option value="IDS">Intercultural Domestic Studies (IDS) </option>
+		<option value="INS">International Studies (INS) </option>
+	</select>
+</div>
+
+<div class="custom-select">
+	<select name="period" multiple id="period">
+		<option value="1a">1A&nbsp&nbsp&nbsp(8:30 - 9:40) </option>
+		<option value="2a">2A&nbsp&nbsp&nbsp(9:50 - 11:00)</option>
+		<option value="3a">3A&nbsp&nbsp&nbsp(11:10 - 12:20) </option>
+		<option value="4a">4A&nbsp&nbsp&nbsp(12:30 - 1:40) </option>
+		<option value="5a">5A&nbsp&nbsp&nbsp(1:50 - 3:00) </option>
+		<option value="6a">6A&nbsp&nbsp&nbsp(3:10 - 4:20) </option>
+		<option value="1/2c">1/2C&nbsp&nbsp&nbsp(8:15 - 10:00) </option>
+		<option value="2/3c">2/3C&nbsp&nbsp&nbsp(10:10 - 11:55) </option>
+		<option value="4/5c">4/5C&nbsp&nbsp&nbsp(1:15 - 3:00) </option>
+		<option value="5/6c">5/6C&nbsp&nbsp&nbsp(3:10 - 4:55) </option>
+	</select>
+</div>
+</form>
 
 
-<!--	<table border = 1>
+<div class="directions">
+<p> Use CTRL (Windows) or Command (Mac) to select multiple options for terms, requirements, and class periods </p>
+</div>
+
+
+
+
+	<table border = 1 id="classes">
 
             <tr>
-               <th>Course Department</th>
+               <th>Department</th>
                <th>Course Number</th>
                <th>Course Name</th>
-               <th>Course Prerequisites</th>
-               <th>Coure Requirements</th>
-               <th>Course Term</th>
+							 <th>Term </th>
+               <th>Requirements Fulfilled</th>
+               <th>Period </th>
+							 <th>Professor(s) </th>
+							 <th>Course Desciption </th>
+
+
             </tr>
 
-            {% for course in result%}
+            <!-- {% for course in result%} -->
             	<tr>
 	               <td> {{ course[0] }} </td>
 	               <td> {{ course[1] }} </td>
@@ -163,10 +193,12 @@
 	               <td> {{ course[3] }} </td>
 	               <td> {{ course[4] }} </td>
 	               <td> {{ course[5] }} </td>
+								 <td> {{ course[6] }} </td>
+								 <td> {{ course[7] }} </td>
 	            </tr>
-         {% endfor %}
+        <!-- {% endfor %} -->
 
-      </table> -->
-	</div>
+      </table>
+</div>
 </body>
 </html>
