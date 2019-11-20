@@ -17,7 +17,7 @@ class CourseObj:
 		self.courseRequirements = course[4]
 		self.coursePeriod = course[5]
 		self.courseProfessor = course[6]
-		self.courseDescription = course [7]
+		self.courseDescription = course[7]
 		#self.coursePrerequisites = course[3]
 		
 		

@@ -315,7 +315,6 @@ class CourseQuery:
 			cursor = self.connection.cursor()
 			cursor.execute(masterQuery)
 			courses = cursor.fetchall()
-			print((len(courses[0]) ))
 			courseList = self.createCourseList(courses)
 			
 			return courseList
