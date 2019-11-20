@@ -6,6 +6,9 @@
    max-width: 2000px;
 }
 
+body{
+  min-width: 2000px;
+}
 header{
   position: absolute;
   top: 0;
