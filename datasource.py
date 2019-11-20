@@ -35,7 +35,7 @@ class CourseQuery:
 
 		self.QueryList =[self.getCourseByDeptTag(), self.getCourseByNumber(), self.getCourseByName(), self.getCourseByTerm(), self.getCourseByRequirements(), self.getCourseByPeriod(), self.getCourseByProfessor()]
 		
-	def createCourse(self, courses):
+	def createCourseList(self, courses):
 		'''
 		Helper method that takes in a list of courses in the form of tuples
 		and creates a CourseObj for each course in the list
@@ -46,12 +46,12 @@ class CourseQuery:
 		Returns: 
 		a new list of CourseObj objects
 		'''
-		courseResults =[]
+		courseList =[]
 		for course in courses:
 			courseObj = CourseObj(course)
-			courseResults.append(courseObj)
+			courseList.append(courseObj)
 			
-		return courseResults
+		return courseList
 	
 	def connect(self):	
 		'''
@@ -315,9 +315,10 @@ class CourseQuery:
 			cursor = self.connection.cursor()
 			cursor.execute(masterQuery)
 			courses = cursor.fetchall()
-			courseResults = self.createCourse(courses)
-			print((len(courseResults[0]) ))
-			return courseResults
+			print((len(courses[0]) ))
+			courseList = self.createCourseList(courses)
+			
+			return courseList
 
 
 		except Exception as e:
