@@ -179,13 +179,13 @@
 							 <th>Term </th>
                <th>Requirements Fulfilled</th>
                <th>Period </th>
-							 <th>Professor(s) </th>
-							 <th>Course Desciption </th>
+				 <th>Professor(s) </th>
+				 <th>Course Desciption </th>
 
 
             </tr>
 
-            <!-- {% for course in result%} -->
+            {% for course in result%} 
             	<tr>
 	               <td> {{ course[0] }} </td>
 	               <td> {{ course[1] }} </td>
@@ -196,8 +196,7 @@
 								 <td> {{ course[6] }} </td>
 								 <td> {{ course[7] }} </td>
 	            </tr>
-        <!-- {% endfor %} -->
-
+        {% endfor %}
       </table>
 </div>
 </body>
