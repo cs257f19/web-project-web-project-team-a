@@ -7,14 +7,9 @@ import datasource
 app = flask.Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
-
-# db = SQLAlchemy()
-
-
 @app.route('/')
 def homepage():
     return render_template('homepage.html')
-
 
 @app.route('/search-result', methods=['POST', 'GET'])
 def searchResult():
@@ -48,7 +43,6 @@ def queryResult():
 									result.get("term"), result.get("requirements"), result.get("period"), None)
 	
 		result = ds.masterQuery()
-		#result = result.getCourseDeptTag()
 
 		resultList = []
 		for item in result:
