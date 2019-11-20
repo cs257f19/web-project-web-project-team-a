@@ -182,10 +182,9 @@ class CourseQuery:
 			self.courseTerm = self.courseTerm.split("&")
 			query = self.getCourseByTermHelper(self.courseTerm[0])
 
-			if len(self.courseTerm) > 1:
-				for termIndex in range(1, len(self.courseTerm)):
-					#query = query + " OR "+ self.getCourseByTermHelper(self.courseTerm[termIndex])
-					query = query + " OR UPPER(termsoffered) LIKE UPPER('%" + self.courseTerm[termIndex] + "%') "
+			for termIndex in range(1, len(self.courseTerm)):
+				#query = query + " OR "+ self.getCourseByTermHelper(self.courseTerm[termIndex])
+				query = query + " OR UPPER(termsoffered) LIKE UPPER('%" + self.courseTerm[termIndex] + "%') "
 			return query
 		else:
 			return None
