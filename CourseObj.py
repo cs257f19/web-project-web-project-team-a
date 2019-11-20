@@ -17,7 +17,7 @@ class CourseObj:
 		self.courseRequirements = course[4]
 		self.coursePeriod = course[5]
 		self.courseProfessor = course[6]
-		self.courseDescription = course [7]
+		self.courseDescription = course[7]
 		#self.coursePrerequisites = course[3]
 		
 		
@@ -88,10 +88,12 @@ class CourseObj:
 		prints out the contents of the course object 
 		'''
 		for i in range(0, 7):
-			if(i !=7 ):
+			if(i != 7 ):
 				print(self.course[i], end = ', ')
 			else:
 				print(self.course[i], end ='')
+
+		print()
 		print()
 				
 
