@@ -373,7 +373,7 @@ def main():
 	# Initialize query object and test queries
 	#query = CourseQuery("AFST", None, None, None, None, None, None)
 	#query = CourseQuery("AFST", 100, None, "Fall 2019&Winter 2020", None, None, None)
-	query = CourseQuery("AFST", None, None, None, None,"4a", None)
+	query = CourseQuery("AFST", None, None, None, None,"4a&2a", None)
 	#query = CourseQuery(None, None, None, None, "FSR", None, None)
 
 	#test queries
