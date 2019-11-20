@@ -267,7 +267,7 @@ class CourseQuery:
 			query = self.getCourseByPeriodHelper(self.coursePeriod[0])
 
 			for periodIndex in range(1, len(self.coursePeriod)):
-				query = query + " OR UPPER(classperiod) LIKE UPPER('%" + (self.coursePeriod[periodIndex]) + "%') "
+				query = query + " OR classperiod LIKE UPPER('%" + (self.coursePeriod[periodIndex]) + "%') "
 			return query
 		else:
 			return None
@@ -284,7 +284,7 @@ class CourseQuery:
 
 		'''
 		#if self.coursePeriod != None:
-		query = "SELECT	* FROM classes WHERE classperiod LIKE '%" + str(period) + "%' "
+		query = "SELECT	* FROM classes WHERE classperiod LIKE '%" + period + "%' "
 		return query
 		#else:
 		#	return None
