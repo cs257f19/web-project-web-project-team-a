@@ -336,7 +336,7 @@ class CourseQuery:
 
 		try:
 
-			masterQuery = ""
+			masterQuery = "Select * FROM classes"
 
 			for i in range(len(self.QueryList)):
 				
