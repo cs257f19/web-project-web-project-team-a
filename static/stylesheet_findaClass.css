@@ -109,6 +109,7 @@ header{
   border: 2px solid #0b5091;
   border-style: outset;
   border-width: 5px;
+  z-index: 1;
 }
 
 
@@ -172,7 +173,7 @@ header{
   margin-left: 15px;
   margin-top: 15px;
   margin-bottom: 15px;
-  clear: both;
+  z-index: 3;
 }
 
 .directions p{
