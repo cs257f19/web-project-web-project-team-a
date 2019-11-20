@@ -371,12 +371,12 @@ def main():
 	
 	# (dept, number, name, term, requirements, period, professor):
 	# Initialize query object and test queries
-	#query = CourseQuery("AFST", None, None, None, None, None, None)
+	query = CourseQuery(None, None, "data", None, None, None, None)
 	#query = CourseQuery("AFST", 100, None, "Fall 2019&Winter 2020", None, None, None)
 	#query = CourseQuery("AFST", 100, None, "Fall 2019", None,"2a&5a", None)
 	#query = CourseQuery(None, None, None, None, "FSR", None, None)
 
-	'''
+	
 	results = query.masterQuery()
 
 	if results is not None:
@@ -386,6 +386,6 @@ def main():
 
 	# Disconnect from database
 	query.connection.close()
-	'''
+	
 	
 main()
