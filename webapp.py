@@ -12,8 +12,13 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 
 @app.route('/')
-def hello():
+def homepage():
     return render_template('homepage.html')
+
+
+@app.route('/findaclass')
+def findaclass():
+    return render_template('findaclass.html')
 
 @app.route('/search-result', methods=['POST', 'GET'])
 def searchResult():
@@ -33,7 +38,7 @@ def searchResult():
 		return render_template('result.html', result = resultList)
 
 @app.route('/query-result', methods=['POST', 'GET'])
-def searchResult():
+def queryResult():
 	if request.method == 'POST':
 		result = request.form
 
