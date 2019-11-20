@@ -23,12 +23,12 @@ def searchResult():
 		ds = datasource.CourseQuery(None, None, result.get("search"), None, None, None)
 		result = ds.masterQuery()
 
-        resultList = []
-        for item in result:
-            tempList = [item.getCourseDeptTag(), item.getCourseNumber(), item.getCourseName(), 
-            			item.getCourseTerm(), item.getCourseRequirements(), item.getCoursePeriod(),
-            			item.getCourseProfessor(), item.getCourseDescription()]
-            resultList.append(tempList)
+		resultList = []
+		for item in result:
+			tempList = [item.getCourseDeptTag(), item.getCourseNumber(), item.getCourseName(), 
+					item.getCourseTerm(), item.getCourseRequirements(), item.getCoursePeriod(),
+					item.getCourseProfessor(), item.getCourseDescription()]
+		resultList.append(tempList)
 
 		return render_template('result.html', result = resultList)
 
@@ -43,12 +43,12 @@ def searchResult():
 		result = ds.getCourseByName()
 		#result = result.getCourseDeptTag()
 
-        resultList = []
-        for item in result:
-            tempList = [item.getCourseDeptTag(), item.getCourseNumber(), item.getCourseName(), 
-            			item.getCourseTerm(), item.getCourseRequirements(), item.getCoursePeriod(),
-            			item.getCourseProfessor(), item.getCourseDescription()]
-            resultList.append(tempList)
+		resultList = []
+		for item in result:
+			tempList = [item.getCourseDeptTag(), item.getCourseNumber(), item.getCourseName(), 
+					item.getCourseTerm(), item.getCourseRequirements(), item.getCoursePeriod(),
+					item.getCourseProfessor(), item.getCourseDescription()]
+		resultList.append(tempList)
 
 		return render_template('result.html', result = resultList)
 
