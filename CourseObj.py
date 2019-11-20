@@ -92,6 +92,8 @@ class CourseObj:
 				print(self.course[i], end = ', ')
 			else:
 				print(self.course[i], end ='')
+
+		print()
 		print()
 				
 
