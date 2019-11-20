@@ -377,8 +377,8 @@ def main():
 	#query = CourseQuery("AFST", 100, None, "Fall 2019", None,"2a&5a", None)
 	#query = CourseQuery(None, None, None, None, "FSR", None, None)
 
-	
-	results = CourseQuery.masterQuery()
+	'''
+	results = query.masterQuery()
 
 	if results is not None:
 		print("Query results: ")
@@ -388,5 +388,5 @@ def main():
 	# Disconnect from database
 	query.connection.close()
 	
-	
+	'''
 main()
