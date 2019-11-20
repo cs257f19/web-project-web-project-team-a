@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href ="../static/stylesheet_findaClass.css" />
+	 <link rel="stylesheet" href ="../static/stylesheet_findaClass.css" />
 </head>
 <body>
 	<div style="min-width: 1000px; margin: 0 auto; max-height: 150px;">
@@ -26,24 +26,135 @@
 		<button class="dropbtn"> Select a Department</button>
 		<div class="dropdown-content">
 
+			<a href="#">Africana Studies (AFST)</a>
+			<a href="#">American Studies (AMST)</a>
+			<a href="#">Arabic (ARBC)</a>
+			<a href="#">Archaeology (ARCN)</a>
+			<a href="#">Art History (ARTH) </a>
+			<a href="#">Asian Studies (ASST) </a>
+			<a href="#">Astronomy (ASTR) </a>
 			<a href="#">Biology (BIO)</a>
+			<a href="#">Chemistry (CHEM) </a>
+			<a href="#">Chinese (CHIN) </a>
+			<a href="#">Cinema and Media Studies (CAMS) </a>
+			<a href="#">Classics (CLAS)</a>
+			<a href="#">Cognitive Science (CGSC) </a>
 			<a href="#">Computer Science (CS)</a>
+			<a href="#">Cross-Cultural Studies (CCST) </a>
+			<a href="#">Dance (DANC) </a>
+			<a href="#">Digital Arts and Humanities (DGAH) </a>
+			<a href="#">Economics (ECON) </a>
+			<a href="#">Educational Studies (EDUC) </a>
+			<a href="#">English (ENGL) </a>
+			<a href="#">Environmental Studies (ENTS) </a>
+			<a href="#">European Studies (EUST) </a>
+			<a href="#">French and Francophone Studies (FREN) </a>
+			<a href="#">Geology (GEOL) </a>
+			<a href="#">German (GERM)</a>
+			<a href="#">Greek (GRK) </a>
+			<a href="#">Hebrew (HEBR) </a>
+			<a href="#">History (HIST) </a>
+			<a href="#">Interdisciplinary (IDSC) </a>
+			<a href="#">Japanese (JAPN) </a>
+			<a href="#">Latin (LATN) </a>
+			<a href="#">Latin American Studies (LTAM) </a>
+			<a href="#">Linguistics (LING) </a>
+			<a href="#">Lit & Cultural Studies (LCST) </a>
+			<a href="#">Mathematics (MATH) </a>
+			<a href="#">Middle East Studies (MEST) </a>
+			<a href="#">Music (MUSC) </a>
+			<a href="#">Neuroscience (NEUR) </a>
+			<a href="#">Philosophy (PHIL) </a>
+			<a href="#">Phys-Ed (PE) </a>
+			<a href="#">Physics (PHYS) </a>
+			<a href="#">Political Science (POSC) </a>
+			<a href="#">Psychology (PSYC)</a>
+			<a href="#">Religion (RELG) </a>
+			<a href="#">Russian (RUSS) </a>
+			<a href="#">Sociology/Anthropology (SOAN) </a>
+			<a href="#">Spanish (SPAN) </a>
 			<a href="#">Studio Art (ARTS)</a>
-			<a href="#">More classes will be added later</a>
+			<a href="#">Theater Arts (THEA) </a>
+			<a href="#">Women's and Gender Studies (WGST)</a>
 		</div>
-	</div> <br>
+	</div>
 
-	<table border = 1>
-		
+	<div class = "dropdown">
+		<button class="dropbtn"> Select Course Level</button>
+		<div class="dropdown-content">
+
+			<a href="#">100 </a>
+			<a href="#">200 </a>
+			<a href="#">300+ </a>
+
+		</div>
+	</div>
+
+	<div class = "dropdown">
+		<button class="dropbtn"> Select Term</button>
+		<div class="dropdown-content">
+
+			<a href="#">Fall 2019 </a>
+			<a href="#">Winter 2020 </a>
+			<a href="#">Spring 2020 </a>
+
+		</div>
+	</div>
+
+	<div class = "dropdown">
+		<button class="dropbtn"> Select Graduation Requirements</button>
+		<div class="dropdown-content">
+
+			<a href="#">Argument & Inquiry Seminar (A&I)</a>
+			<a href="#">Arts Practice (ARP) </a>
+			<a href="#">Formal or Statisical Reasoning (FSR) </a>
+			<a href="#">Science with Lab Component (LAB) </a>
+			<a href="#">Literary/Artistic Analysis (LAA) </a>
+			<a href="#">Humanistic Inquiry (HUM) </a>
+			<a href="#">Social Inquiry (SOC) </a>
+			<a href="#">Writing Rich (WRC) </a>
+			<a href="#">Quantitative Reasoning (QRE) </a>
+			<a href="#">Intercultural Domestic Studies (IDS) </a>
+			<a href="#">International Studies (INS) </a>
+
+		</div>
+	</div>
+
+	<div class = "dropdown">
+		<button class="dropbtn"> Select Course Period</button>
+		<div class="dropdown-content">
+
+			<a href="#">1A&nbsp&nbsp&nbsp(8:30 - 9:40) </a>
+			<a href="#">2A&nbsp&nbsp&nbsp(9:50 - 11:00)</a>
+			<a href="#">3A&nbsp&nbsp&nbsp(11:10 - 12:20) </a>
+			<a href="#">4A&nbsp&nbsp&nbsp(12:30 - 1:40) </a>
+			<a href="#">5A&nbsp&nbsp&nbsp(1:50 - 3:00) </a>
+			<a href="#">6A&nbsp&nbsp&nbsp(3:10 - 4:20) </a>
+			<a href="#">1/2C&nbsp&nbsp&nbsp(8:15 - 10:00) </a>
+			<a href="#">2/3C&nbsp&nbsp&nbsp(10:10 - 11:55) </a>
+			<a href="#">4/5C&nbsp&nbsp&nbsp(1:15 - 3:00) </a>
+			<a href="#">5/6C&nbsp&nbsp&nbsp(3:10 - 4:55) </a>
+
+		</div>
+	</div>
+
+	<div class = "submit">
+		<button> Search for Courses </button>
+	</div>
+
+
+
+<!--	<table border = 1>
+
             <tr>
-               <th>Course DeptTag</th>
+               <th>Course Department</th>
                <th>Course Number</th>
                <th>Course Name</th>
                <th>Course Prerequisites</th>
                <th>Coure Requirements</th>
                <th>Course Term</th>
             </tr>
-            
+
             {% for course in result%}
             	<tr>
 	               <td> {{ course[0] }} </td>
@@ -54,8 +165,8 @@
 	               <td> {{ course[5] }} </td>
 	            </tr>
          {% endfor %}
-         
-      </table>
+
+      </table> -->
 	</div>
 </body>
 </html>

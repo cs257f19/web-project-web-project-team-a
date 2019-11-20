@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href ="../static/stylesheet_findaClass.css" />
+	 <link rel="stylesheet" href ="../static/stylesheet_findaClass.css" />
 </head>
 <body>
 	<div style="min-width: 1000px; margin: 0 auto; max-height: 150px;">
@@ -10,89 +10,189 @@
 			Find a Class
 		</h1>
 		<img src="../static/carletonlogo.png" alt="CarletonLogo" width="110" height="100">
+		<h2>
+			An open source program designed by and for Carleton students so that they can better select and plan their course load.
+		</h2>
+		<button> Home </button>
+		<button> About the Data </button>
 	</div>
 	</div>
-	
+
 	<div class="topnav">
 		<input type="text" placeholder="Enter class name">
-	</div>  
-<!--
-	<ul class="breadcrumb">
-  		<li><a href="#">Winter 2019</a></li>
-  		<li><a href="#">Computer Science</a></li>
-  		<li><a href="#"> Level 200</a></li>
- 		<li>CS 201</li>
-
-	</ul>
--->
+	</div>
 
 	<div class = "dropdown">
 		<button class="dropbtn"> Select a Department</button>
 		<div class="dropdown-content">
-			
-			<a href="#">Biology (BIO)</a>
-			<a href="#">Computer Science (CS)</a>
-			<a href="#">Studio Art (ARTS)</a>
-			<a href="#">More classes will be added later</a>
-		</div>
-	</div> <br>
-<!--
-	<div class="course">
-		<div class="title">
-			<h3 class="title">
-				<span class="coursenum" title="4824"> CS 201</span>
-				" Data Structures "
-			</h3>
-		</div>
-		
-		<div class = "description">
-			<p> Think back to your favorite assignment from Introduction to Computer Science. Did you ever get the feeling that "there has to be a better/smarter way to do this problem"? The Data Structures course is all about how to store information intelligently and access it efficiently. How can Google take your query, compare it to billions of web pages, and return the answer in less than onesecond? How can one store information so as to balance the competing needs for fast data retrieval andfast data modification? To help us answer questions like these, we will analyze and implement stacks,
-			queues, trees, linked lists, graphs, and hash tables. Students who have received credit for a course forwhich Computer Science 201 is a prerequisite are not eligible to enroll in Computer Science 201.
-			</p>
-		</div>
-
-		<div class="information"> 
-			<div class="prerequisites">
-				<ul class="classData">
-					<h3> Prerequisites</h3>
-					<li><a href="#">CS 111</a></li>
-					<li><a href="#"> Instructor permission</a></li>
-				</ul>	
-			</div>
-
-			<div class="requirements">
-				<h3> Requirements Met</h3>
-					<ul class="classData">
-						<li><a href="#"> Quantitative Reasoning</a></li>
-						<li><a href="#"> Formal or Statistical Reasoning </a></li>
-					</ul>
-			</div>
-
-			<div class="terms">
-				<h3> Terms Available</h3>
-					<ul class="classData">
-						<li><a href="#"> Fall</a></li>
-						<li><a href="#"> Winter</a></li>
-						<li><a href="#"> Spring</a></li>
-					</ul>
-			</div>
-
-			<div class="professors">
-				<h3> Taught By</h3>
-					<ul class="classData">
-						<li><a href="#"> Sam Tucker</a></li>
-						<li><a href="#"> Amy Csizmar Dalal</a></li>
-						<li><a href="#"> Anna N Rafferty</a></li>
-						<li><a href="#"> David R Musicant</a></li>
-					</ul>
-			</div>
-
-			<div class="credits">
-				<h3> 6 credits </h3>	
-			</div>
-
-			</div> 
--->
 	</div>
+	</div>
+
+	<div class = "dropdown">
+		<button class="dropbtn"> Select Course Level</button>
+		<div class="dropdown-content">
+		</div>
+	</div>
+
+	<div class = "dropdown">
+		<button class="dropbtn"> Select Term</button>
+		<div class="dropdown-content">
+		</div>
+	</div>
+
+	<div class = "dropdown">
+		<button class="dropbtn"> Select Graduation Requirements</button>
+		<div class="dropdown-content">
+		</div>
+	</div>
+
+	<div class = "dropdown">
+		<button class="dropbtn"> Select Course Period</button>
+		<div class="dropdown-content">
+		</div>
+	</div>
+
+<form action="http://perlman.mathcs.carleton.edu:5118/query-result" method="post">
+	<div class = "submit">
+		<button type="submit" value="submit"> Search for Courses </button>
+	</div>
+
+	<div class="custom-select">
+		<select name="department" id="department">
+			<option selected disabled>  </option>
+			<option value="AFST">Africana Studies (AFST)</option>
+			<option value="AMST">American Studies (AMST)</option>
+			<option value="ARBC">Arabic (ARBC)</option>
+			<option value="ARCN">Archaeology (ARCN)</option>
+			<option value="ARTH">Art History (ARTH) </option>
+			<option value="ASST">Asian Studies (ASST) </option>
+			<option value="ASTR">Astronomy (ASTR) </option>
+			<option value="BIOL">Biology (BIOL)</option>
+			<option value="CHEM">Chemistry (CHEM) </option>
+			<option value="CHIN">Chinese (CHIN) </option>
+			<option value="CAMS">Cinema and Media Studies (CAMS) </option>
+			<option value="CLAS">Classics (CLAS)</option>
+			<option value="CGSC">Cognitive Science (CGSC) </option>
+			<option value="CS">Computer Science (CS)</option>
+			<option value="CCST">Cross-Cultural Studies (CCST) </option>
+			<option value="DANC">Dance (DANC) </option>
+			<option value="DGAH">Digital Arts and Humanities (DGAH) </option>
+			<option value="ECON">Economics (ECON) </option>
+			<option value="EDUC">Educational Studies (EDUC) </option>
+			<option value="ENGL">English (ENGL) </option>
+			<option value="ENTS">Environmental Studies (ENTS) </option>
+			<option value="EUTS">European Studies (EUST) </option>
+			<option value="FREN">French and Francophone Studies (FREN) </option>
+			<option value="GEOL">Geology (GEOL) </option>
+			<option value="GERM">German (GERM)</option>
+			<option value="GRK">Greek (GRK) </option>
+			<option value="HEBR">Hebrew (HEBR) </option>
+			<option value="HIST">History (HIST) </option>
+			<option value="IDSC">Interdisciplinary (IDSC) </option>
+			<option value="JAPN">Japanese (JAPN) </option>
+			<option value="LATN">Latin (LATN) </option>
+			<option value="LTAM">Latin American Studies (LTAM) </option>
+			<option value="LING">Linguistics (LING) </option>
+			<option value="LCST">Lit & Cultural Studies (LCST) </option>
+			<option value="MATH">Mathematics (MATH) </option>
+			<option value="MEST">Middle East Studies (MEST) </option>
+			<option value="MUSC">Music (MUSC) </option>
+			<option value="NEUR">Neuroscience (NEUR) </option>
+			<option value="PHIL">Philosophy (PHIL) </option>
+			<option value="PE">Phys-Ed (PE) </option>
+			<option value="PHYS">Physics (PHYS) </option>
+			<option value="POSC">Political Science (POSC) </option>
+			<option value="PSYC">Psychology (PSYC)</option>
+			<option value="RELG">Religion (RELG) </option>
+			<option value="RUSS">Russian (RUSS) </option>
+			<option value="SOAN">Sociology/Anthropology (SOAN) </option>
+			<option value="SPAN">Spanish (SPAN) </option>
+			<option value="ARTS">Studio Art (ARTS)</option>
+			<option value="THEA">Theater Arts (THEA) </option>
+			<option value="WGST">Women's and Gender Studies (WGST)</option>
+		</select>
+	</div>
+
+	<div class="custom-select">
+		<select name="courselevel" id="courselevel">
+				<option selected disabled> </option>
+				<option value="100">100 </option>
+				<option value="200">200 </option>
+				<option value="300">300+ </option>
+			</select>
+	</div>
+
+	<div class="custom-select">
+		<select name="term" multiple id="term">
+			<option value="Fall 2019">Fall 2019 </option>
+			<option value="Winter 2020">Winter 2020 </option>
+			<option value="Spring 2020">Spring 2020 </option>
+		</select>
+	</div>
+
+<div class="custom-select">
+	<select name="requirements" multiple id="requirements">
+		<option value="A&I">Argument & Inquiry Seminar (A&I)</option>
+		<option value="ARP">Arts Practice (ARP) </option>
+		<option value="FSR">Formal or Statisical Reasoning (FSR) </option>
+		<option value="LAB">Science with Lab Component (LAB) </option>
+		<option value="LAA">Literary/Artistic Analysis (LAA) </option>
+		<option value="HUM">Humanistic Inquiry (HUM) </option>
+		<option value="SOC">Social Inquiry (SOC) </option>
+		<option value="WRC">Writing Rich (WRC) </option>
+		<option value="QRE">Quantitative Reasoning (QRE) </option>
+		<option value="IDS">Intercultural Domestic Studies (IDS) </option>
+		<option value="INS">International Studies (INS) </option>
+	</select>
+</div>
+
+<div class="custom-select">
+	<select name="period" multiple id="period">
+		<option value="1a">1A&nbsp&nbsp&nbsp(8:30 - 9:40) </option>
+		<option value="2a">2A&nbsp&nbsp&nbsp(9:50 - 11:00)</option>
+		<option value="3a">3A&nbsp&nbsp&nbsp(11:10 - 12:20) </option>
+		<option value="4a">4A&nbsp&nbsp&nbsp(12:30 - 1:40) </option>
+		<option value="5a">5A&nbsp&nbsp&nbsp(1:50 - 3:00) </option>
+		<option value="6a">6A&nbsp&nbsp&nbsp(3:10 - 4:20) </option>
+		<option value="1/2c">1/2C&nbsp&nbsp&nbsp(8:15 - 10:00) </option>
+		<option value="2/3c">2/3C&nbsp&nbsp&nbsp(10:10 - 11:55) </option>
+		<option value="4/5c">4/5C&nbsp&nbsp&nbsp(1:15 - 3:00) </option>
+		<option value="5/6c">5/6C&nbsp&nbsp&nbsp(3:10 - 4:55) </option>
+	</select>
+</div>
+</form>
+
+
+<div class="directions">
+<p> Use CTRL (Windows) or Command (Mac) to select multiple options for terms, requirements, and class periods </p>
+</div>
+
+
+
+
+<!--	<table border = 1>
+
+            <tr>
+               <th>Course Department</th>
+               <th>Course Number</th>
+               <th>Course Name</th>
+               <th>Course Prerequisites</th>
+               <th>Coure Requirements</th>
+               <th>Course Term</th>
+            </tr>
+
+            {% for course in result%}
+            	<tr>
+	               <td> {{ course[0] }} </td>
+	               <td> {{ course[1] }} </td>
+	               <td> {{ course[2] }} </td>
+	               <td> {{ course[3] }} </td>
+	               <td> {{ course[4] }} </td>
+	               <td> {{ course[5] }} </td>
+	            </tr>
+         {% endfor %}
+
+      </table> -->
+</div>
 </body>
 </html>
