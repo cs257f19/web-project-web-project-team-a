@@ -350,7 +350,7 @@ class CourseQuery:
 						if i == 0:
 							masterQuery = self.QueryList[i]
 						else:	
-						masterQuery = masterQuery + " INTERSECT " + self.QueryList[i]
+							masterQuery = masterQuery + " INTERSECT " + self.QueryList[i]
 				else:
 					if self.QueryList[i] != None:
 						
