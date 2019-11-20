@@ -75,6 +75,11 @@ header{
   background-color: #0b5091;
   height: 60px;
   border: black;
+  float: left;
+}
+
+.topnav p{
+  color: white;
 }
 
 /* Style the search box inside the navigation bar */
@@ -109,7 +114,6 @@ header{
   border: 2px solid #0b5091;
   border-style: outset;
   border-width: 5px;
-  z-index: 1;
 }
 
 
