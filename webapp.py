@@ -8,6 +8,10 @@ app = flask.Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 @app.route('/')
+def firstVisit():
+    return render_template('homepage.html')
+
+@app.route('/homepage')
 def homepage():
     return render_template('homepage.html')
 
