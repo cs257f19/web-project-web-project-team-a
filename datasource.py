@@ -378,7 +378,7 @@ def main():
 	#query = CourseQuery(None, None, None, None, "FSR", None, None)
 
 	
-	results = query.masterQuery()
+	results = CourseQuery.masterQuery()
 
 	if results is not None:
 		print("Query results: ")
