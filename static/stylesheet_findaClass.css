@@ -47,6 +47,10 @@ header{
   font-size: 15px;
 }
 
+.header h3{
+  color: white;
+  font-size 10px;
+}
 .header button{
   line-height: 20px;
   text-align: center;
@@ -78,11 +82,6 @@ header{
   float: left;
 }
 
-.topnav p{
-  color: white;
-  margin-left: 3px;
-  max-width: 25%;
-}
 
 /* Style the search box inside the navigation bar */
 .topnav input[type=text] {
