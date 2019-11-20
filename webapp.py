@@ -55,7 +55,7 @@ def queryResult():
 			tempList = [item.getCourseDeptTag(), item.getCourseNumber(), item.getCourseName(), 
 					item.getCourseTerm(), item.getCourseRequirements(), item.getCoursePeriod(),
 					item.getCourseProfessor(), item.getCourseDescription()]
-		resultList.append(tempList)
+			resultList.append(tempList)
 
 		return render_template('result.html', result = resultList)
 
