@@ -16,10 +16,6 @@ def homepage():
     return render_template('homepage.html')
 
 
-@app.route('/findaclass')
-def findaclass():
-    return render_template('findaclass.html')
-
 @app.route('/search-result', methods=['POST', 'GET'])
 def searchResult():
 	if request.method == 'POST':
@@ -37,6 +33,11 @@ def searchResult():
 
 		return render_template('result.html', result = resultList)
 
+
+@app.route('/findaclass')
+def findaclass():
+    return render_template('findaclass.html')
+
 @app.route('/query-result', methods=['POST', 'GET'])
 def queryResult():
 	if request.method == 'POST':
@@ -45,7 +46,7 @@ def queryResult():
 		ds = datasource.CourseQuery(result.get("department"), result.get("courselevel"), result.get("search"), 
 									result.get("term"), result.get("requirements"), result.get("period"), None)
 	
-		result = ds.getCourseByName()
+		result = ds.masterQuery()
 		#result = result.getCourseDeptTag()
 
 		resultList = []
@@ -57,11 +58,11 @@ def queryResult():
 
 		return render_template('result.html', result = resultList)
 
-
+'''
 @app.route('/result')
 def result():
     return render_template('result.html')
-
+'''
 if __name__ == '__main__':
     if len(sys.argv) != 3:
         print('Usage: {0} host port'.format(sys.argv[0]), file=sys.stderr)

@@ -173,33 +173,29 @@
 	<table border = 1 id="classes">
 
             <tr>
-               <th>Department</th>
-               <th>Course Number</th>
-               <th>Course Name</th>
-							 <th>Term </th>
-               <th>Requirements Fulfilled</th>
-               <th>Period </th>
-<<<<<<< HEAD
-							 <th>Professor(s) </th>
-							 <th>Course Description </th>
-=======
-				 <th>Professor(s) </th>
-				 <th>Course Desciption </th>
->>>>>>> ab9427528563c436d86fe67f3a193b3caf7c0760
-
+				<th>Department</th>
+				<th>Course Number</th>
+				<th>Course Name</th>
+				<th>Term </th>
+				<th>Requirements Fulfilled</th>
+				<th>Period </th>
+				<th>Professor(s) </th>
+				<th>Course Description </th>
+				<th>Professor(s) </th>
+				<th>Course Desciption </th>
 
             </tr>
 
             {% for course in result%} 
             	<tr>
-	               <td> {{ course[0] }} </td>
-	               <td> {{ course[1] }} </td>
-	               <td> {{ course[2] }} </td>
-	               <td> {{ course[3] }} </td>
-	               <td> {{ course[4] }} </td>
-	               <td> {{ course[5] }} </td>
-								 <td> {{ course[6] }} </td>
-								 <td> {{ course[7] }} </td>
+					<td> {{ course[0] }} </td>
+					<td> {{ course[1] }} </td>
+					<td> {{ course[2] }} </td>
+					<td> {{ course[3] }} </td>
+					<td> {{ course[4] }} </td>
+					<td> {{ course[5] }} </td>
+					<td> {{ course[6] }} </td>
+					<td> {{ course[7] }} </td>
 	            </tr>
         {% endfor %}
       </table>
