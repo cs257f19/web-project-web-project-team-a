@@ -32,7 +32,7 @@ def searchResult():
 
 @app.route('/findaclass')
 def findaclass():
-    return render_template('findaclass.html')
+    return render_template('findaClass.html')
 
 @app.route('/query-result', methods=['POST', 'GET'])
 def queryResult():
