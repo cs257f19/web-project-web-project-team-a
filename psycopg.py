@@ -1,5 +1,5 @@
 '''
-psycopg2-test.py
+psycopg.py
 
 Sample code demonstrating how to use the psycopg2 Python library to connect
 to a database and execute a query.

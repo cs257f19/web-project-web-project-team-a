@@ -1,6 +1,7 @@
 import requests
 from lxml.html import fromstring
 import csv
+import unidecode
 
 master_list = []
 
@@ -177,14 +178,18 @@ def collect_period(tree, course_iter):
 def collect_professor(tree, course_iter):
     prof = str(tree.xpath('//*[@id="enrollModule"]/div[1]/div[' + str(course_iter) + ']/div[2]/p[1]/a/text()')).replace(
         '[\'', '').replace('\']', '')
+    if prof == '[]':
+        return ''
     return prof
 
 
 def collect_desc(tree, course_iter):
-    desc = str(tree.xpath('//*[@id="enrollModule"]/div[1]/div[' + str(course_iter) + ']/div[2]/p[2]/text()'))
-    if desc == '[]':
-        return ''
-    return desc[2:-2]
+    # desc = str(tree.xpath('//*[@id="enrollModule"]/div[1]/div[' + str(course_iter) + ']/div[2]/p[2]/text()')).replace(
+    #     '\\xa0', ' ')
+    # if desc == '[]':
+    #     return ''
+    # return desc[2:-2]
+    return '[under construction]'
 
 
 def get_number_offered_for_term(tree):
@@ -213,7 +218,7 @@ def create_csv(course_list):
     :param course_list: list of all courses offered at Carleton, containing Course objects
     :return: None, but writes a CSV file
     """
-    with open('courses.csv', 'w') as csvfile:
+    with open('presentation_courses.csv', 'w') as csvfile:
         filewriter = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
         filewriter.writerow(['Department', 'Course Number', 'Course Name', 'Term', 'Liberal Arts Requirements',
                              'Class Period', 'Professor', 'Description'])
