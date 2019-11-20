@@ -22,7 +22,7 @@ class CourseQuery:
 	def __init__(self, dept, number, name, term, requirements, period, professor,):
 		
 		self.courseDeptTag = dept
-		self.courseNumber = number
+		self.courseNumber = int(number)
 		self.courseName = name
 		self.courseTerm = term
 		self.courseRequirements = requirements

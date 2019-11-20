@@ -44,7 +44,7 @@ def queryResult():
 	if request.method == 'POST':
 		result = request.form
 
-		ds = datasource.CourseQuery(result.get("department"), int(result.get("courselevel")), result.get("search"), 
+		ds = datasource.CourseQuery(result.get("department"), result.get("courselevel"), result.get("search"), 
 									result.get("term"), result.get("requirements"), result.get("period"), None)
 	
 		result = ds.masterQuery()
