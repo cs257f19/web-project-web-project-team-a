@@ -340,17 +340,20 @@ class CourseQuery:
 
 		try:
 
-			masterQuery = "SELECT	* FROM classes "
+			masterQuery = ""
 
 			for i in range(len(self.QueryList)):
 				
 				if i < (len(self.QueryList)-1):
+
 					if self.QueryList[i] != None:
-						print("hit1")
+						if i = 0:
+							masterQuery = self.QueryList[i]
+						else:	
 						masterQuery = masterQuery + " INTERSECT " + self.QueryList[i]
 				else:
 					if self.QueryList[i] != None:
-						print("hit2")
+						
 						masterQuery = masterQuery + " INTERSECT " + self.QueryList[i]
 
 			masterQuery = masterQuery + " ORDER BY coursenum ASC "
