@@ -22,7 +22,7 @@ class CourseQuery:
 	def __init__(self, dept, number, name, term, requirements, period, professor,):
 		
 		self.courseDeptTag = dept
-		self.courseNumber = int(number)
+		self.courseNumber = number
 		self.courseName = name
 		self.courseTerm = term
 		self.courseRequirements = requirements
@@ -118,6 +118,7 @@ class CourseQuery:
 
 		'''
 		if self.courseNumber != None:
+			self.courseNumber = int(self.courseNumber)
 			if int(self.courseNumber) < 300:
 				query = "SELECT	* FROM classes WHERE coursenum BETWEEN " + str(self.courseNumber) +  " AND " + str((self.courseNumber + 99)) 
 
