@@ -87,7 +87,7 @@ class CourseObj:
 		'''
 		prints out the contents of the course object 
 		'''
-		for i in range(0, 7):
+		for i in range(0, 6):
 			if(i !=7 ):
 				print(self.course[i], end = ', ')
 			else:
