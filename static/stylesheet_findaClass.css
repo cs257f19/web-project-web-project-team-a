@@ -184,6 +184,8 @@ header{
   text-align: left;
   padding: 10px;
 
-
-
 }
+
+#classes tr:nth-child(even){background-color: #f2f2f2;}
+
+#classes tr:hover {background-color: #ddd;}
