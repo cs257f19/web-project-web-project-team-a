@@ -21,14 +21,10 @@ def hello():
 def searchResult():
     if request.method == 'POST':
         result = request.form
-
+        #CourseQuery object order
+        #(dept, number, name, term, requirements, period, professor):
         ds = datasource.CourseQuery(None, None, result.get("search"), None, None, None)
-        # result = ds.getCourseByDeptTag()
-        result = ds.getCourseByName()
-        # result = result.getCourseDeptTag()
-
-        # description = "Showing all classes that have  " + result.get("search") + " sorted alphabetically"
-        # result = ds.getCourseByName()
+        result = ds.masterQuery()
 
         resultList = []
         for item in result:

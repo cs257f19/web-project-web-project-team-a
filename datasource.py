@@ -19,7 +19,7 @@ class CourseQuery:
 		object that when created will contain all criteria from a single user query
 	'''
 
-	def __init__(self, dept, number, name, term, requirements, period, professor, description):
+	def __init__(self, dept, number, name, term, requirements, period, professor,):
 		
 		self.courseDeptTag = dept
 		self.courseNumber = number
@@ -118,7 +118,6 @@ class CourseQuery:
 		'''
 		if self.courseNumber != None:
 			if self.courseNumber < 300:
-				#query = "SELECT	* FROM classes WHERE coursenum = " + str(self.courseNumber) +  " INTERSECT " +  "SELECT	* FROM classes WHERE coursenum < " + str((self.courseNumber + 99)) 
 				query = "SELECT	* FROM classes WHERE coursenum BETWEEN " + str(self.courseNumber) +  " AND " + str((self.courseNumber + 99)) 
 
 			else:
@@ -329,10 +328,10 @@ def main():
 	
 	# (dept, number, name, term, requirements, period, professor, description):
 	# Initialize query object and test queries
-	#query = CourseQuery("AFST", None, None, None, None, None, None, None,)
-	query = CourseQuery("AFST", 100, None, None, None, None, None, None,)
-	#query = CourseQuery("AFST", 100, None, "Winter 2020", None, None, None, None,)
-	#query = CourseQuery(None, None, None, None, "FSR", None, None, None,)
+	#query = CourseQuery("AFST", None, None, None, None, None, None)
+	query = CourseQuery("AFST", 100, None, None, None, None, None)
+	#query = CourseQuery("AFST", 100, None, "Winter 2020", None, None, None)
+	#query = CourseQuery(None, None, None, None, "FSR", None, None)
 
 	#test queries
 	#results = query.getCourseByName()
