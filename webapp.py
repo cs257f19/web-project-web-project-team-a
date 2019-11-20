@@ -4,63 +4,73 @@ from flask import render_template, request
 import json
 import sys
 import datasource
+
 app = flask.Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+
 
 @app.route('/')
 def firstVisit():
     return render_template('homepage.html')
 
+
 @app.route('/homepage')
 def homepage():
     return render_template('homepage.html')
+
 
 @app.route('/aboutthedata')
 def aboutTheData():
     return render_template('AboutTheData.html')
 
 
+@app.route('/schedule')
+def schedule():
+    return render_template('schedule.html')
+
+
 @app.route('/search-result', methods=['POST', 'GET'])
 def searchResult():
-	if request.method == 'POST':
-		result = request.form
+    if request.method == 'POST':
+        result = request.form
 
-		ds = datasource.CourseQuery(None, None, result.get("search"), None, None, None, None)
-		result = ds.masterQuery()
+        ds = datasource.CourseQuery(None, None, result.get("search"), None, None, None, None)
+        result = ds.masterQuery()
 
-		resultList = []
-		for item in result:
+        resultList = []
+        for item in result:
+            tempList = [item.getCourseDeptTag(), item.getCourseNumber(), item.getCourseName(),
+                        item.getCourseTerm(), item.getCourseRequirements(), item.getCoursePeriod(),
+                        item.getCourseProfessor(), item.getCourseDescription()]
+            resultList.append(tempList)
 
-			tempList = [item.getCourseDeptTag(), item.getCourseNumber(), item.getCourseName(), 
-					item.getCourseTerm(), item.getCourseRequirements(), item.getCoursePeriod(),
-					item.getCourseProfessor(), item.getCourseDescription()]
-			resultList.append(tempList)
-
-		return render_template('result.html', result = resultList)
+        return render_template('result.html', result=resultList)
 
 
 @app.route('/findaclass')
 def findaclass():
     return render_template('findaClass.html')
 
+
 @app.route('/query-result', methods=['POST', 'GET'])
 def queryResult():
-	if request.method == 'POST':
-		result = request.form
+    if request.method == 'POST':
+        result = request.form
 
-		ds = datasource.CourseQuery(result.get("department"), result.get("courselevel"), result.get("search"), 
-									result.get("term"), result.get("requirements"), result.get("period"), None)
-	
-		result = ds.masterQuery()
+        ds = datasource.CourseQuery(result.get("department"), result.get("courselevel"), result.get("search"),
+                                    result.get("term"), result.get("requirements"), result.get("period"), None)
 
-		resultList = []
-		for item in result:
-			tempList = [item.getCourseDeptTag(), item.getCourseNumber(), item.getCourseName(), 
-					item.getCourseTerm(), item.getCourseRequirements(), item.getCoursePeriod(),
-					item.getCourseProfessor(), item.getCourseDescription()]
-			resultList.append(tempList)
+        result = ds.masterQuery()
 
-		return render_template('result.html', result = resultList)
+        resultList = []
+        for item in result:
+            tempList = [item.getCourseDeptTag(), item.getCourseNumber(), item.getCourseName(),
+                        item.getCourseTerm(), item.getCourseRequirements(), item.getCoursePeriod(),
+                        item.getCourseProfessor(), item.getCourseDescription()]
+            resultList.append(tempList)
+
+        return render_template('result.html', result=resultList)
+
 
 '''
 @app.route('/result')
