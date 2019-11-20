@@ -116,6 +116,7 @@ class CourseQuery:
 			a list of course objects with the specified course number.
 
 		'''
+		print("num")
 		if self.courseNumber != None:
 			if self.courseNumber < 300:
 				print("num hit")
