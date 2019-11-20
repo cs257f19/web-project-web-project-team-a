@@ -24,9 +24,9 @@ class CourseQuery:
 		self.courseDeptTag = dept
 		self.courseNumber = number
 		self.courseName = name
-		self.courseTerm = term
-		self.courseRequirements = requirements
-		self.coursePeriod = period
+		self.courseTerm = term.split('&')
+		self.courseRequirements = requirements.split('&')
+		self.coursePeriod = period.split('&')
 		self.courseProfessor = professor
 
 		self.user = "ngot"
@@ -35,6 +35,8 @@ class CourseQuery:
 
 		self.QueryList =[self.getCourseByDeptTag(), self.getCourseByNumber(), self.getCourseByName(), self.getCourseByTerm(), self.getCourseByRequirements(), self.getCourseByPeriod(), self.getCourseByProfessor()]
 		
+	
+
 	def createCourseList(self, courses):
 		'''
 		Helper method that takes in a list of courses in the form of tuples
@@ -174,6 +176,18 @@ class CourseQuery:
 		'''
 
 	def getCourseByTerm(self):
+		#if the length of list is longer than 1
+		#call helper that union category
+		if self.courseTerm != None:
+			query = self.courseTerm[0]
+			if len(self.courseTerm) > 1:
+				for termIndex in range(1, len(self.courseTerm)):
+					query = query + " UNION "+ self.getCourseByTermHelper(termIndex)
+			return query
+		else:
+			return None
+
+	def getCourseByTermHelper(self, term):
 		'''
 		Returns a list of all coursees within the specified term.
 
@@ -184,11 +198,10 @@ class CourseQuery:
 			a list of course objects within the specified term.
 
 		'''
-		if self.courseTerm != None:
-			query = "SELECT	* FROM classes WHERE UPPER(termsoffered) LIKE UPPER('%" + self.courseTerm + "%') "
+
+			query = "SELECT	* FROM classes WHERE UPPER(termsoffered) LIKE UPPER('%" + term+ "%') "
 			return query
-		else:
-			return None
+		
 
 		'''
 		try:
@@ -205,6 +218,17 @@ class CourseQuery:
 		''' 
 
 	def getCourseByRequirements(self):
+
+		if self.courseRequirements != None:
+			query = self.courseRequirements[0]
+			if len(self.courseRequirements) > 1:
+				for reqIndex in range(1, len(self.courseRequirements)):
+					query = query + " UNION "+ self.getCourseByRequirementsHelper(self.courseRequirements[reqIndex])
+			return query
+		else:
+			return None
+
+	def getCourseByRequirementsHelper(self, requirements):
 		'''
 			Returns a list of all of the coursees during the specified course period.
 
@@ -216,7 +240,7 @@ class CourseQuery:
 
 		'''
 		if self.courseRequirements != None:
-			query = "SELECT	* FROM classes WHERE UPPER(reqsFilled) LIKE UPPER('%" + self.courseRequirements + "%') "
+			query = "SELECT	* FROM classes WHERE UPPER(reqsFilled) LIKE UPPER('%" + requirements + "%') "
 			return query
 		else:
 			return None
@@ -234,8 +258,18 @@ class CourseQuery:
 			print("Something went wrong when executing the query: ", e)
 			return None
 		'''
-
 	def getCourseByPeriod(self):
+
+		if self.coursePeriod != None:
+			query = self.coursePeriod[0]
+			if len(self.coursePeriod) > 1:
+				for periodIndex in range(1, len(self.coursePeriod)):
+					query = query + " UNION "+ self.getCourseByPeriodHelper(self.coursePeriod[periodIndex])
+			return query
+		else:
+			return None
+
+	def getCourseByPeriodHelper(self, period):
 		'''
 		Returns a list of all of the coursees during the specified course period.
 
@@ -247,7 +281,7 @@ class CourseQuery:
 
 		'''
 		if self.coursePeriod != None:
-			query = "SELECT	* FROM classes WHERE classperiod LIKE '%" + self.coursePeriod + "%' "
+			query = "SELECT	* FROM classes WHERE classperiod LIKE '%" + period + "%' "
 			return query
 		else:
 			return None
@@ -330,7 +364,7 @@ def main():
 	# (dept, number, name, term, requirements, period, professor, description):
 	# Initialize query object and test queries
 	#query = CourseQuery("AFST", None, None, None, None, None, None)
-	query = CourseQuery("AFST", 100, None, None, None, None, None)
+	query = CourseQuery("AFST", 100, None, "Fall 2019&Winter 2020", None, None, None)
 	#query = CourseQuery("AFST", 100, None, "Winter 2020", None, None, None)
 	#query = CourseQuery(None, None, None, None, "FSR", None, None)
 

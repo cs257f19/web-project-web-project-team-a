@@ -23,13 +23,14 @@ def searchResult():
         result = request.form
         #CourseQuery object order
         #(dept, number, name, term, requirements, period, professor):
-        ds = datasource.CourseQuery(None, None, result.get("search"), None, None, None)
+        ds = datasource.CourseQuery(None, None, result.get("search"), None, None, None, None)
         result = ds.masterQuery()
 
         resultList = []
         for item in result:
-            tempList = [item.getCourseDeptTag(), item.getCourseNumber(), item.getCourseName(),
-                        item.getCoursePrerequisites(), item.getCourseRequirements(), item.getCourseTerm()]
+            tempList = [item.getCourseDeptTag(), item.getCourseNumber(), item.getCourseName(), 
+            			item.getCourseTerm(), item.getCourseRequirements(), item.getCoursePeriod(),
+            			item.getCourse]
             # tempList = [1, 2, 3, 4, 5, 6]
             resultList.append(tempList)
 
