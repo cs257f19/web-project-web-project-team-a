@@ -24,9 +24,9 @@ class CourseQuery:
 		self.courseDeptTag = dept
 		self.courseNumber = number
 		self.courseName = name
-		self.courseTerm = term.split('&')
-		self.courseRequirements = requirements.split('&')
-		self.coursePeriod = period.split('&')
+		self.courseTerm = term
+		self.courseRequirements = requirements
+		self.coursePeriod = period
 		self.courseProfessor = professor
 
 		self.user = "ngot"
@@ -179,6 +179,7 @@ class CourseQuery:
 		#if the length of list is longer than 1
 		#call helper that union category
 		if self.courseTerm != None:
+			self.courseTerm = self.courseTerm.split("&")
 			query = self.courseTerm[0]
 			if len(self.courseTerm) > 1:
 				for termIndex in range(1, len(self.courseTerm)):
@@ -220,6 +221,7 @@ class CourseQuery:
 	def getCourseByRequirements(self):
 
 		if self.courseRequirements != None:
+			self.courseRequirements = self.courseRequirements.split("&")
 			query = self.courseRequirements[0]
 			if len(self.courseRequirements) > 1:
 				for reqIndex in range(1, len(self.courseRequirements)):
@@ -261,6 +263,7 @@ class CourseQuery:
 	def getCourseByPeriod(self):
 
 		if self.coursePeriod != None:
+			self.coursePeriod = self.coursePeriod.split("&")
 			query = self.coursePeriod[0]
 			if len(self.coursePeriod) > 1:
 				for periodIndex in range(1, len(self.coursePeriod)):
