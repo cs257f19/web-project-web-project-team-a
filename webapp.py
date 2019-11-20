@@ -25,18 +25,48 @@ def searchResult():
 		result = ds.getCourseByName()
 		#result = result.getCourseDeptTag()
 
-<<<<<<< HEAD
         resultList = []
         for item in result:
-            tempList = [item.getCourseDeptTag(), item.getCourseNumber(), item.getCourseName(), 
+            tempList = [item.getCourseDeptTag(), item.getCourseNumber(), item.getCourseName(),
             			item.getCourseTerm(), item.getCourseRequirements(), item.getCoursePeriod(),
             			item.getCourse()]
             # tempList = [1, 2, 3, 4, 5, 6]
             resultList.append(tempList)
-=======
+
 		#description = "Showing all classes that have  " + result.get("search") + " sorted alphabetically"
 		#result = ds.getCourseByName()
->>>>>>> 4b6e511d0ac409c384a1df01093d84b991ee8526
+
+
+		resultList= []
+		for item in result:
+			tempList = [item.getCourseDeptTag(), item.getCourseNumber(), item.getCourseName(), item.getCoursePrerequisites(), item.getCourseRequirements(), item.getCourseTerm()]
+			#tempList = [1, 2, 3, 4, 5, 6]
+			resultList.append(tempList)
+
+
+		return render_template('result.html', result = resultList)
+
+@app.route('/query-result', methods=['POST', 'GET'])
+def searchResult():
+	if request.method == 'POST':
+		result = request.form
+
+		ds = datasource.CourseQuery(result.get("department"), result.get("courselevel"), result.get("search"), result.get("term"), result.get("requirements"), result.get("period"))
+		#result = ds.getCourseByDeptTag()
+		result = ds.getCourseByName()
+		#result = result.getCourseDeptTag()
+
+        resultList = []
+        for item in result:
+            tempList = [item.getCourseDeptTag(), item.getCourseNumber(), item.getCourseName(),
+            			item.getCourseTerm(), item.getCourseRequirements(), item.getCoursePeriod(),
+            			item.getCourseProfessor(), item.getCourseProfessor()]
+            # tempList = [1, 2, 3, 4, 5, 6]
+            resultList.append(tempList)
+
+		#description = "Showing all classes that have  " + result.get("search") + " sorted alphabetically"
+		#result = ds.getCourseByName()
+
 
 		resultList= []
 		for item in result:
