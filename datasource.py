@@ -262,12 +262,13 @@ class CourseQuery:
 			print("Something went wrong when executing the query: ", e)
 			return None
 		'''
+
 	def getCourseByPeriod(self):
 
 		if self.coursePeriod != None:
 			self.coursePeriod = self.coursePeriod.split("&")
 			query = self.getCourseByPeriodHelper(self.coursePeriod[0])
-			
+
 			if len(self.coursePeriod) > 1:
 				for periodIndex in range(1, len(self.coursePeriod)):
 					query = query + " UNION "+ self.getCourseByPeriodHelper(self.coursePeriod[periodIndex])
@@ -342,7 +343,7 @@ class CourseQuery:
 			masterQuery = "SELECT	* FROM classes "
 
 			for i in range(len(self.QueryList)):
-
+				print("hit")
 				if i < (len(self.QueryList)-1):
 					if self.QueryList[i] != None:
 						masterQuery = masterQuery + " INTERSECT " + self.QueryList[i]
