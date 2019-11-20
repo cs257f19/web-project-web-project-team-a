@@ -118,11 +118,11 @@ class CourseQuery:
 
 		'''
 		if self.courseNumber != None:
-			if self.courseNumber < 300:
-				query = "SELECT	* FROM classes WHERE coursenum BETWEEN " + str(self.courseNumber) +  " AND " + str((self.courseNumber + 99)) 
+			if int(self.courseNumber) < 300:
+				query = "SELECT	* FROM classes WHERE coursenum BETWEEN " + self.courseNumber +  " AND " + (self.courseNumber + 99)
 
 			else:
-				query = "SELECT	* FROM classes WHERE coursenum >= " + str(self.courseNumber)
+				query = "SELECT	* FROM classes WHERE coursenum >= " + self.courseNumber
 			return query
 		else:
 			return None
