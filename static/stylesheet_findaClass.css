@@ -80,6 +80,8 @@ header{
 
 .topnav p{
   color: white;
+  margin-left: 3px;
+  max-width: 25%;
 }
 
 /* Style the search box inside the navigation bar */
