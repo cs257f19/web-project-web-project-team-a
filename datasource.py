@@ -27,7 +27,6 @@ class CourseQuery:
 		self.courseTerm = term
 		self.courseRequirements = requirements
 		self.coursePeriod = period
-		self.courseProfessor = professor
 
 		self.user = "ngot"
 		self.password = "lamp792corn"
