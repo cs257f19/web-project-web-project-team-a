@@ -106,7 +106,7 @@ def collect_reqs(tree, course_iter):
         if "Quantitative" in string:
             reqs.append("QRE")
         if "Argument & Inquiry" in string:
-            reqs.append("A&I")
+            reqs.append("AI")
         if "Writing " in string:
             reqs.append("WRC")
         if "Intercultural Dom" in string:
