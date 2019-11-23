@@ -147,7 +147,7 @@ class CourseQuery:
 		'''
 		if self.courseTerm != None:
 			self.courseTerm = self.courseTerm.split("&")
-			query =  "SELECT * FROM classes WHERE UPPER(termsoffered) LIKE UPPER('%" + term + "%') "
+			query =  "SELECT * FROM classes WHERE UPPER(termsoffered) LIKE UPPER('%" + self.courseTerm[0] + "%') "
 			query = self.getCourseByTermHelper(self.courseTerm[0])
 
 			for termIndex in range(1, len(self.courseTerm)):
@@ -195,7 +195,7 @@ class CourseQuery:
 
 		if self.coursePeriod != None:
 			self.coursePeriod = self.coursePeriod.split("&")
-			query = "SELECT	* FROM classes WHERE UPPER(classperiod) LIKE UPPER('%" + period + "%') "
+			query = "SELECT	* FROM classes WHERE UPPER(classperiod) LIKE UPPER('%" + coursePeriod[0] + "%') "
 
 			for periodIndex in range(1, len(self.coursePeriod)):
 				query = query + " OR UPPER(classperiod) LIKE UPPER('%" + self.coursePeriod[periodIndex] + "%') "
