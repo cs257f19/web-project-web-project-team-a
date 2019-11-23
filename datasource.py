@@ -191,7 +191,7 @@ class CourseQuery:
 
 			for reqIndex in range(1, len(self.courseRequirements)):
 				#query = query + " OR UPPER(reqFilled) IN UPPER('%" + self.courseRequirements[reqIndex] + "%') "
-				if( reqIndex != len(self.courseRequirements))
+				if( reqIndex != len(self.courseRequirements)):
 					query = query + " , UPPER('%" + self.courseRequirements[reqIndex] + "%')"				
 			query = query + " )"
 			return query
