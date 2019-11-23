@@ -64,7 +64,7 @@ def queryResult():
 			resultList = ["No courses met search requirements"
 			
 			]
-			tempList = 1
+			tempList = ["No courses met search requirements"]
 		return render_template('result.html', result = tempList)
 
 '''
