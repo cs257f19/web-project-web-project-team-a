@@ -37,9 +37,9 @@ def searchResult():
 			resultList.append(tempList)
 
 		
-		resultList = ["No classes were met the the query criteria"]
+		tempList = ["No classes were met the the query criteria"]
 
-		return render_template('result.html', result = resultList)
+		return render_template('result.html', result = tempList)
 
 
 @app.route('/findaclass')
