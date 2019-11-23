@@ -51,7 +51,7 @@ button{
   font-size: 22px;
   border: 2px solid #0b5091;
   height: 175px;
-  width: 32%;
+  width: 48%;
   border-style: outset;
   border-width: 5px;
   float: left;
@@ -62,7 +62,8 @@ button{
 
 form.searchTool input[type=text] {
   position: relative;
-  right:-12px;
+  top: 10px;
+  right: -112px;
   padding: 10px;
   font-size: 17px;
   border: 1px solid grey;
@@ -74,7 +75,8 @@ form.searchTool input[type=text] {
 
 form.searchTool button {
   positon: relative;
-  top: 0px;
+  top: 10px;
+  right: -100px;
   float: left;
   width: 20%;
   background: #0b5091;
