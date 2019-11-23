@@ -190,7 +190,7 @@ class CourseQuery:
 			#query = self.getCourseByRequirementsHelper(self.courseRequirements[0])
 
 			for reqIndex in range(1, len(self.courseRequirements)):
-				query = query + " OR UPPER(reqFilled) IN UPPER('%" + self.courseRequirements[reqIndex] + "%') "
+				query = query + " OR UPPER(reqFilled) LIKE UPPER('%" + self.courseRequirements[reqIndex] + "%') "
 				
 			return query
 		else:
