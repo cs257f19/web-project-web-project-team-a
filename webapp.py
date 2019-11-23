@@ -36,8 +36,8 @@ def searchResult():
 					item.getCourseProfessor(), item.getCourseDescription()]
 			resultList.append(tempList)
 
-		if (len(resultList) == 0):
-			resultList = ["No classes were met the the query criteria"]
+		
+		resultList = ["No classes were met the the query criteria"]
 
 		return render_template('result.html', result = resultList)
 
