@@ -62,8 +62,9 @@ def queryResult():
 
 		if(len(resultList) == 0):
 			resultList = ["No courses met search requirements"
-			tempList = 1
+			
 			]
+			tempList = 1
 		return render_template('result.html', result = tempList)
 
 '''
