@@ -180,7 +180,9 @@
 
 
             </tr>
-
+            {% if result is 1 %}
+    <h1>No courses meet requirement</h1>
+		{% endif %}
             {% for course in result%}
             	<h1>hit</h1>
             	<!--
@@ -197,9 +199,7 @@
         {% endfor %}
       </table>
 	-->
-      {% if result is 1 %}
-    <h1>No courses meet requirement</h1>
-		{% endif %}
+      
 	
 
 </body>
