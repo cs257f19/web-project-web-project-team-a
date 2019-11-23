@@ -147,6 +147,7 @@ class CourseQuery:
 		'''
 		if self.courseTerm != None:
 			self.courseTerm = self.courseTerm.split("&")
+			query =  "SELECT * FROM classes WHERE UPPER(termsoffered) LIKE UPPER('%" + term + "%') "
 			query = self.getCourseByTermHelper(self.courseTerm[0])
 
 			for termIndex in range(1, len(self.courseTerm)):
@@ -154,21 +155,6 @@ class CourseQuery:
 			return query
 		else:
 			return None
-
-	def getCourseByTermHelper(self, term):
-		'''
-		A helper function that returns a query string for retrieving courses by course term
-
-		PARAMETERS:
-			term - course term from user input
-
-		RETURN:
-			a query string for courses by course term
-
-		'''
-
-		query = "SELECT	* FROM classes WHERE UPPER(termsoffered) LIKE UPPER('%" + term + "%') "
-		return query
 
 
 	def getCourseByRequirements(self):
@@ -187,8 +173,6 @@ class CourseQuery:
 			self.courseRequirements = self.courseRequirements.split("&")
 			query = "SELECT	* FROM classes WHERE UPPER(reqFilled) LIKE UPPER('%" + self.courseRequirements[0] + "%') "
 
-			#query = self.getCourseByRequirementsHelper(self.courseRequirements[0])
-
 			for reqIndex in range(1, len(self.courseRequirements)):
 				query = query + " OR UPPER(reqFilled) LIKE UPPER('%" + self.courseRequirements[reqIndex] + "%') "
 				
@@ -196,20 +180,6 @@ class CourseQuery:
 		else:
 			return None
 
-	def getCourseByRequirementsHelper(self, requirements):
-		'''
-		A helper function that returns a query string for retrieving courses by course requirement
-
-		PARAMETERS:
-			requirements - course requirements retrived from user query
-
-		RETURN:
-			a query string for courses by a course requirement
-
-		'''
-
-		query = "SELECT	* FROM classes WHERE UPPER(reqFilled) IN UPPER('%" + requirements + "%') "
-		return query
 
 	def getCourseByPeriod(self):
 		'''
@@ -225,28 +195,13 @@ class CourseQuery:
 
 		if self.coursePeriod != None:
 			self.coursePeriod = self.coursePeriod.split("&")
-			query = self.getCourseByPeriodHelper(self.coursePeriod[0])
+			query = "SELECT	* FROM classes WHERE UPPER(classperiod) LIKE UPPER('%" + period + "%') "
 
 			for periodIndex in range(1, len(self.coursePeriod)):
 				query = query + " OR UPPER(classperiod) LIKE UPPER('%" + self.coursePeriod[periodIndex] + "%') "
 			return query
 		else:
 			return None
-
-	def getCourseByPeriodHelper(self, period):
-		'''
-		A helper function that returns a query string for retrieving courses by course period
-
-		PARAMETERS:
-			period - course period retrived from user query
-
-		RETURN:
-			a query string for courses by a course period
-
-		'''
-
-		query = "SELECT	* FROM classes WHERE UPPER(classperiod) LIKE UPPER('%" + period + "%') "
-		return query
 
 	def masterQuery(self):
 		'''
