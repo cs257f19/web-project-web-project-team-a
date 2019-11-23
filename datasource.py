@@ -148,7 +148,6 @@ class CourseQuery:
 		if self.courseTerm != None:
 			self.courseTerm = self.courseTerm.split("&")
 			query =  "SELECT * FROM classes WHERE UPPER(termsoffered) LIKE UPPER('%" + self.courseTerm[0] + "%') "
-			query = self.getCourseByTermHelper(self.courseTerm[0])
 
 			for termIndex in range(1, len(self.courseTerm)):
 				query = query + " OR UPPER(termsoffered) LIKE UPPER('%" + self.courseTerm[termIndex] + "%') "
