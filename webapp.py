@@ -37,7 +37,7 @@ def searchResult():
 			resultList.append(tempList)
 
 		
-		tempList = ["No classes were met the the query criteria"]
+		tempList = ["No classes were met the the query criteria", 1, 2, 3, 4, 5, 6,7]
 
 		return render_template('result.html', result = tempList)
 
