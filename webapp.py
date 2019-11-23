@@ -30,7 +30,7 @@ def searchResult():
 
 		resultList = []
 		for item in result:
-
+			print("hit")
 			tempList = [item.getCourseDeptTag(), item.getCourseNumber(), item.getCourseName(), 
 					item.getCourseTerm(), item.getCourseRequirements(), item.getCoursePeriod(),
 					item.getCourseProfessor(), item.getCourseDescription()]
@@ -38,7 +38,7 @@ def searchResult():
 
 		if (len(resultList) == 0):
 			resultList = 1
-			
+
 		return render_template('result.html', result = resultList)
 
 
