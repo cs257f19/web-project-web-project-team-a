@@ -184,12 +184,12 @@ def collect_professor(tree, course_iter):
 
 
 def collect_desc(tree, course_iter):
-    # desc = str(tree.xpath('//*[@id="enrollModule"]/div[1]/div[' + str(course_iter) + ']/div[2]/p[2]/text()')).replace(
-    #     '\\xa0', ' ')
-    # if desc == '[]':
-    #     return ''
-    # return desc[2:-2]
-    return '[under construction]'
+    desc = str(tree.xpath('//*[@id="enrollModule"]/div[1]/div[' + str(course_iter) + ']/div[2]/p[2]/text()')).replace(
+        '\\xa0', ' ')
+    if desc == '[]':
+        return ''
+    return desc[2:-2]
+    # return '[under construction]'
 
 
 def get_number_offered_for_term(tree):
