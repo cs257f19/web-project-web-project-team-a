@@ -61,10 +61,7 @@ def queryResult():
 			resultList.append(tempList)
 
 		if(len(resultList) == 0):
-			resultList = ["No courses met search requirements"
-			
-			]
-			tempList = ["No courses met search requirements",1 ,2 ,3 ,4 ,5 ,6 ,7 ]
+			tempList = ["No hi met search requirements",1 ,2 ,3 ,4 ,5 ,6 ,7 ]
 		return render_template('result.html', result = tempList)
 
 '''
