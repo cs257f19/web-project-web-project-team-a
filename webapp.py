@@ -62,9 +62,9 @@ def queryResult():
 
 		if(len(resultList) == 0):
 			resultList = ["No courses met search requirements"
-			resultList = 1
+			tempList = 1
 			]
-		return render_template('result.html', result = resultList)
+		return render_template('result.html', result = tempList)
 
 '''
 @app.route('/result')
