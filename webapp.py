@@ -37,7 +37,7 @@ def searchResult():
 			resultList.append(tempList)
 
 		if (len(resultList) == 0):
-			resultList = 1
+			resultList = ["No classes were met the the query criteria"]
 
 		return render_template('result.html', result = resultList)
 
