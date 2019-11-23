@@ -185,12 +185,15 @@ class CourseQuery:
 
 		if self.courseRequirements != None:
 			self.courseRequirements = self.courseRequirements.split("&")
-			query = "SELECT	* FROM classes WHERE UPPER(reqFilled) IN UPPER('%" + self.courseRequirements[0] + "%') "
+			query = "SELECT	* FROM classes WHERE UPPER(reqFilled) IN  ( UPPER('%" + self.courseRequirements[0] + "%') ) "
 
 			#query = self.getCourseByRequirementsHelper(self.courseRequirements[0])
 
 			for reqIndex in range(1, len(self.courseRequirements)):
-				query = query + " OR UPPER(reqFilled) IN UPPER('%" + self.courseRequirements[reqIndex] + "%') "
+				#query = query + " OR UPPER(reqFilled) IN UPPER('%" + self.courseRequirements[reqIndex] + "%') "
+				if( reqIndex != len(self.courseRequirements))
+					query = query + " , UPPER('%" + self.courseRequirements[reqIndex] + "%')"				
+			query = query + " )"
 			return query
 		else:
 			return None
