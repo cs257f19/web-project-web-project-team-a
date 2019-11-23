@@ -86,7 +86,7 @@ def noResult():
 					item.getCourseProfessor(), item.getCourseDescription()]
 			resultList.append(tempList)
 
-	    if len(resultList) != 0:
+		if len(resultList) != 0:
 			return render_template('result.html', result = resultList)
 		else:
 			return render_template('noResult.html')
