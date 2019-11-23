@@ -36,6 +36,9 @@ def searchResult():
 					item.getCourseProfessor(), item.getCourseDescription()]
 			resultList.append(tempList)
 
+		if (len(resultList) == 0):
+			resultList = 1
+			
 		return render_template('result.html', result = resultList)
 
 
