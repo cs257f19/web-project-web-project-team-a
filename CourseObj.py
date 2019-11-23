@@ -18,11 +18,7 @@ class CourseObj:
 		self.coursePeriod = course[5]
 		self.courseProfessor = course[6]
 		self.courseDescription = course[7]
-		#self.coursePrerequisites = course[3]
-		
-		
-		#once period is implemented into database
-		#self.coursePeriod = course[6] 
+		 
 	def getCourseDeptTag(self):
 		'''
 		returns course department tag
@@ -55,19 +51,19 @@ class CourseObj:
 
 	def getCoursePeriod(self):
 		'''
-		returns course requirements
+		returns course period
 		'''
 		return self.coursePeriod
 
 	def getCourseProfessor(self):
 		'''
-		returns course requirements
+		returns course professor
 		'''
 		return self.courseProfessor
 
 	def getCourseDescription(self):
 		'''
-		returns course requirements
+		returns course description
 		'''
 		return self.courseDescription
 
@@ -76,12 +72,6 @@ class CourseObj:
 		returns course prerequisites
 		'''
 		return self.coursePrerequisites
-
-	def getCoursePeriod(self):
-		'''
-		returns course period
-		'''
-		return self.coursePeriod
 
 	def printCourseInfo(self):
 		'''
