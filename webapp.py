@@ -36,10 +36,7 @@ def searchResult():
 					item.getCourseProfessor(), item.getCourseDescription()]
 			resultList.append(tempList)
 
-		
-		tempList = ["No classes were met the the query criteria", 1, 2, 3, 4, 5, 6,7]
-
-		return render_template('result.html', result = tempList)
+		return render_template('result.html', result = resultList)
 
 
 @app.route('/findaclass')
@@ -63,6 +60,9 @@ def queryResult():
 					item.getCourseProfessor(), item.getCourseDescription()]
 			resultList.append(tempList)
 
+		if(len(resultList) == 0):
+			resultList = ["No courses met search requirements"
+			]
 		return render_template('result.html', result = resultList)
 
 '''

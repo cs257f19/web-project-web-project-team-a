@@ -181,8 +181,13 @@
 
             </tr>
 
+            {% if result is 1 %}
+    <h1>No courses meet requirement</h1>
+		{% endif %}
+<!--
             {% for course in result%}
-            
+            	
+            	
             	<tr>
 					<td> {{ course[0] }} </td>
 					<td> {{ course[1] }} </td>
@@ -195,6 +200,7 @@
 	            </tr>
         {% endfor %}
       </table>
+	-->
       
 	
 
