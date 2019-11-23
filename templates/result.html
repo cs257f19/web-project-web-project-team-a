@@ -181,6 +181,7 @@
 
             </tr>
 
+            {%if }
             {% for course in result%}
             	<tr>
 					<td> {{ course[0] }} </td>
@@ -194,6 +195,12 @@
 	            </tr>
         {% endfor %}
       </table>
+
+      {% if result == NoneType %}
+    <p>
+        {{ No courses meet requirement}}
+    </p>
+		{% endif %}
 
 </body>
 </div>
