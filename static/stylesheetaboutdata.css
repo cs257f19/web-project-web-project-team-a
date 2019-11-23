@@ -52,3 +52,24 @@ h2{
   position: absolute;
   bottom: 0;
 }
+
+button{
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  top: -30px;
+  left: -7px;
+  background: #f5c13f;
+  color : #0b5091;
+  font-family: verdana;
+  font-size: 22px;
+  border: 2px solid #0b5091;
+  height: 60px;
+  width: 48%;
+  border-style: outset;
+  border-width: 5px;
+  float: left;
+  padding: 10px 20px;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  margin-left: 20px;
+}
