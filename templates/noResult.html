@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <link rel="stylesheet" href ="../static/stylesheet_findaClass.css" />
+</head>
+<div id="wrapper">
+<body>
+	<div style="min-width: 1000px; margin: 0 auto; max-height: 150px;">
+		<div class="header">
+		<h1>
+			Find a Class
+		</h1>
+		<img src="../static/carletonlogo.png" alt="CarletonLogo" width="110" height="100">
+		<h2>
+			An open source program designed by and for Carleton students so that they can better select and plan their course load.
+		</h2>
+		<button> Home </button>
+		<button> About the Data </button>
+		<h3>
+			Use CTRL (Windows) or Command (Mac) to select multiple options for terms, requirements, and class periods
+		</h3>
+	</div>
+	</div>
+
+	<div class="topnav">
+		<input type="text" placeholder="Enter class name">
+	</div>
+
+	<div class = "dropdown">
+		<button class="dropbtn"> Select a Department</button>
+		<div class="dropdown-content">
+	</div>
+	</div>
+
+	<div class = "dropdown">
+		<button class="dropbtn"> Select Course Level</button>
+		<div class="dropdown-content">
+		</div>
+	</div>
+
+	<div class = "dropdown">
+		<button class="dropbtn"> Select Term</button>
+		<div class="dropdown-content">
+		</div>
+	</div>
+
+	<div class = "dropdown">
+		<button class="dropbtn"> Select Graduation Requirements</button>
+		<div class="dropdown-content">
+		</div>
+	</div>
+
+	<div class = "dropdown">
+		<button class="dropbtn"> Select Course Period</button>
+		<div class="dropdown-content">
+		</div>
+	</div>
+
+<form action="http://perlman.mathcs.carleton.edu:5118/query-result" method="post">
+	<div class = "submit">
+		<button type="submit" value="submit"> Search for Courses </button>
+	</div>
+
+	<div class="custom-select">
+		<select name="department" id="department">
+			<option selected disabled>  </option>
+			<option value="AFST">Africana Studies (AFST)</option>
+			<option value="AMST">American Studies (AMST)</option>
+			<option value="ARBC">Arabic (ARBC)</option>
+			<option value="ARCN">Archaeology (ARCN)</option>
+			<option value="ARTH">Art History (ARTH) </option>
+			<option value="ASST">Asian Studies (ASST) </option>
+			<option value="ASTR">Astronomy (ASTR) </option>
+			<option value="BIOL">Biology (BIOL)</option>
+			<option value="CHEM">Chemistry (CHEM) </option>
+			<option value="CHIN">Chinese (CHIN) </option>
+			<option value="CAMS">Cinema and Media Studies (CAMS) </option>
+			<option value="CLAS">Classics (CLAS)</option>
+			<option value="CGSC">Cognitive Science (CGSC) </option>
+			<option value="CS">Computer Science (CS)</option>
+			<option value="CCST">Cross-Cultural Studies (CCST) </option>
+			<option value="DANC">Dance (DANC) </option>
+			<option value="DGAH">Digital Arts and Humanities (DGAH) </option>
+			<option value="ECON">Economics (ECON) </option>
+			<option value="EDUC">Educational Studies (EDUC) </option>
+			<option value="ENGL">English (ENGL) </option>
+			<option value="ENTS">Environmental Studies (ENTS) </option>
+			<option value="EUTS">European Studies (EUST) </option>
+			<option value="FREN">French and Francophone Studies (FREN) </option>
+			<option value="GEOL">Geology (GEOL) </option>
+			<option value="GERM">German (GERM)</option>
+			<option value="GRK">Greek (GRK) </option>
+			<option value="HEBR">Hebrew (HEBR) </option>
+			<option value="HIST">History (HIST) </option>
+			<option value="IDSC">Interdisciplinary (IDSC) </option>
+			<option value="JAPN">Japanese (JAPN) </option>
+			<option value="LATN">Latin (LATN) </option>
+			<option value="LTAM">Latin American Studies (LTAM) </option>
+			<option value="LING">Linguistics (LING) </option>
+			<option value="LCST">Lit & Cultural Studies (LCST) </option>
+			<option value="MATH">Mathematics (MATH) </option>
+			<option value="MEST">Middle East Studies (MEST) </option>
+			<option value="MUSC">Music (MUSC) </option>
+			<option value="NEUR">Neuroscience (NEUR) </option>
+			<option value="PHIL">Philosophy (PHIL) </option>
+			<option value="PE">Phys-Ed (PE) </option>
+			<option value="PHYS">Physics (PHYS) </option>
+			<option value="POSC">Political Science (POSC) </option>
+			<option value="PSYC">Psychology (PSYC)</option>
+			<option value="RELG">Religion (RELG) </option>
+			<option value="RUSS">Russian (RUSS) </option>
+			<option value="SOAN">Sociology/Anthropology (SOAN) </option>
+			<option value="SPAN">Spanish (SPAN) </option>
+			<option value="ARTS">Studio Art (ARTS)</option>
+			<option value="THEA">Theater Arts (THEA) </option>
+			<option value="WGST">Women's and Gender Studies (WGST)</option>
+		</select>
+	</div>
+
+	<div class="custom-select">
+		<select name="courselevel" id="courselevel">
+				<option selected disabled> </option>
+				<option value="100">100 </option>
+				<option value="200">200 </option>
+				<option value="300">300+ </option>
+			</select>
+	</div>
+
+	<div class="custom-select">
+		<select name="term" multiple id="term">
+			<option value="Fall 2019">Fall 2019 </option>
+			<option value="Winter 2020">Winter 2020 </option>
+			<option value="Spring 2020">Spring 2020 </option>
+		</select>
+	</div>
+
+<div class="custom-select">
+	<select name="requirements" multiple id="requirements">
+		<option value="A&I">Argument & Inquiry Seminar (A&I)</option>
+		<option value="ARP">Arts Practice (ARP) </option>
+		<option value="FSR">Formal or Statisical Reasoning (FSR) </option>
+		<option value="LAB">Science with Lab Component (LAB) </option>
+		<option value="LAA">Literary/Artistic Analysis (LAA) </option>
+		<option value="HUM">Humanistic Inquiry (HUM) </option>
+		<option value="SOC">Social Inquiry (SOC) </option>
+		<option value="WRC">Writing Rich (WRC) </option>
+		<option value="QRE">Quantitative Reasoning (QRE) </option>
+		<option value="IDS">Intercultural Domestic Studies (IDS) </option>
+		<option value="INS">International Studies (INS) </option>
+	</select>
+</div>
+
+<div class="custom-select">
+	<select name="period" multiple id="period">
+		<option value="1a">1A&nbsp&nbsp&nbsp(8:30 - 9:40) </option>
+		<option value="2a">2A&nbsp&nbsp&nbsp(9:50 - 11:00)</option>
+		<option value="3a">3A&nbsp&nbsp&nbsp(11:10 - 12:20) </option>
+		<option value="4a">4A&nbsp&nbsp&nbsp(12:30 - 1:40) </option>
+		<option value="5a">5A&nbsp&nbsp&nbsp(1:50 - 3:00) </option>
+		<option value="6a">6A&nbsp&nbsp&nbsp(3:10 - 4:20) </option>
+		<option value="1/2c">1/2C&nbsp&nbsp&nbsp(8:15 - 10:00) </option>
+		<option value="2/3c">2/3C&nbsp&nbsp&nbsp(10:10 - 11:55) </option>
+		<option value="4/5c">4/5C&nbsp&nbsp&nbsp(1:15 - 3:00) </option>
+		<option value="5/6c">5/6C&nbsp&nbsp&nbsp(3:10 - 4:55) </option>
+	</select>
+</div>
+</form>
+	
+	<table border = 1 id="classes">
+
+            <tr>
+               <th>Department</th>
+               <th>Course Number</th>
+               <th>Course Name</th>
+							 <th>Term </th>
+               <th>Requirements Fulfilled</th>
+               <th>Period </th>
+				 		 	 <th>Professor(s) </th>
+				       <th>Course Description </th>
+
+
+            </tr>
+
+          
+           <h1>No classes meet search criteria</h1>
+	
+
+</body>
+</div>
+</html>
