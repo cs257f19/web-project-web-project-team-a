@@ -185,7 +185,7 @@ class CourseQuery:
 
 		if self.courseRequirements != None:
 			self.courseRequirements = self.courseRequirements.split("&")
-			query = "SELECT	* FROM classes WHERE UPPER(reqFilled) LIKE  ( UPPER('%" + self.courseRequirements[0] + "%') ) "
+			query = "SELECT	* FROM classes WHERE UPPER(reqFilled) LIKE UPPER('%" + self.courseRequirements[0] + "%') "
 
 			#query = self.getCourseByRequirementsHelper(self.courseRequirements[0])
 
