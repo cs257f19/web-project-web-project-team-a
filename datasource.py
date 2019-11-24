@@ -243,8 +243,8 @@ class CourseQuery:
 
 def main():
 	
-	order of items in query object
-	(dept, number, name, term, requirements, period):
+	#order of items in query object
+	#(dept, number, name, term, requirements, period):
 
 	# Initialize query object and test queries
 	query = CourseQuery(None, None, None, None, "AI", None)
