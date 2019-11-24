@@ -9,7 +9,7 @@
 #wrapper {
     margin-left: 2%;
     margin-right: 2%;
-    width:100%;
+    min-width: 1400px;
 }
 header{
   position: absolute;
