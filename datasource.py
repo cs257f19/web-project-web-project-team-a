@@ -242,15 +242,15 @@ class CourseQuery:
 
 
 def main():
-	'''
+	
 	order of items in query object
 	(dept, number, name, term, requirements, period):
 
 	# Initialize query object and test queries
-	query = CourseQuery(None, None, "data", None, None, None)
-	query = CourseQuery(None, 100, None, None, None, None)
-	query = CourseQuery("AFST", 100, None, "Fall 2019", None,"2a&5a")
-	query = CourseQuery(None, None, None, None, "FSR", None)
+	query = CourseQuery(None, None, None, None, "AI", None)
+	#query = CourseQuery(None, 100, None, None, None, None)
+	#query = CourseQuery("AFST", 100, None, "Fall 2019", None,"2a&5a")
+	#query = CourseQuery(None, None, None, None, "FSR", None)
 
 	results = query.masterQuery()
 
@@ -262,5 +262,5 @@ def main():
 	# Disconnect from database
 	query.connection.close()
 	
-	'''
+	
 main()
