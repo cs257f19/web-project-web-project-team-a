@@ -67,29 +67,6 @@ def queryResult():
 		else:
 			return render_template('noResult.html')
 
-'''
-@app.route('/query-result-null')
-def noResult():
-	if request.method == 'POST':
-		result = request.form
-
-		ds = datasource.CourseQuery(result.get("department"), result.get("courselevel"), result.get("search"), 
-									result.get("term"), result.get("requirements"), result.get("period"))
-	
-		result = ds.masterQuery()
-
-		resultList = []
-		for item in result:
-			tempList = [item.getCourseDeptTag(), item.getCourseNumber(), item.getCourseName(), 
-					item.getCourseTerm(), item.getCourseRequirements(), item.getCoursePeriod(),
-					item.getCourseProfessor(), item.getCourseDescription()]
-			resultList.append(tempList)
-
-		if len(resultList) != 0:
-			return render_template('result.html', result = resultList)
-		else:
-			return render_template('noResult.html')
-'''
 if __name__ == '__main__':
     if len(sys.argv) != 3:
         print('Usage: {0} host port'.format(sys.argv[0]), file=sys.stderr)
