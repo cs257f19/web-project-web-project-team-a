@@ -6,17 +6,44 @@ import datasource
 app = flask.Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
+
 @app.route('/')
 def firstVisit():
+	'''
+	 Routes and renders to homepage of website
+	'''
     return render_template('homepage.html')
 
 @app.route('/aboutthedata')
+
 def aboutTheData():
+	'''
+	Routes and renders to about the data page of website
+	'''
     return render_template('AboutTheData.html')
 
 
+@app.route('/findaclass')
+def findaclass():
+	'''
+	Routes and renders to find a class page of website
+	'''
+    return render_template('findaClass.html')
+
 @app.route('/search-result', methods=['POST', 'GET'])
 def searchResult():
+	'''
+	Routes and renders to result page of website from homepage.html. Creates CourseQuery object using result and performs a master query,
+	resulting in resultList containing courses that match search criteria
+
+	Parameters:
+		result - form pulled from homepage.html 
+
+	Renders:
+		result.html if there were classes that match search criteria
+		noResult.html if no classes match search criteria
+
+	'''
 	if request.method == 'POST':
 		result = request.form
 
@@ -36,12 +63,21 @@ def searchResult():
 			return render_template('noResult.html')
 
 
-@app.route('/findaclass')
-def findaclass():
-    return render_template('findaClass.html')
 
 @app.route('/query-result', methods=['POST', 'GET'])
 def queryResult():
+	'''
+	Routes and renders to result page of website from findaclass.html. Creates CourseQuery object using result and performs a master query,
+	resulting in resultList containing courses that match search criteria
+
+	Parameters:
+		result - form pulled from findaClass.html 
+
+	Renders:
+		result.html if there were classes that match search criteria
+		noResult.html if no classes match search criteria
+
+	'''
 	if request.method == 'POST':
 		result = request.form
 

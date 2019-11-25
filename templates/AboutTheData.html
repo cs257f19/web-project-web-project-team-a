@@ -12,10 +12,11 @@
     <h2> An open source program designed by and for Carleton students so that they can better select and plan their course load. </h2>
     <div class="text">
     <h3> About the Data <br><br></h3>
-    <p> This data was scraped off of a pdf version of the Carleton Course Catalogue using python script. The following variables were collected about each class:</p>
-    <p> Department - Which academic department teaches the class <br><br> Class ID Number - The ID code associated with the class, can be used to look it up on the Hub<br><br> Name - The title of the class<br><br> Prerequisites - Classes that must have been taken in order to take the selected class <br><br> Liberal Arts Requirements Fulfilled - These are the graduation requirements that the selected class fulfills <br><br> </p>
+    <p> This data was scraped off of Carleton Enroll page using python script. The following variables were collected about each class:</p>
+    <p> Department - Which academic department teaches the class <br><br> Class ID Number - The ID code associated with the class, can be used to look it up on the Hub<br><br> Name - The title of the class<br><br> Term - The term the course is offered <br><br> Liberal Arts Requirements Fulfilled - These are the graduation requirements that the selected class fulfills <br><br> Period - The class period which the class is available <br><br> Course Description - The description of the course<br><br>  </p>
     <h4> Limitations<br><br> </h4>
-    <p> While we initially contacted the Registrar's Office in hopes they would give us the data in .csv format, they declined. As a result, we had to use a course catalogue from the previous year. Some data may be outdated. Additionally, we were unable to grab data regarding which teachers were teaching each section of a class. </p>
+    <p> While we initially contacted the Registrar's Office in hopes they would give us the data in .csv format, they declined. As a result, we created a webcrawler that traversed through carleton enroll in order to create a database that contains all course and course information at Carleton for Fall 2019, Winter 2020, and Spring 2020. Due to different departments having irregularities in their course information in the course description section of the database, there are \regex words that appear in the description due to how the html was written on Enroll. Removing the regex words proved to be more difficult than anticipated. It was decided that while it does make some of the course desciptions difficult to read when it occurs, it does not have a drastically negative impact on our class queries and results.
+    </p>
   </div>
 
   <button type="button" onclick="window.location.href = '/findaclass';">  Find a Class </button>
