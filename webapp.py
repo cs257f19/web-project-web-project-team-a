@@ -12,7 +12,7 @@ def firstVisit():
 	'''
 	Routes and renders to homepage of website
 	'''
-    return render_template('homepage.html')
+	return render_template('homepage.html')		
 
 @app.route('/aboutthedata')
 
@@ -20,7 +20,7 @@ def aboutTheData():
 	'''
 	Routes and renders to about the data page of website
 	'''
-    return render_template('AboutTheData.html')
+	return render_template('AboutTheData.html')
 
 
 @app.route('/findaclass')
@@ -28,7 +28,7 @@ def findaclass():
 	'''
 	Routes and renders to find a class page of website
 	'''
-    return render_template('findaClass.html')
+	return render_template('findaClass.html')
 
 @app.route('/search-result', methods=['POST', 'GET'])
 def searchResult():
@@ -99,13 +99,13 @@ def queryResult():
 			return render_template('noResult.html')
 
 if __name__ == '__main__':
-    if len(sys.argv) != 3:
-        print('Usage: {0} host port'.format(sys.argv[0]), file=sys.stderr)
-        exit()
+	if len(sys.argv) != 3:
+		print('Usage: {0} host port'.format(sys.argv[0]), file=sys.stderr)
+		exit()
 
-    host = sys.argv[1]
-    port = sys.argv[2]
-    app.run(host=host, port=port)
+	host = sys.argv[1]
+	port = sys.argv[2]
+	app.run(host=host, port=port)
 
-    port = sys.argv[2]
-    app.run(host=host, port=port)
+	port = sys.argv[2]
+	app.run(host=host, port=port)
