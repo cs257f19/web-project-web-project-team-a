@@ -10,7 +10,7 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 @app.route('/')
 def firstVisit():
 	'''
-	 Routes and renders to homepage of website
+	Routes and renders to homepage of website
 	'''
     return render_template('homepage.html')
 
