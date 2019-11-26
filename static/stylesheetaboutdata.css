@@ -55,7 +55,7 @@ h2{
   top: -90px;
   white-space: nowrap;
 }
-
+/*Used to style and position our navigational buttons*/
 button{
   display: inline-block;
   text-align: center;
