@@ -29,7 +29,6 @@ class CourseQuery:
 		self.coursePeriod = period
 
 		self.user = "ngot"
-		#"lamp792corn"
 		self.password = getpass.getpass()
 		self.connection = self.connect()
 
