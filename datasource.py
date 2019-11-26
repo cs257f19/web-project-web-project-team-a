@@ -28,8 +28,7 @@ class CourseQuery:
 		self.courseRequirements = requirements
 		self.coursePeriod = period
 
-		self.user = getpass.getuser()
-		#"ngot"
+		self.user = "ngot"
 		#"lamp792corn"
 		self.password = getpass.getpass()
 		self.connection = self.connect()
