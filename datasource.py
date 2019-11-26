@@ -28,8 +28,10 @@ class CourseQuery:
 		self.courseRequirements = requirements
 		self.coursePeriod = period
 
-		self.user = "ngot"
-		self.password = "lamp792corn"
+		self.user = getpass.getuser()
+		#"ngot"
+		#"lamp792corn"
+		self.password = getpass.getpass()
 		self.connection = self.connect()
 
 		self.QueryList =[self.getCourseByDeptTag(), self.getCourseByNumber(), self.getCourseByName(), self.getCourseByTerm(),
